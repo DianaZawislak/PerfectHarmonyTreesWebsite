@@ -2,9 +2,10 @@ import { groq } from "next-sanity";
 import Image from "next/image";
 import { client } from "../../../../lib/sanity.client";
 import urlFor from "../../../../lib/urlFor";
+import  createMetadata  from "../../_metadata";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "./RichTextComponents";
-
+import React from "react";
 
 type Props = {
   params: {
@@ -13,6 +14,28 @@ type Props = {
 };
 
 export const revalidate = 60; // revalidate this page every 60 seconds
+
+export async function generateMetadata({ params: { slug } }: Props) {
+  const querySEO = groq`*[_type=='post' && slug.current == $slug][0]
+    {
+      seo-> {
+        title,
+        description,
+        keywords,
+        image,
+        ogType,
+        twitterCard,
+        ogUrl,
+        ogSiteName,
+        metaRobots
+      }
+    }`;
+
+  const postData: { seo: any } = await client.fetch(querySEO, { slug: slug });
+  const metadata = createMetadata(postData?.seo);
+
+  return metadata;
+}
 
 export async function generateStaticParams() {
   const query = groq`*[_type=='post']
@@ -33,7 +56,18 @@ async function Post({ params: { slug } }: Props) {
     {
       ...,
       author->,
-      categories[]->
+      categories[]->,
+      seo-> {
+        title,
+        description,
+        keywords,
+        image,
+        ogType,
+        twitterCard,
+        ogUrl,
+        ogSiteName,
+        metaRobots
+      }
     }`;
 
   const post: Post = await client.fetch(query, { slug: slug });

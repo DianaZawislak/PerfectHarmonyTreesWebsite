@@ -1,3 +1,6 @@
+
+import React from 'react';
+
 function Logo(props: any) {
   const { renderDefault, title } = props;
 
