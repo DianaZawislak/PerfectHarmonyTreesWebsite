@@ -25,7 +25,7 @@ export async function generateMetadata() {
     }`;
 
   const postData: { seo:any } = await client.fetch(querySEO, { slug: slug });
-  console.log(postData);
+
   const metadata = createMetadata(postData);
 
   return metadata;
