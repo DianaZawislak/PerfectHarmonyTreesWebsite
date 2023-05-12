@@ -30,7 +30,7 @@ type Props = {
     const imageUrl = seo?.image ? urlFor(seo.image).url() : undefined;
   
     return {
-      title: seo?.title || 'Default Title',
+      title: seo?.title || 'Perfect Harmony Trees and Gardens, LLC',
       description: seo?.description || 'Default Description',
       keywords: seo?.keywords || 'default,keywords',
       openGraph: {

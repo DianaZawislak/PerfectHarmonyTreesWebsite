@@ -7,14 +7,14 @@ function Header() {
       <div className="flex items-center space-x-2">
         <Link href="/">
           <Image
-            src="https://cdn.discordapp.com/attachments/1095866309792772239/1103480468940263494/dianadetroit_image_of_a_firehose_for_logo_in_contemporary_style_0ad061b7-1ca8-41f6-99e3-fec804a4ea64.png"
+            src="https://cdn.discordapp.com/attachments/1103865788944875622/1106442544130293780/logo.jpg"
             width={80}
             className="rounded-md"
             height={80}
             alt="logo"
           />
         </Link>
-        <h1>Firehose AI</h1>
+        <h1>Perfect Harmony Trees and Gardens, LLC</h1>
       </div>
 
       <div>
