@@ -4,14 +4,52 @@ import BlogList from "../../components/BlogList";
 import PreviewBlogList from "../../components/PreviewBlogList";
 import { client } from "../../lib/sanity.client";
 import { groq } from "next-sanity";
+import React from 'react';
+import createMetadata from "./_metadata";
 
-import { SpeakerWaveIcon } from "@heroicons/react/24/solid";
+export async function generateMetadata() {
+  const slug="homepage"
+  const querySEO = groq`*[_type=='seo' && slug.current == $slug][0]
+    {
+    
+        title,
+        description,
+        keywords,
+        image,
+        ogType,
+        twitterCard,
+        ogUrl,
+        ogSiteName,
+        metaRobots
+      
+    }`;
+
+  const postData: { seo:any } = await client.fetch(querySEO, { slug: slug });
+
+  const metadata = createMetadata(postData);
+
+  return metadata;
+}
+
+
+
 
 const query = groq`*[_type=='post'] {
-   ...,
-   author->,
-   categories[]->
- } | order(_createdAt desc)
+  ...,
+  author->,
+  categories[]->,
+  seo-> {
+    title,
+    description,
+    keywords,
+    image,
+    ogType,
+    twitterCard,
+    ogUrl,
+    ogSiteName,
+    metaRobots
+  }
+} | order(_createdAt desc)
 `;
 
 export default async function IndexPage() {
@@ -32,5 +70,6 @@ export default async function IndexPage() {
   }
 
   const posts = await client.fetch(query);
+
   return <BlogList posts={posts} />;
 }

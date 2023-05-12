@@ -1,5 +1,5 @@
 import { defineField, defineType } from "sanity";
-
+import seo from "./seo";
 export default defineType({
   name: "post",
   title: "Post",
@@ -15,6 +15,12 @@ export default defineType({
       description: "Enter a short snippet for the blog...",
       title: "Description",
       type: "string",
+    }),
+    defineField({
+      name: "seo",
+      title: "SEO",
+      type: "reference",
+      to: { type: "seo" },
     }),
     defineField({
       name: "slug",

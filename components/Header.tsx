@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import React from 'react';
 function Header() {
   return (
     <div className="flex items-center justify-between space-x-2 font-bold px-10 py-5">
