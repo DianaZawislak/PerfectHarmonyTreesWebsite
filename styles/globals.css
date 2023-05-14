@@ -7,3 +7,12 @@
     background-color: rgba(160, 118, 70, 0.5);
   }
 
+
+/* Banner */
+  .banner-container {
+    background-image: url('https://cdn.discordapp.com/attachments/1103862223786479676/1105507509067845692/dianadetroit_Detailed_and_realistic_up-close_macro_photographyf_c547be72-697c-4bf5-941f-16b9c6c6d546.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+  }
+
