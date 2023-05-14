@@ -7,6 +7,7 @@ const props = {
   "--my-yellow": "#f4b400",
   "--my-green": "#0f9d58",
   "--my-lightgray": "#888888",
+  "--my-earthygreen": "#DBE4C6",
 };
 
 export const myTheme = buildLegacyTheme({
@@ -17,7 +18,7 @@ export const myTheme = buildLegacyTheme({
   "--gray": "#666",
   "--gray-base": "#666",
 
-  "--component-bg": props["--my-black"],
+  "--component-bg": props["--my-earthygreen"],
   "--component-text-color": props["--my-white"],
 
   /* Brand */
@@ -40,5 +41,5 @@ export const myTheme = buildLegacyTheme({
   "--main-navigation-color": props["--my-black"],
   "--main-navigation-color--inverted": props["--my-white"],
 
-  "--focus-color": props["--my-red"],
+  "--focus-color": props["--my-earthygreen"],
 });

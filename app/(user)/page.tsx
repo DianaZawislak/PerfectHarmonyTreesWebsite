@@ -51,6 +51,21 @@ const query = groq`*[_type=='post'] {
   }
 } | order(_createdAt desc)
 `;
+const slug="home"
+const queryMenu = groq`*[_type=='menu' && slug.current == $slug][0]
+{
+  title,
+  slug,
+  "logoUrl": logo.asset->url,
+  items[] {
+    title,
+    link,
+    submenu[] {
+      title,
+      link
+    }
+  }
+}`;
 
 export default async function IndexPage() {
   if (previewData()) {
@@ -70,6 +85,8 @@ export default async function IndexPage() {
   }
 
   const posts = await client.fetch(query);
+  const menu: { menu:any } = await client.fetch(queryMenu, { slug: slug });
+ 
 
   return <BlogList posts={posts} />;
 }

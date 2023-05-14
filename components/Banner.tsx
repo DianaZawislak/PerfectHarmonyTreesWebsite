@@ -1,22 +1,27 @@
-import React from 'react';
 function Banner() {
   return (
-    <div className="flex flex-col lg:flex-row lg:space-x-5 justify-between font-bold px-10 py-5 mb-10">
-      <div>
-        <h1 className="text-5xl">Perfect Harmony Trees and Gardens</h1>
-        <h2 className="mt-5 md:mt-0">
-        <span className="underline decoration-2 decoration-[#e34747]">{" "}
-          
-        Tree trimming, tree removal, garden and playground installations
-          </span>{" "}
-        </h2>
-      </div>
+    <div style={{ height: '600px' }} className="banner-container">
+      <div className="flex flex-col items-center justify-center font-bold px-1 py-1 mb-1">
+        <img
+          src="https://cdn.discordapp.com/attachments/1103865788944875622/1107025245912703066/logonobrgd.png"
+          width={500}
+          className="rounded-md"
+          height={500}
+          alt="logo"
+        />
 
-      <p className="mt-5 md:mt-2 text-gray-400 max-w-sm">
-        New product features | The latest in technology | Create stunning websites effortlessly | And More!!!
-      </p>
+{/*           <h1 className="text-5xl text-gray-900 font-milkshake mb-5">Perfect Harmony</h1>
+        <h1 className="text-5xl text-gray-900 font-milkshake"> 
+          <span className="text-gray-900">Trees and Gardens</span>
+        </h1>  */}
+
+        <p className="text-center mt-1 md:mt-2 text-white max-w-sm">
+          Tree Trimming | Tree Removal | Garden and Playground Installations | And More!!!
+        </p>
+      </div>
     </div>
   );
 }
 
 export default Banner;
+

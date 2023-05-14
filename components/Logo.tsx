@@ -9,7 +9,7 @@ function Logo(props: any) {
       <img
         className="rounded-full"
         width={50}
-        src="https://cdn.discordapp.com/attachments/1095866309792772239/1103480468940263494/dianadetroit_image_of_a_firehose_for_logo_in_contemporary_style_0ad061b7-1ca8-41f6-99e3-fec804a4ea64.png"
+        src="https://cdn.discordapp.com/attachments/1103865788944875622/1106442544130293780/logo.jpg"
         alt="logo"
       />
       {renderDefault && <>{renderDefault(props)}</>}

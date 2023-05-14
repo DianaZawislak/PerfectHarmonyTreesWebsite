@@ -1,55 +1,49 @@
-import React from 'react';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import "../styles/globals.css";
+import { Button } from "./Button";
 
-import { Button } from './Button';
-import './header.css';
-
-type User = {
-  name: string;
+export type HeaderProps = {
+  textColor?: string;
+  buttonColor?: string;
+  buttonHoverColor?: string;
+  imageSrc?: string;
 };
 
-interface HeaderProps {
-  user?: User;
-  onLogin: () => void;
-  onLogout: () => void;
-  onCreateAccount: () => void;
-}
 
-export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps) => (
-  <header>
-    <div className="storybook-header">
-      <div>
-        <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-          <g fill="none" fillRule="evenodd">
-            <path
-              d="M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z"
-              fill="#FFF"
-            />
-            <path
-              d="M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z"
-              fill="#555AB9"
-            />
-            <path
-              d="M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z"
-              fill="#91BAF8"
-            />
-          </g>
-        </svg>
-        <h1>Acme</h1>
-      </div>
-      <div>
-        {user ? (
-          <>
-            <span className="welcome">
-              Welcome, <b>{user.name}</b>!
+export const Header: React.FC<HeaderProps> = ({ textColor, buttonColor, buttonHoverColor, imageSrc }) =>(
+  <header className="relative">
+    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100" />
+    <div className="mx-auto">
+      <div className="relative shadow-xl sm:overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            priority
+            fill
+            className="h-full w-full object-cover"
+            src={imageSrc || "/0_2.png"}
+            alt="dude cutting tree"
+          />
+          <div className="absolute inset-0 bg-orange-100 mix-blend-multiply" />
+        </div>
+        <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
+          <p className={`relative left-0 right-0 mx-auto mt-5 max-w-xl text-center text-xl  font-semibold uppercase tracking-wide ${textColor || "text-orange-600"}`}>
+            Perfect Harmony Trees and Gardens
+          </p>
+          <h1 className={`mt-1 text-center font-bold uppercase sm:text-5xl sm:tracking-tight lg:text-7xl ${textColor || "text-gray-900"}`}>
+            <span className="block text-white">
+              {" "}
+              Tree trimming, tree removal, garden and playground installationsh
             </span>
-            <Button size="small" onClick={onLogout} label="Log out" />
-          </>
-        ) : (
-          <>
-            <Button size="small" onClick={onLogin} label="Log in" />
-            <Button primary size="small" onClick={onCreateAccount} label="Sign up" />
-          </>
-        )}
+          </h1>
+
+          <div className="mx-auto mt-10 max-w-xs sm:flex sm:max-w-none sm:justify-center">
+            <button className={`flex items-center justify-center rounded-md border border-transparent px-4 py-3 text-base font-medium shadow-sm sm:px-8 ${buttonColor || "bg-white"} ${buttonHoverColor || "hover:bg-orange-100"} text-${textColor || "text-orange-600"}`}>
+              Learn more!
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </header>

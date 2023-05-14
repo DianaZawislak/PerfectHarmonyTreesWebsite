@@ -8,25 +8,9 @@ type Props = {
       slug: string;
     };
   };
-  export type SEO = {
-    title: string;
-    description: string;
-    keywords: string;
-    openGraph: {
-      type: string;
-      url: string;
-      ogSiteName: string;
-      images: Array<{
-        url: typeof urlFor;
-        alt: string;
-      }>;
-    };
-    twitter: {
-      card: string;
-    };
-  };
 
-  export default function createMetadata(seo: any): Metadata {
+
+  export default function createMetadata(seo: SEO): Metadata {
     const imageUrl = seo?.image ? urlFor(seo.image).url() : undefined;
   
     return {
@@ -34,20 +18,22 @@ type Props = {
       description: seo?.description || 'Default Description',
       keywords: seo?.keywords || 'default,keywords',
       openGraph: {
-        type: seo?.ogType || 'website',
-        url: seo?.ogUrl || 'https://www.example.com',
-        siteName: seo?.ogSiteName || 'Default Site Name',
+        title: seo?.openGraph?.title || seo?.title || 'Default Title',
+        type: (seo?.openGraph?.type || 'website') as "article" | "website" | "book" | "profile" | "music.song" | "music.album" | "music.playlist" | "music.radio_station" | "video.movie" | "video.episode" | "video.tv_show" | "video.other",
+        url: seo?.openGraph?.url || 'https://www.example.com',
+        siteName: seo?.openGraph?.siteName || 'Default Site Name',
         images: [
           {
             url: imageUrl || 'https://www.example.com/default-image.jpg',
-            alt: seo?.title || 'Default Image Alt',
+            alt: seo?.openGraph?.title || seo?.title || 'Default Image Alt',
           },
         ],
       },
       twitter: {
-        card: seo?.twitterCard || 'summary_large_image',
+        card: (seo?.twitter?.card || 'summary_large_image') as 'summary' | 'summary_large_image' | 'app', // Make sure to define all possible values for 'card' here
+        site: seo?.twitter?.site || '@default',
+        creator: seo?.twitter?.creator || '@default',
+      
       },
     };
   }
-  
-  
