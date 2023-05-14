@@ -35,6 +35,8 @@ function Header({ menu }) {
             alt="logo"
           />
         </Link>
+        </div>
+        <div className="flex items-center space-x-2">
         <button
           className="text-2xl md:hidden"
           onClick={toggleMenu}
@@ -46,7 +48,7 @@ function Header({ menu }) {
         <nav
           className={`${isMenuOpen ? 'block' : 'hidden'} md:block font-semibold text-md`}
         >
-          <ul className="flex flex-col md:flex-row items-center">
+          <ul className="flex flex-col md:flex-row justify-end space-x-5 ">
             {menu.items.map((item) => (
               <li key={item._key}>
                 <Link href={item.link}>
@@ -57,11 +59,11 @@ function Header({ menu }) {
           </ul>
         </nav>
 
-        <div className="w-3/12 flex justify-end hidden sm:flex">
-          <DiscordLogoIcon className="mr-4 w-[7rem] h-[7rem]" />
-          <TwitterLogoIcon className="mr-4  w-[7rem] h-[7rem]" />
-          <InstagramLogoIcon className="mr-4 w-[7rem] h-[7rem]"/>
-          <FaceIcon className="mr-4 w-[7rem] h-[7rem]"/>
+        <div className=" flex justify-end hidden sm:flex pl-11">
+          <DiscordLogoIcon className="mr-4 w-[2rem] h-[7rem]" />
+          <TwitterLogoIcon className="mr-4  w-[2rem] h-[7rem]" />
+          <InstagramLogoIcon className="mr-4 w-[2rem] h-[7rem]"/>
+          <FaceIcon className="mr-4 w-[2rem] h-[7rem]"/>
         </div>
       </div>
     </div>
