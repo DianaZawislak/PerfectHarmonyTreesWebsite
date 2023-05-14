@@ -66,6 +66,7 @@ async function Post({ params: { slug } }: Props) {
         twitterCard,
         ogUrl,
         ogSiteName,
+        menu
         metaRobots
       }
     }`;
