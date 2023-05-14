@@ -1,79 +1,61 @@
-// usePathname and useSearchParams are only usable if experimental: {appDir: true} is set in next.config.js
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import  Navigation from './Navigation';
 
-function Component() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  const searchParamsList = searchParams ? Array.from(searchParams.entries()) : [];
-
-  const routerActions = [
-    {
-      cb: () => router.back(),
-      name: 'Go back',
-    },
-    {
-      cb: () => router.forward(),
-      name: 'Go forward',
-    },
-    {
-      cb: () => router.prefetch('/prefetched-html'),
-      name: 'Prefetch',
-    },
-    {
-      cb: () => router.push('/push-html', { forceOptimisticNavigation: true }),
-      name: 'Push HTML',
-    },
-    {
-      cb: () => router.refresh(),
-      name: 'Refresh',
-    },
-    {
-      cb: () => router.replace('/replaced-html', { forceOptimisticNavigation: true }),
-      name: 'Replace',
-    },
-  ];
-
-  return (
-    <div>
-      <div>pathname: {pathname}</div>
-      <div>
-        searchparams:{' '}
-        <ul>
-          {searchParamsList.map(([key, value]) => (
-            <li key={key}>
-              {key}: {value}
-            </li>
-          ))}
-        </ul>
-      </div>
-      {routerActions.map(({ cb, name }) => (
-        <div key={name} style={{ marginBottom: '1em' }}>
-          <button type="button" onClick={cb}>
-            {name}
-          </button>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-export default {
-  component: Component,
+const meta: Meta<typeof Navigation> = {
+  title: 'Example/Navigation',
+  component: Navigation,
+  tags: ['autodocs'],
   parameters: {
-    nextjs: {
-      appDirectory: true,
-      navigation: {
-        pathname: '/hello',
-        query: {
-          foo: 'bar',
-        },
-      },
-    },
+    layout: 'fullscreen',
   },
-} as Meta<typeof Component>;
+  argTypes: {
+    logoSrc: { control: 'text' },
+    menu: { control: 'object' },
+  },
+};
 
-export const Default: StoryObj<typeof Component> = {};
+export default meta;
+
+type Story = StoryObj<typeof Navigation>;
+
+const mockMenu: Menu ={
+  "_createdAt": "2023-05-14T01:12:24Z",
+  "_id": "a2770c6a-8dab-4296-b979-225646e96612",
+  "_rev": "1wlRcZyaI8QeaGcDelCn9i",
+  "_type": "menu",
+  "_updatedAt": "2023-05-14T04:29:50Z",
+  "items": [
+    {
+      "_key": "9fbb1d358ecd",
+      
+      "link": "/",
+      "title": "home"
+    }
+  ],
+  "logo": {
+    "_type": "image",
+    "asset": {
+      "_ref": "image-08cec9536a570e72357e21af4516aaa105070657-1024x1024-png",
+      "_type": "reference"
+    }
+  },
+  "slug": {
+    "_type": "slug",
+    "current": "home"
+  },
+  "title": "HOME"
+};
+
+export const Customized: Story = {
+  args: {
+    logoSrc: 'https://cdn.discordapp.com/attachments/1103865788944875622/1107025245912703066/logonobrgd.png',
+    menu: mockMenu,
+  },
+};
+
+export const Default: Story = {
+  args: {
+    logoSrc: 'https://cdn.discordapp.com/attachments/1103865788944875622/1107025245912703066/logonobrgd.png',
+    menu: mockMenu,
+  },
+};

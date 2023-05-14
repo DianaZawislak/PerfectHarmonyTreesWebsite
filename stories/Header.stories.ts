@@ -27,7 +27,7 @@ export const Customized: Story = {
     textColor: 'text-orange-600',
     buttonColor: 'bg-white',
     buttonHoverColor: 'hover:bg-orange-100',
-    imageSrc: '/custom_image.png',
+    imageSrc: '/0_2.png',
   },
 };
 

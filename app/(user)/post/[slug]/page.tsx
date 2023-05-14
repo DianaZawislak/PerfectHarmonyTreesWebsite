@@ -23,10 +23,18 @@ export async function generateMetadata({ params: { slug } }: Props) {
         description,
         keywords,
         image,
-        ogType,
-        twitterCard,
-        ogUrl,
-        ogSiteName,
+        openGraph {
+          title,
+          type,
+          url,
+          siteName
+        },
+        twitter {
+          card,
+          site,
+          creator,
+          image
+        },
         metaRobots
       }
     }`;
@@ -59,20 +67,27 @@ async function Post({ params: { slug } }: Props) {
       categories[]->,
       seo-> {
         title,
-        description,
-        keywords,
-        image,
-        ogType,
-        twitterCard,
-        ogUrl,
-        ogSiteName,
-        menu
-        metaRobots
+    description,
+    keywords,
+    image,
+    openGraph {
+      title,
+      type,
+      url,
+      siteName
+    },
+    twitter {
+      card,
+      site,
+      creator,
+      image
+    },
+    metaRobots
       }
     }`;
 
   const post: Post = await client.fetch(query, { slug: slug });
-
+  const metadata = createMetadata(post?.seo);
   return (
     <article className="px-10 pb-28">
       <section className="space-y-2 border-2 border-[#895757] text-white">

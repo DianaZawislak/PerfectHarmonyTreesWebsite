@@ -5,15 +5,14 @@ type Base = {
   _type: string;
   _updatedAt: string;
 };
-
 interface Post extends Base {
   author: Author;
   body: Block[];
   categories: Category[];
   mainImage: Image;
-  slug: Slug;
-  title: string;
-  description: string;
+  title: string;  // the original title property in Post
+  description: string;  // the original description property in Post
+  seo: SEO;  // SEO fields are now contained in this separate property
 }
 
 interface Author extends Base {
@@ -79,4 +78,31 @@ interface HeaderProps {
     items: MenuItem[];
     logo: string;
   };
+}
+
+
+interface OpenGraph_SEO {
+  title: string;
+  type: string;
+  url: string;
+  siteName: string;
+}
+
+interface Twitter_SEO {
+  card: string;
+  site: string;
+  creator: string;
+  image: string;
+}
+
+interface SEO extends Base {
+  title: string;
+  description: string;
+  slug: string;
+  keywords: string[];
+  image: string; // Or a more specific type if you have one
+  twitterCard: string;
+  metaRobots: string[];
+  openGraph: OpenGraph_SEO;
+  twitter: Twitter_SEO;
 }
