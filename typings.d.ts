@@ -67,3 +67,16 @@ interface Title {
   _type: "string";
   current: string;
 }
+
+interface MenuItem {
+  _key: string;
+  link: string;
+  title: string;
+}
+
+interface HeaderProps {
+  data: {
+    items: MenuItem[];
+    logo: string;
+  };
+}

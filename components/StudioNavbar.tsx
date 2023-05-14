@@ -10,9 +10,9 @@ function MyEnhancedNavbar(props: any) {
           <ArrowUturnLeftIcon className="h-6 w-6 text-[#0000FF] mr-2" />
           Go to Website
         </Link>
-        <div className="hidden  bg-gray-500 md:flex p-5 rounded-lg justify-center border-4 border-[#780000]">
-          <h1 className="font-bold text-[#780000]  ml-2">
-            Welcome to FirehoseAI Studio
+        <div className="hidden  bg-[#c0b082] md:flex p-5 rounded-lg justify-center border-4 border-[#0d3f19]">
+          <h1 className="font-bold text-[#133a19]  text-xl ml-2">
+            Welcome Perfect Harmony Trees and Gardens Studio
           </h1>
 {/*           <Link
             href=""

@@ -30,7 +30,7 @@ export default defineConfig({
   icon: Logo,
   logo: Logo,
   subtitle: "Login to manage the Blog",
-  title: "Diana_Content_Studio",
+  title: "Perfect Harmony Trees and Gardens Studio",
   name: "diana-content-studio",
   studio: {
     components: {
