@@ -9,9 +9,8 @@ type Props = {
 
 export default function BlogList({ posts }: Props) {
   return (
-    <div>
-      <hr className=" border-[#f70a0a] mb-10" />
-      <div className="grid grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pb-24">
+    <div style={{ backgroundColor: 'rgba(143, 151, 121, .5)' }}>
+      <div className=" container-blog grid grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16">
         {posts.map((post) => (
           <ClientSideRoute route={`/post/${post.slug.current}`} key={post._id}>
             <div className="flex flex-col group cursor-pointer">

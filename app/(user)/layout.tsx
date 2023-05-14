@@ -5,6 +5,7 @@ import "../../styles/globals.css";
 import { client } from "../../lib/sanity.client";
 import { groq } from "next-sanity";
 import React, { useEffect, useState } from "react";
+import Banner2 from "../../components/Banner2";
 interface RootLayoutProps {
   children: React.ReactNode;
   menu: any; // Adjust the type of 'menu' accordingly
@@ -37,6 +38,7 @@ console.log(menu,"layout page");
       <body>
         <Header menu={menu} />
         <Banner />
+        <Banner2 />
         {children}
       </body>
     </html>
