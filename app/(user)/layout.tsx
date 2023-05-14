@@ -1,5 +1,6 @@
-
+'use client'
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import Banner from "../../components/Banner";
 import "../../styles/globals.css";
 import { client } from "../../lib/sanity.client";
@@ -39,6 +40,7 @@ console.log(menu,"layout page");
         <Header menu={menu} />
         <Banner />
         <Banner2 />
+        <Footer />
         {children}
       </body>
     </html>
