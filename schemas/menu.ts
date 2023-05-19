@@ -49,12 +49,7 @@ export const menu = {
         title: "Link",
         type: "string",
       },
-      {
-        name: "submenu",
-        title: "Submenu",
-        type: "array",
-        of: [{ type: "menuItem" }],
-      },
+ 
     ],
     preview: {
       select: {

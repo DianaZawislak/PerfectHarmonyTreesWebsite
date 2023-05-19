@@ -1,50 +1,42 @@
-'use client'
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+//import Footer from "../../components/Footer";
 import Banner from "../../components/Banner";
 import "../../styles/globals.css";
 import { client } from "../../lib/sanity.client";
 import { groq } from "next-sanity";
 import React, { useEffect, useState } from "react";
 import Banner2 from "../../components/Banner2";
-interface RootLayoutProps {
+import dynamic from "next/dynamic";
+import { PreviewData } from "next";
+import { queryMenu, queryFooter, queryHero } from "../../lib/queries";
+const DynamicHeader = dynamic(() => import("../../components/Header"), {
+  loading: () => <p>Loading...</p>,
+});
+const DynamicFooter = dynamic(() => import("../../components/Footer"), {
+  loading: () => <p>Loading...</p>,
+});
+
+export default async function RootLayout({
+  children,
+}: {
   children: React.ReactNode;
-  menu: any; // Adjust the type of 'menu' accordingly
-}
+}) {
+  const slug = "home";
+  const heroSlug = "placeholder-hero";
+  const menu = await client.fetch(queryMenu, { slug: slug });
+  const footer = await client.fetch(queryFooter, { slug: slug });
+  const hero = await client.fetch(queryHero, { slug: heroSlug });
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-
-
-  const queryMenu = groq`*[_type=='menu' && slug.current == $slug][0]
-{
-  title,
-  slug,
-  "logoUrl": logo.asset->url,
-  items[] {
-    title,
-    link,
-    submenu[] {
-      title,
-      link
-    }
-  }
-}`;
-const slug="home"
-const menu: { menu:any } = await client.fetch(queryMenu, { slug: slug });
-console.log(menu,"layout page");
- 
 
   return (
     <html>
       <body>
-        <Header menu={menu} />
+        {menu && <DynamicHeader menu={menu} />}
         <Banner />
         <Banner2 />
-        <Footer />
         {children}
+        {footer && <DynamicFooter data={footer} />}
       </body>
     </html>
   );
 }
-
-
