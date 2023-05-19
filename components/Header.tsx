@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+
+
 import {
   FaceIcon,
   ImageIcon,
@@ -24,40 +26,28 @@ function Header({ menu }:HeaderProps) {
     setMenuOpen(!isMenuOpen);
   };
 
-
   return (
-    <div style={{ 
+<div style={{ 
       backgroundImage: 'url(https://cdn.discordapp.com/attachments/1103865788944875622/1108941518154252329/navbarback.png)',  // replace with your image URL
       backgroundSize: 'cover',    // This will make sure your image covers the entire div
       backgroundRepeat: 'no-repeat'  // This will prevent the image from repeating
-  }} className="flex items-center justify-between space-x-2 font-bold px-5">
-    <div className="flex items-center space-x-2">
-      <div className="flex items-center space-x-2">
+
+    }} className="flex items-center justify-between space-x-2 font-bold px-5">
+      <div className="hidden md:flex items-center space-x-32 pr-10"> {/* Increase space-x value */}
         <Link href="/">
           <Image
-            src="https://cdn.discordapp.com/attachments/1103865788944875622/1107025245912703066/logonobrgd.png"
-            width={100}
+            src="https://cdn.discordapp.com/attachments/1103865788944875622/1108960263820030022/logonobrgdyellowgreen.png"
+            width={150}
             className="rounded-md"
-            height={100}
+            height={150}
             alt="logo"
+            style={{ paddingRight: '1px' }}
           />
         </Link>
-        </div>
-        <div className="flex items-center space-x-2">
-        <button
-          className="text-2xl md:hidden"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          <HamburgerMenuIcon />
-        </button>
-
-        <nav
-          className={`${isMenuOpen ? 'block' : 'hidden'} md:block font-semibold text-md`}
-        >
-          <ul className="flex flex-col md:flex-row justify-end space-x-5 ">
-            {menu.items.map((item:MenuItem) => (
-              <li key={item?._key}>
+        <nav className="font-semibold text-md" style={{ color: '#ECF87F' }}> {/* Apply color */}
+          <ul className="flex flex-row justify-end space-x-8 text-2xl">
+            {menu.items.map((item:MenuItem, index, array) => (
+              <li key={item?._key} className={index !== array.length - 1 ? 'border-r border-green-200 pr-8' : ''}>
                 <Link href={item?.link}>
                   {item?.title}
                 </Link>
@@ -65,17 +55,41 @@ function Header({ menu }:HeaderProps) {
             ))}
           </ul>
         </nav>
-
-       {/*  <div className=" flex justify-end hidden sm:flex pl-11">
-          <DiscordLogoIcon className="mr-4 w-[2rem] h-[7rem]" />
-          <TwitterLogoIcon className="mr-4  w-[2rem] h-[7rem]" />
-          <InstagramLogoIcon className="mr-4 w-[2rem] h-[7rem]"/>
-          <FaceIcon className="mr-4 w-[2rem] h-[7rem]"/>
-        </div> */}
       </div>
+      
+      <div className="md:hidden flex justify-between w-full items-center">
+        <Link href="/">
+          <Image
+            src="https://cdn.discordapp.com/attachments/1103865788944875622/1108960263820030022/logonobrgdyellowgreen.png"
+            width={100}
+            className="rounded-md"
+            height={100}
+            alt="logo"
+          />
+        </Link>
+        <button
+          className="text-2xl"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <HamburgerMenuIcon className="w-10 h-10"style={{ color: '#ECF87F' }} />
+        </button>
+      </div>
+      <nav className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden font-semibold text-md`}>
+        <ul className="flex flex-col justify-end space-y-2 text-2xl">
+          {menu.items.map((item:MenuItem, index, array) => (
+            <li key={item?._key}>
+              <Link href={item?.link}>
+                {item?.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </div>
-    </div>
+
   );
 }
 
 export default Header;
+
