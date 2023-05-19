@@ -61,12 +61,12 @@ function Header({ menu }:HeaderProps) {
           </ul>
         </nav>
 
-        <div className=" flex justify-end hidden sm:flex pl-11">
+       {/*  <div className=" flex justify-end hidden sm:flex pl-11">
           <DiscordLogoIcon className="mr-4 w-[2rem] h-[7rem]" />
           <TwitterLogoIcon className="mr-4  w-[2rem] h-[7rem]" />
           <InstagramLogoIcon className="mr-4 w-[2rem] h-[7rem]"/>
           <FaceIcon className="mr-4 w-[2rem] h-[7rem]"/>
-        </div>
+        </div> */}
       </div>
     </div>
   );
