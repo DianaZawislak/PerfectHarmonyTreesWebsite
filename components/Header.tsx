@@ -26,7 +26,12 @@ function Header({ menu }:HeaderProps) {
 
 
   return (
-    <div style={{ backgroundColor: 'rgba(160, 118, 70, 0.5)' }} className="flex items-center justify-between space-x-2 font-bold px-5">
+    <div style={{ 
+      backgroundImage: 'url(https://cdn.discordapp.com/attachments/1103865788944875622/1108941518154252329/navbarback.png)',  // replace with your image URL
+      backgroundSize: 'cover',    // This will make sure your image covers the entire div
+      backgroundRepeat: 'no-repeat'  // This will prevent the image from repeating
+  }} className="flex items-center justify-between space-x-2 font-bold px-5">
+    <div className="flex items-center space-x-2">
       <div className="flex items-center space-x-2">
         <Link href="/">
           <Image
@@ -68,6 +73,7 @@ function Header({ menu }:HeaderProps) {
           <FaceIcon className="mr-4 w-[2rem] h-[7rem]"/>
         </div> */}
       </div>
+    </div>
     </div>
   );
 }
