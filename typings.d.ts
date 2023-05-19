@@ -73,7 +73,7 @@ interface MenuItem {
   title: string;
 }
 
-interface HeaderProps {
+interface Menu {
   data: {
     items: MenuItem[];
     logo: string;
@@ -105,4 +105,33 @@ interface SEO extends Base {
   metaRobots: string[];
   openGraph: OpenGraph_SEO;
   twitter: Twitter_SEO;
+}
+
+
+
+interface Hero extends Base {
+  title: string;
+  slug: Slug;
+  CTA_Main: string;
+  backgroundImage: Image;
+  ctaText_Subtitle: string;
+  logo: Image;
+}
+
+interface FooterItem {
+  title: string;
+  link: string;
+}
+
+interface Section extends Base {
+  title: string;
+  items: FooterItem[];
+}
+
+interface Footer extends Base {
+  websiteTitle: string;
+  title: string;
+  slug: Slug;
+  logo: Image;
+  sections: Section[];
 }

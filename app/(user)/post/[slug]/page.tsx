@@ -5,6 +5,7 @@ import urlFor from "../../../../lib/urlFor";
 import  createMetadata  from "../../_metadata";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "./RichTextComponents";
+import {queryPost, querySEO } from "../../../../lib/queries";
 import React from "react";
 
 type Props = {
@@ -16,28 +17,7 @@ type Props = {
 export const revalidate = 60; // revalidate this page every 60 seconds
 
 export async function generateMetadata({ params: { slug } }: Props) {
-  const querySEO = groq`*[_type=='post' && slug.current == $slug][0]
-    {
-      seo-> {
-        title,
-        description,
-        keywords,
-        image,
-        openGraph {
-          title,
-          type,
-          url,
-          siteName
-        },
-        twitter {
-          card,
-          site,
-          creator,
-          image
-        },
-        metaRobots
-      }
-    }`;
+ 
 
   const postData: { seo: any } = await client.fetch(querySEO, { slug: slug });
   const metadata = createMetadata(postData?.seo);
@@ -60,33 +40,9 @@ export async function generateStaticParams() {
 }
 
 async function Post({ params: { slug } }: Props) {
-  const query = groq`*[_type=='post' && slug.current == $slug][0]
-    {
-      ...,
-      author->,
-      categories[]->,
-      seo-> {
-        title,
-    description,
-    keywords,
-    image,
-    openGraph {
-      title,
-      type,
-      url,
-      siteName
-    },
-    twitter {
-      card,
-      site,
-      creator,
-      image
-    },
-    metaRobots
-      }
-    }`;
+ 
 
-  const post: Post = await client.fetch(query, { slug: slug });
+  const post: Post = await client.fetch(queryPost, { slug: slug });
   const metadata = createMetadata(post?.seo);
   return (
     <article className="px-10 pb-28">

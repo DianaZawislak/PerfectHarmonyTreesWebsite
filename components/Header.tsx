@@ -13,8 +13,10 @@ import {
   HamburgerMenuIcon,
  
 } from '@radix-ui/react-icons';
-
-function Header({ menu }) {
+interface HeaderProps {
+  menu: Menu ;
+}
+function Header({ menu }:HeaderProps) {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
@@ -49,10 +51,10 @@ function Header({ menu }) {
           className={`${isMenuOpen ? 'block' : 'hidden'} md:block font-semibold text-md`}
         >
           <ul className="flex flex-col md:flex-row justify-end space-x-5 ">
-            {menu.items.map((item) => (
-              <li key={item._key}>
-                <Link href={item.link}>
-                  {item.title}
+            {menu.items.map((item:MenuItem) => (
+              <li key={item?._key}>
+                <Link href={item?.link}>
+                  {item?.title}
                 </Link>
               </li>
             ))}
