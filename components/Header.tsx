@@ -1,8 +1,8 @@
-'use client'
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
+import React, { useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import {
   FaceIcon,
   ImageIcon,
@@ -11,12 +11,11 @@ import {
   TwitterLogoIcon,
   InstagramLogoIcon,
   HamburgerMenuIcon,
- 
-} from '@radix-ui/react-icons';
+} from "@radix-ui/react-icons";
 interface HeaderProps {
-  menu: Menu ;
+  menu: Menu;
 }
-function Header({ menu }:HeaderProps) {
+function Header({ menu }: HeaderProps) {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
@@ -24,9 +23,11 @@ function Header({ menu }:HeaderProps) {
     setMenuOpen(!isMenuOpen);
   };
 
-
   return (
-    <div style={{ backgroundColor: 'rgba(160, 118, 70, 0.5)' }} className="flex items-center justify-between space-x-2 font-bold px-5">
+    <div
+      style={{ backgroundColor: "rgba(160, 118, 70, 0.5)" }}
+      className="flex items-center justify-between space-x-2 font-bold px-5"
+    >
       <div className="flex items-center space-x-2">
         <Link href="/">
           <Image
@@ -37,8 +38,8 @@ function Header({ menu }:HeaderProps) {
             alt="logo"
           />
         </Link>
-        </div>
-        <div className="flex items-center space-x-2">
+      </div>
+      <div className="flex items-center space-x-2">
         <button
           className="text-2xl md:hidden"
           onClick={toggleMenu}
@@ -48,14 +49,14 @@ function Header({ menu }:HeaderProps) {
         </button>
 
         <nav
-          className={`${isMenuOpen ? 'block' : 'hidden'} md:block font-semibold text-md`}
+          className={`${
+            isMenuOpen ? "block" : "hidden"
+          } md:block font-semibold text-md`}
         >
           <ul className="flex flex-col md:flex-row justify-end space-x-5 ">
-            {menu.items.map((item:MenuItem) => (
+            {menu.data.item.map((item: MenuItem) => (
               <li key={item?._key}>
-                <Link href={item?.link}>
-                  {item?.title}
-                </Link>
+                <Link href={item?.link}>{item?.title}</Link>
               </li>
             ))}
           </ul>
@@ -64,8 +65,8 @@ function Header({ menu }:HeaderProps) {
         <div className=" flex justify-end hidden sm:flex pl-11">
           <DiscordLogoIcon className="mr-4 w-[2rem] h-[7rem]" />
           <TwitterLogoIcon className="mr-4  w-[2rem] h-[7rem]" />
-          <InstagramLogoIcon className="mr-4 w-[2rem] h-[7rem]"/>
-          <FaceIcon className="mr-4 w-[2rem] h-[7rem]"/>
+          <InstagramLogoIcon className="mr-4 w-[2rem] h-[7rem]" />
+          <FaceIcon className="mr-4 w-[2rem] h-[7rem]" />
         </div>
       </div>
     </div>

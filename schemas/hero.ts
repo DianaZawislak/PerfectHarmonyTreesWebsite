@@ -7,7 +7,7 @@ export const hero = {
         name: 'title',
         title: 'Title',
         type: 'string',
-        validation: (Rule) => Rule.required(),
+        validation: (Rule: { required: () => any; }) => Rule.required(),
       },
       {
         name: "slug",
@@ -17,7 +17,7 @@ export const hero = {
           source: "title",
           maxLength: 96,
         },
-        validation: (Rule) => Rule.required(),
+        validation: (Rule: { required: () => any; }) => Rule.required(),
       },
       {
         name: 'CTA_Main',
