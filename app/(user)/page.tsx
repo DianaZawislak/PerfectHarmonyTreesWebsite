@@ -8,7 +8,7 @@ import React from 'react';
 import createMetadata from "./_metadata";
 import {queryAllPost, querySEO } from "../../lib/queries";
 export async function generateMetadata() {
-  const slug="homepage"
+  const slug="tree"
   
 
   const postData = await client.fetch(querySEO, { slug: slug });

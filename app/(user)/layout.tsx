@@ -9,6 +9,11 @@ import Banner2 from "../../components/Banner2";
 import dynamic from "next/dynamic";
 import { PreviewData } from "next";
 import { queryMenu, queryFooter, queryHero } from "../../lib/queries";
+import Link from 'next/link';
+
+
+
+
 const DynamicHeader = dynamic(() => import("../../components/Header"), {
   loading: () => <p>Loading...</p>,
 });
