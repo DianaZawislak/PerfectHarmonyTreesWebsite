@@ -1,18 +1,15 @@
 import { PreviewData } from "next";
-import PreviewSuspense from "../../components/PreviewSuspense";
-import BlogList from "../../components/BlogList";
-import PreviewBlogList from "../../components/PreviewBlogList";
-import { client } from "../../lib/sanity.client";
+import PreviewSuspense from "../../../components/PreviewSuspense";
+import BlogList from "../../../components/BlogList";
+import PreviewBlogList from "../../../components/PreviewBlogList";
+import { client } from "../../../lib/sanity.client";
 import { groq } from "next-sanity";
 import React from 'react';
-import createMetadata from "./_metadata";
-import {queryAllPost, querySEO } from "../../lib/queries";
-import Banner from "../../components/Banner";
-import Banner2 from "../../components/Banner2";
-import IndexCards from "../../components/IndexCards";
+import createMetadata from "../_metadata";
+import {queryAllPost, querySEO } from "../../../lib/queries";
 
 export async function generateMetadata() {
-  const slug="homepage"
+  const slug="services"
   
 
   const postData = await client.fetch(querySEO, { slug: slug });
@@ -27,7 +24,7 @@ export async function generateMetadata() {
 
 
 
-export default async function IndexPage() {
+export default async function Services() {
 /*  if (previewData()) {
     return (
       <PreviewSuspense
@@ -50,10 +47,7 @@ export default async function IndexPage() {
 
   return (
     <>
-      <Banner />
-      {/* <Banner2 /> */}
-      <IndexCards/>
-      
+      <BlogList posts={posts} />
     </>
   );
 }

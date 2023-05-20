@@ -36,9 +36,7 @@ export default async function RootLayout({
   return (
     <html>
       <body>
-        {menu && <DynamicHeader menu={menu} />}
-        <Banner />
-        <Banner2 />
+        {menu && <DynamicHeader menu={menu} />} 
         {children}
         {footer && <DynamicFooter data={footer} />}
       </body>
