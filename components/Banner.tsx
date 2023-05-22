@@ -24,7 +24,7 @@ function Banner() {
      
         <div className="border border-lime-300 p-8 rounded-lg items-center justify-center text-center ${animationState ? 'animate-snake' : ''}`}">
           <h1 className="lg:text-7xl text-4xl" style={{ color: '#ECF87F' }}>Perfect Harmony</h1>
-          <h1 className="lg:text-7xl text-4xl" style={{ color: '#ECF87F' }}>Tree and Garden</h1>
+          <h1 className="lg:text-7xl text-4xl" style={{ color: '#ECF87F' }}>Tree and Gardens</h1>
           
           <h2 className="text-white pt-5 text-2xl tracking-widest">
             Tree Trimming | Tree Removal | Garden and Playground Installations | And More!!!
