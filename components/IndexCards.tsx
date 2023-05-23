@@ -1,4 +1,5 @@
 import Image from "next/image";
+import "../styles/globals.css";
 
 interface CardProps {
   imageUrl: string;
@@ -26,7 +27,7 @@ const Card: React.FC<CardProps> = ({ imageUrl, header, description, ctaText }) =
 
 const IndexCards: React.FC = () => {
   return (
-    <div className="flex flex-row justify-center items-start pt-11">
+    <div className=" cards-container flex flex-row justify-center items-start pt-11">
       <Card
         imageUrl="https://cdn.discordapp.com/attachments/1103865788944875622/1109571134258696332/346969329_1380028732785287_3315446062634646354_n.jpg"
         header="Card 1"
@@ -51,6 +52,8 @@ const IndexCards: React.FC = () => {
     </div>
   );
 };
+<style>
 
+</style>
 
 export default IndexCards;

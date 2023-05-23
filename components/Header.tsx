@@ -3,6 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+
 
 
 import {
@@ -20,20 +23,19 @@ interface HeaderProps {
 }
 function Header({ menu }:HeaderProps) {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
 
   return (
-<div style={{ 
-      backgroundImage: 'url(https://cdn.discordapp.com/attachments/1103865788944875622/1108941518154252329/navbarback.png)',  // replace with your image URL
-      backgroundSize: 'cover',    // This will make sure your image covers the entire div
-      backgroundRepeat: 'no-repeat'  // This will prevent the image from repeating
-
+    
+    <div style={{ 
+      backgroundImage: 'url(https://cdn.discordapp.com/attachments/1103865788944875622/1108941518154252329/navbarback.png)',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'
     }} className="flex items-center justify-between space-x-2 font-bold px-5">
-      <div className="hidden md:flex items-center space-x-32 pr-10"> {/* Increase space-x value */}
+      <div className="hidden md:flex items-center space-x-32 pr-10">
         <Link href="/">
           <Image
             src="https://cdn.discordapp.com/attachments/1103865788944875622/1108960263820030022/logonobrgdyellowgreen.png"
@@ -44,8 +46,8 @@ function Header({ menu }:HeaderProps) {
             style={{ paddingRight: '1px' }}
           />
         </Link>
-        <nav className="font-semibold text-md" style={{ color: '#ECF87F' }}> {/* Apply color */}
-          <ul className="flex flex-row justify-end space-x-8 text-2xl">
+        <nav className="font-semibold text-md" style={{ color: '#ECF87F' }}>
+          <ul className="flex flex-row justify-end space-x-8 text-lg">
             {menu.items.map((item:MenuItem, index, array) => (
               <li key={item?._key} className={index !== array.length - 1 ? 'border-r border-green-200 pr-8' : ''}>
                 <Link href={item?.link}>
@@ -53,10 +55,14 @@ function Header({ menu }:HeaderProps) {
                 </Link>
               </li>
             ))}
+            <li className='pl-8'>
+              <FontAwesomeIcon className= 'pr-5 pl-12 text-xl' icon={faPhone} style={{color: "#ecf87f"}} />
+              <a href="tel:123-456-7890">123-456-7890</a>
+            </li>
           </ul>
         </nav>
       </div>
-      
+
       <div className="md:hidden flex justify-between w-full items-center">
         <Link href="/">
           <Image
@@ -67,14 +73,19 @@ function Header({ menu }:HeaderProps) {
             alt="logo"
           />
         </Link>
-        <button
-          className="text-2xl"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          <HamburgerMenuIcon className="w-10 h-10"style={{ color: '#ECF87F' }} />
-        </button>
+        <div className="flex items-center">
+          <FontAwesomeIcon className= 'pr-2' icon={faPhone} style={{color: "#ecf87f"}} />
+          <a href="tel:123-456-7890" style={{color: "#ecf87f"}} className="pr-5">123-456-7890</a>
+          <button
+            className="text-2xl"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <HamburgerMenuIcon className="w-10 h-10"style={{ color: '#ECF87F' }} />
+          </button>
+        </div>
       </div>
+
       <nav className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden font-semibold text-md`}>
         <ul className="flex flex-col justify-end space-y-2 text-2xl">
           {menu.items.map((item:MenuItem, index, array) => (
@@ -87,7 +98,6 @@ function Header({ menu }:HeaderProps) {
         </ul>
       </nav>
     </div>
-
   );
 }
 

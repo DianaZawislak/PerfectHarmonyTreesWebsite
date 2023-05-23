@@ -137,4 +137,13 @@
   font-family: "Milkshake", cursive;
 }
 
-/* banner box animation */
+/* cards on index */
+.cards-container {
+  flex-direction: row;
+}
+
+@media screen and (max-width: 768px) {
+  .cards-container {
+    flex-direction: column;
+  }
+}

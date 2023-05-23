@@ -18,6 +18,7 @@ function Banner() {
         backgroundImage: `url(https://cdn.discordapp.com/attachments/1103865788944875622/1108964317447078009/heroback.png)`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
+        opacity: 1
       }}
     >
       <div className="flex flex-col items-center justify-center font-bold px-1 py-1 mb-1 h-full border border-lime-300">

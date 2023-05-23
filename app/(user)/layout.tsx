@@ -36,10 +36,13 @@ export default async function RootLayout({
   return (
     <html>
       <body>
+      <div className="mx-auto max-w-7xl">
         {menu && <DynamicHeader menu={menu} />} 
         {children}
         {footer && <DynamicFooter data={footer} />}
+        </div>
       </body>
+    
     </html>
   );
 }
