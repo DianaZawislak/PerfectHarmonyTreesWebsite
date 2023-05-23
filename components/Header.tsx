@@ -49,7 +49,7 @@ function Header({ menu }:HeaderProps) {
         <nav className="font-semibold text-md" style={{ color: '#ECF87F' }}>
           <ul className="flex flex-row justify-end space-x-8 text-lg">
             {menu.items.map((item:MenuItem, index, array) => (
-              <li key={item?._key} className={index !== array.length - 1 ? 'border-r border-green-200 pr-8' : ''}>
+              <li key={item?._key} className={index !== array.length - 1 ? 'border-r border-lime-200 pr-8' : ''}>
                 <Link href={item?.link}>
                   {item?.title}
                 </Link>
