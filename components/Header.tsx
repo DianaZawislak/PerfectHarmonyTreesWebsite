@@ -54,7 +54,7 @@ function Header({ menu }: HeaderProps) {
           } md:block font-semibold text-md`}
         >
           <ul className="flex flex-col md:flex-row justify-end space-x-5 ">
-            {menu.data.item.map((item: MenuItem) => (
+            {menu.items.map((item: MenuItem) => (
               <li key={item?._key}>
                 <Link href={item?.link}>{item?.title}</Link>
               </li>

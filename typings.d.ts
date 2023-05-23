@@ -75,7 +75,8 @@ interface MenuItem {
 }
 
 interface Menu {
-  data: {
+  items: {
+    [x: string]: any;
     item: MenuItem[];
     logo: string;
   };

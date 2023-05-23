@@ -18,7 +18,7 @@ export default meta;
 
 type Story = StoryObj<typeof Navigation>;
 
-const mockMenu: Menu ={
+const mockMenu= {
   "_createdAt": "2023-05-14T01:12:24Z",
   "_id": "a2770c6a-8dab-4296-b979-225646e96612",
   "_rev": "1wlRcZyaI8QeaGcDelCn9i",
