@@ -9,6 +9,11 @@ import Banner2 from "../../components/Banner2";
 import dynamic from "next/dynamic";
 import { PreviewData } from "next";
 import { queryMenu, queryFooter, queryHero } from "../../lib/queries";
+import Link from 'next/link';
+
+
+
+
 const DynamicHeader = dynamic(() => import("../../components/Header"), {
   loading: () => <p>Loading...</p>,
 });
@@ -31,12 +36,13 @@ export default async function RootLayout({
   return (
     <html>
       <body>
-        {menu && <DynamicHeader menu={menu} />}
-        <Banner />
-        <Banner2 />
+      <div className="mx-auto max-w-7xl">
+        {menu && <DynamicHeader menu={menu} />} 
         {children}
         {footer && <DynamicFooter data={footer} />}
+        </div>
       </body>
+    
     </html>
   );
 }

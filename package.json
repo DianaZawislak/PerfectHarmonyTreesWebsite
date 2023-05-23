@@ -8,6 +8,9 @@
     "build-storybook": "storybook build -s public"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@heroicons/react": "^2.0.13",
     "@portabletext/react": "^2.0.3",
     "@portabletext/types": "^2.0.2",
@@ -29,6 +32,7 @@
     "react-portable-text": "^0.6.0",
     "react-query": "^3.39.3",
     "react-responsive": "^9.0.2",
+    "react-transition-group": "^4.4.5",
     "sanity": "^3.0.6",
     "sanity-plugin-iframe-pane": "^2.1.1",
     "styled-components": "^5.3.6"

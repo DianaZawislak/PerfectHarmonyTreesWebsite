@@ -3,6 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
+
 import {
   FaceIcon,
   ImageIcon,
@@ -17,7 +20,6 @@ interface HeaderProps {
 }
 function Header({ menu }: HeaderProps) {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -25,50 +27,99 @@ function Header({ menu }: HeaderProps) {
 
   return (
     <div
-      style={{ backgroundColor: "rgba(160, 118, 70, 0.5)" }}
+      style={{
+        backgroundImage:
+          "url(https://cdn.discordapp.com/attachments/1103865788944875622/1108941518154252329/navbarback.png)",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
       className="flex items-center justify-between space-x-2 font-bold px-5"
     >
-      <div className="flex items-center space-x-2">
+      <div className="hidden md:flex items-center space-x-32 pr-10 justify-between w-full">
+        <div className="flex items-center space-x-32">
+          <Link href="/">
+            <Image
+              src="https://cdn.discordapp.com/attachments/1103865788944875622/1108960263820030022/logonobrgdyellowgreen.png"
+              width={150}
+              className="rounded-md"
+              height={150}
+              alt="logo"
+              style={{ paddingRight: "1px" }}
+            />
+          </Link>
+          <nav className="font-semibold text-md" style={{ color: "#ECF87F" }}>
+            <ul className="flex flex-row space-x-8 text-lg">
+            {menu.items.map((item:MenuItem, index:any, array:any) => (
+              <li key={item?._key} className={index !== array.length - 1 ? 'border-r border-lime-200 pr-8' : ''}>
+                <Link href={item?.link}>
+                  {item?.title}
+                </Link>
+              </li>
+            ))}
+            </ul>
+          </nav>
+        </div>
+        <div className="pl-8 flex items-center">
+          <FontAwesomeIcon
+            className="pr-5 pl-12 text-xl"
+            icon={faPhone}
+            style={{ color: "#ecf87f" }}
+          />
+          <a href="tel:123-456-7890" style={{ color: "#ECF87F" }}>
+            123-456-7890
+          </a>
+        </div>
+      </div>
+
+      <div className="md:hidden flex justify-between w-full items-center">
         <Link href="/">
           <Image
-            src="https://cdn.discordapp.com/attachments/1103865788944875622/1107025245912703066/logonobrgd.png"
+            src="https://cdn.discordapp.com/attachments/1103865788944875622/1108960263820030022/logonobrgdyellowgreen.png"
             width={100}
             className="rounded-md"
             height={100}
             alt="logo"
           />
         </Link>
-      </div>
-      <div className="flex items-center space-x-2">
-        <button
-          className="text-2xl md:hidden"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          <HamburgerMenuIcon />
-        </button>
-
-        <nav
-          className={`${
-            isMenuOpen ? "block" : "hidden"
-          } md:block font-semibold text-md`}
-        >
-          <ul className="flex flex-col md:flex-row justify-end space-x-5 ">
-            {menu.items.map((item: MenuItem) => (
-              <li key={item?._key}>
-                <Link href={item?.link}>{item?.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className=" flex justify-end hidden sm:flex pl-11">
-          <DiscordLogoIcon className="mr-4 w-[2rem] h-[7rem]" />
-          <TwitterLogoIcon className="mr-4  w-[2rem] h-[7rem]" />
-          <InstagramLogoIcon className="mr-4 w-[2rem] h-[7rem]" />
-          <FaceIcon className="mr-4 w-[2rem] h-[7rem]" />
+        <div className="flex items-center">
+          <FontAwesomeIcon
+            className="pr-2"
+            icon={faPhone}
+            style={{ color: "#ecf87f" }}
+          />
+          <a
+            href="tel:123-456-7890"
+            style={{ color: "#ECF87F" }}
+            className="pr-5"
+          >
+            123-456-7890
+          </a>
+          <button
+            className="text-2xl"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <HamburgerMenuIcon
+              className="w-10 h-10"
+              style={{ color: "#ECF87F" }}
+            />
+          </button>
         </div>
       </div>
+
+      <nav
+        className={`${
+          isMenuOpen ? "block" : "hidden"
+        } md:hidden font-semibold text-md`}
+      >
+        <ul className="flex flex-col justify-end space-y-2 text-2xl">
+          {menu.items.map((item: MenuItem) => (
+            <li key={item?._key}>
+              <Link href={item?.link}>{item?.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </div>
   );
 }

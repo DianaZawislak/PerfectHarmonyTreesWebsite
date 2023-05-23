@@ -136,3 +136,16 @@
 .font-milkshake {
   font-family: "Milkshake", cursive;
 }
+
+/* cards on index */
+.cards-container {
+  flex-direction: row;
+}
+
+@media screen and (max-width: 768px) {
+  .cards-container {
+    flex-direction: column;
+  }
+}
+
+/* styles/Navbar.module.css */
