@@ -9,14 +9,14 @@ interface CardProps {
 }
 const Card: React.FC<CardProps> = ({ imageUrl, header, description, ctaText }) => {
   return (
-    <div className="flex flex-col items-center justify-center pb-24 pt-12 px-12">
-      <div className="mb-12 overflow-hidden rounded-full" style={{ width: '200px', height: '200px', position: 'relative' }}>
+    <div className="shadow-lg transform hover:scale-110 transition-all duration-200 ease-in-out flex flex-col items-center justify-center pb-16 pt-4 px-12">
+      <div className="mb-6 overflow-hidden rounded-full border-4 border-gray-500" style={{ width: '150px', height: '150px', position: 'relative' }}>
         <Image src={imageUrl} alt="Card Image" layout="fill" objectFit="cover" />
       </div>
       <div className="flex flex-col items-center justify-center max-w-md mx-auto">
-        <h2 className="text-3xl font-bold mb-2">{header}</h2>
-        <p className="text-gray-600 text-xl mb-4 text-center py-8">{description}</p>
-        <button className="px-24 py-3 bg-lime-300 text-black  font-bold text-xl rounded-lg">
+        <h2 className="text-2xl text-gray-500 font-bold mb-2">{header}</h2>
+        <p className="text-gray-500 text-md mb-4 text-center py-2">{description}</p>
+        <button className="px-20 py-1 bg-lime-300 text-gray-500  hover:text-lime-300 hover:bg-gray-500 font-bold text-lg rounded-lg">
           {ctaText}
         </button>
       </div>
