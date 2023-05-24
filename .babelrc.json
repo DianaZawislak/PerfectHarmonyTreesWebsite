@@ -1,5 +1,4 @@
 {
-  "sourceType": "unambiguous",
   "presets": ["next/babel"],
   "plugins": []
 }

@@ -14,7 +14,7 @@ import {
 
 // Define the props for the Navigation component
 export type NavigationProps = {
-  menu: Menu; // Assuming 'Menu' is the interface defined earlier
+  menu: any; // Assuming 'Menu' is the interface defined earlier
   logoSrc?: string;
 };
 
@@ -59,7 +59,7 @@ const Navigation: React.FC<NavigationProps> = ({ menu, logoSrc }) => {
           } md:block font-semibold text-md`}
         >
           <ul className="flex flex-col md:flex-row items-center">
-            {menu.items.map((item) => (
+            {menu.items.map((item:any) => (
               <li key={item._key}>
                 <Link href={item.link}>{item.title}</Link>
               </li>

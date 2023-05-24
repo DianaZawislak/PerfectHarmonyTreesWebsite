@@ -2,10 +2,10 @@ import { groq } from "next-sanity";
 import Image from "next/image";
 import { client } from "../../../../lib/sanity.client";
 import urlFor from "../../../../lib/urlFor";
-import  createMetadata  from "../../_metadata";
+import createMetadata from "../../_metadata";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "./RichTextComponents";
-import {queryPost, querySEO } from "../../../../lib/queries";
+import { queryPost, querySEO } from "../../../../lib/queries";
 import React from "react";
 
 type Props = {
@@ -17,8 +17,6 @@ type Props = {
 export const revalidate = 60; // revalidate this page every 60 seconds
 
 export async function generateMetadata({ params: { slug } }: Props) {
- 
-
   const postData: { seo: any } = await client.fetch(querySEO, { slug: slug });
   const metadata = createMetadata(postData?.seo);
 
@@ -38,12 +36,10 @@ export async function generateStaticParams() {
     slug,
   }));
 }
-
-async function Post({ params: { slug } }: Props) {
  
-
+async function Post({ params: { slug } }: Props) {
   const post: Post = await client.fetch(queryPost, { slug: slug });
-  const metadata = createMetadata(post?.seo);
+
   return (
     <article className="px-10 pb-28">
       <section className="space-y-2 border-2 border-[#895757] text-white">

@@ -6,6 +6,7 @@ type Base = {
   _updatedAt: string;
 };
 interface Post extends Base {
+  slug: Slug;
   author: Author;
   body: Block[];
   categories: Category[];
@@ -74,8 +75,9 @@ interface MenuItem {
 }
 
 interface Menu {
-  data: {
-    items: MenuItem[];
+  items: {
+    [x: string]: any;
+    item: MenuItem[];
     logo: string;
   };
 }

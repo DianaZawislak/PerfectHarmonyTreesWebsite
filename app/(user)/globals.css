@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Header */
+.custom-header {
+    background-color: rgba(160, 118, 70, 0.5);
+  }
+
+
+/* Banner */
+.banner-container {
+  position: relative;
+}
+
+.banner-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://cdn.discordapp.com/attachments/1103862223786479676/1105507509067845692/dianadetroit_Detailed_and_realistic_up-close_macro_photographyf_c547be72-697c-4bf5-941f-16b9c6c6d546.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7;
+}
+
+.banner-container > div {
+  position: relative;
+  z-index: 1;
+}
+
+.container-banner2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+  .container-banner2 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Media Query for Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container-banner2 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Media Query for Medium Screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container-banner2 {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+/* Blog list */
+.container-blog {
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+  .container-blog {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Media Query for Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container-blog {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Media Query for Medium Screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container-blog{
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+
+
+
+/* Fonts */
+.font-oswald {
+  font-family: "Oswald", sans-serif;
+}
+
+.font-lato {
+  font-family: "Lato", sans-serif;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+.font-bree-serif {
+  font-family: "Bree Serif", serif;
+}
+
+.font-roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+.font-avantgarde {
+  font-family: "Avantgarde", sans-serif;
+}
+
+.font-tex-gyre-adventor {
+  font-family: "TeX Gyre Adventor", sans-serif;
+}
+
+.font-urw-gothic-l {
+  font-family: "URW Gothic L", sans-serif;
+}
+.font-black-jack {
+  font-family: "Black Jack", cursive;
+}
+
+.font-milkshake {
+  font-family: "Milkshake", cursive;
+}
