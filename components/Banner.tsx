@@ -14,7 +14,7 @@ function Banner() {
   return (
     <div 
       style={{
-        height: '700px',
+        height: '400px',
         backgroundImage: `url(https://cdn.discordapp.com/attachments/1103865788944875622/1110748117042724905/herobackopacity.png)`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',

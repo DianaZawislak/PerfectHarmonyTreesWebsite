@@ -140,6 +140,7 @@
 /* cards on index */
 .cards-container {
   flex-direction: row;
+  margin-bottom: 24px;
 }
 
 @media screen and (max-width: 768px) {

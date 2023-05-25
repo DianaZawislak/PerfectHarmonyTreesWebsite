@@ -51,7 +51,7 @@ export default async function IndexPage() {
   return (
     <>
       <Banner />
-      {/* <Banner2 /> */}
+      <Banner2 />
       <IndexCards/>
       
     </>

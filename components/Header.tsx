@@ -50,7 +50,7 @@ function Header({ menu }: HeaderProps) {
           <nav className="font-semibold text-md" style={{ color: "#ECF87F" }}>
             <ul className="flex flex-row space-x-8 text-lg  ">
             {menu.items.map((item:MenuItem, index:any, array:any) => (
-              <li key={item?._key} className={`border-r border-lime-200 pr-8 hover:text-amber-700 ${index !== array.length - 1 ? '' : 'border-r-0'}`}>
+              <li key={item?._key} className={`border-r border-lime-200 pr-8 hover:text-gray-500 ${index !== array.length - 1 ? '' : 'border-r-0'}`}>
               <Link href={item?.link}>
                   {item?.title}
               </Link>
@@ -65,7 +65,7 @@ function Header({ menu }: HeaderProps) {
             icon={faPhone}
             style={{ color: "#ecf87f" }}
           />
-         <a href="tel:123-456-7890" className="text-lime-300 text-xl hover:text-amber-800">
+         <a href="tel:123-456-7890" className="text-lime-300 text-xl hover:text-gray-500">
     123-456-7890
 </a>
         </div>
@@ -95,7 +95,7 @@ function Header({ menu }: HeaderProps) {
             123-456-7890
           </a>
           <button
-            className="text-2xl text-lime-300  hover:text-amber-800"
+            className="text-2xl text-lime-300  hover:text-gray-500"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
