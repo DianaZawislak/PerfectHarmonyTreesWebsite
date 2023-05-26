@@ -40,9 +40,9 @@ function Header({ menu }: HeaderProps) {
           <Link href="/">
             <Image
               src="https://cdn.discordapp.com/attachments/1103865788944875622/1108960263820030022/logonobrgdyellowgreen.png"
-              width={120}
+              width={100}
               className="rounded-md"
-              height={120}
+              height={100}
               alt="logo"
               style={{ paddingRight: "1px" }}
             />
