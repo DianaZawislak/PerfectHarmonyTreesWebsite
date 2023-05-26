@@ -25,7 +25,6 @@ export const queryFooter = groq`*[_type=='footer' && slug.current == $slug][0]
     }
   }
 }`;
-
 export const queryHero = groq`*[_type=='hero' && slug.current == $slug][0]
 {
   title,
@@ -35,7 +34,6 @@ export const queryHero = groq`*[_type=='hero' && slug.current == $slug][0]
   "backgroundImageUrl": backgroundImage.asset->url,
   ctaText_Subtitle
 }`;
-
 export const queryAllPost = groq`*[_type=='post'] {
     ...,
     author->,
