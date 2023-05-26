@@ -9,8 +9,9 @@ import createMetadata from "./_metadata";
 import {queryAllPost, querySEO } from "../../lib/queries";
 import Banner from "../../components/Banner";
 import Banner2 from "../../components/Banner2";
-import HorizontalCard from "../../components/HorizontalCard ";
+import HorizontalCard from "../../components/HcardsIndex";
 import IndexCards from "../../components/IndexCards";
+import HcardsIndex from "../../components/HcardsIndex";
 
 export async function generateMetadata() {
   const slug="homepage"
@@ -54,7 +55,7 @@ export default async function IndexPage() {
       <Banner />
       <Banner2 />
       <IndexCards/>
-      <HorizontalCard/>
+      <HcardsIndex/>
       
     </>
   );

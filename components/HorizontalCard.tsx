@@ -1,34 +1,30 @@
 import React from 'react';
 
 interface CardProps {
-  imageSrc: string;
+  imageUrl: string;
   header: string;
-  description: string;
+  text: string;
 }
 
-const HorizontalCard: React.FC<CardProps> = ({ imageSrc, header, description }) => {
+const HorizontalCard: React.FC<CardProps> = ({ imageUrl, header,text }) => {
   return (
-    <div className="card">
-      <img src={imageSrc} alt="Card Image" className="card-image" />
-      <div className="card-content">
-        <h3 className="card-header">{header}</h3>
-        <p className="card-description">{description}</p>
+    <>
+    <div style={{ display: 'flex', width: '100%' }} className='py-12 '>
+      <div style={{ width: '33%' }}>
+        <img src={imageUrl} alt="Box Image" style={{ width: '100%', height: '100%',  }} className='border-4 border-gray-500 rounded-lg'/>
+      </div>
+  
+      <div style={{ width: '67%', padding: '1px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'  }} >
+      <h1 className=' text-2xl mb-2 tracking-widest'>
+          {header}
+          </h1> 
+        <p className='ml-16 mr-6'>{text}</p>
       </div>
     </div>
+    <hr className="my-4 border-gray-500" />
+    </>
   );
 };
 
 export default HorizontalCard;
 
-const HorizontalCard: React.FC = () => {
-    return (
-      <div>
-        <h1>My App</h1>
-        <HorizontalCard
-          imageSrc="/path/to/image.jpg"
-          header="Card Header"
-          description="Card description goes here."
-        />
-      </div>
-    );
-  };
