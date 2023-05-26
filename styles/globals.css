@@ -37,8 +37,7 @@
   justify-content: start;
   align-items: start;
   width: 100%;
-  padding-left: 200px;
-  padding-right: 200px;
+
 }
 
 /* Media Query for Mobile Devices */
@@ -140,12 +139,13 @@
 /* cards on index */
 .cards-container {
   flex-direction: row;
-  margin-bottom: 24px;
+  
 }
 
 @media screen and (max-width: 768px) {
   .cards-container {
     flex-direction: column;
+    gap: 24px;
   }
 }
 
