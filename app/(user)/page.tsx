@@ -9,7 +9,7 @@ import createMetadata from "./_metadata";
 import {queryAllPost, querySEO } from "../../lib/queries";
 import Banner from "../../components/Banner";
 import Banner2 from "../../components/Banner2";
-import HorizontalCard from "../../components/HorizontalCard ";
+import HorizontalCard from "../../components/HorizontalCard";
 import IndexCards from "../../components/IndexCards";
 
 export async function generateMetadata() {
@@ -54,7 +54,7 @@ export default async function IndexPage() {
       <Banner />
       <Banner2 />
       <IndexCards/>
-      <HorizontalCard/>
+     {/* <HorizontalCard imageSrc={""} header={""} description={""}*/}
       
     </>
   );
