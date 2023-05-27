@@ -4,9 +4,9 @@ import BlogList from "../../components/BlogList";
 import PreviewBlogList from "../../components/PreviewBlogList";
 import { client } from "../../lib/sanity.client";
 import { groq } from "next-sanity";
-import React from 'react';
+import React from "react";
 import createMetadata from "./_metadata";
-import {queryAllPost, querySEO } from "../../lib/queries";
+import { queryAllPost, querySEO, queryHero } from "../../lib/queries";
 import Banner from "../../components/Banner";
 import Banner2 from "../../components/Banner2";
 import HorizontalCard from "../../components/HcardsIndex";
@@ -14,9 +14,9 @@ import IndexCards from "../../components/IndexCards";
 import HcardsIndex from "../../components/HcardsIndex";
 
 export async function generateMetadata() {
-  const slug="homepage"
-  
+  const slug = "homepage";
 
+  const heroSlug = "Trees-and-Gardens";
   const postData = await client.fetch(querySEO, { slug: slug });
 
   const metadata = createMetadata(postData);
@@ -24,13 +24,8 @@ export async function generateMetadata() {
   return metadata;
 }
 
-
-
-
-
-
 export default async function IndexPage() {
-/*  if (previewData()) {
+  /*  if (previewData()) {
     return (
       <PreviewSuspense
         fallback={
@@ -46,17 +41,17 @@ export default async function IndexPage() {
     );
   }
 */
+  const heroSlug = "heromain";
   const posts = await client.fetch(queryAllPost);
-
- 
+  const hero = await client.fetch(queryHero, { slug: heroSlug });
+  console.log(hero.CTA_Main);
 
   return (
     <>
-      <Banner />
+      <Banner hero={hero} />
       <Banner2 />
-      <IndexCards/>
-      <HcardsIndex/>
-      
+      <IndexCards />
+      <HcardsIndex />
     </>
   );
 }
