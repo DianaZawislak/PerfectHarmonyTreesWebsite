@@ -44,7 +44,7 @@ export default async function IndexPage() {
   const heroSlug = "heromain";
   const posts = await client.fetch(queryAllPost);
   const hero = await client.fetch(queryHero, { slug: heroSlug });
-  console.log(hero.CTA_Main);
+  console.log(hero.backgroundImage);
 
   return (
     <>

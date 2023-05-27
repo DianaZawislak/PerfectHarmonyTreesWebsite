@@ -111,6 +111,7 @@ interface SEO extends Base {
 interface Hero extends Base {
   title: string;
   slug: Slug;
+  ctaBtnTxt:string;
   CTA_Main: string[];
   backgroundImage: Image;
   ctaText_Subtitle: string[];
