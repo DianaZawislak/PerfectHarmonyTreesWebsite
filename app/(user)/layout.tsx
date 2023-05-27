@@ -21,6 +21,12 @@ const DynamicFooter = dynamic(() => import("../../components/Footer"), {
   loading: () => <p>Loading...</p>,
 });
 
+
+const PrivacyDraw = dynamic(() => import("../../components/PrivacyDraw"), {
+  loading: () => <p>Loading...</p>,
+});
+
+
 export default async function RootLayout({
   children,
 }: {
@@ -37,6 +43,7 @@ export default async function RootLayout({
     <html>
       <body className="bg-lime-50">
       <div className="mx-auto max-w-7xl">
+        <PrivacyDraw/>
         {menu && <DynamicHeader menu={menu} />} 
         {children}
         {footer && <DynamicFooter data={footer} />}
