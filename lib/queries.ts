@@ -91,3 +91,13 @@ twitter {
 metaRobots
   }
 }`;
+export const queryHeroArrayBySlug = groq`*[_type == 'heroCardArray' && slug.current == $slug][0] {
+  title,
+  slug,
+  cards[] {
+    title,
+    backgroundImage,
+    cardText,
+    ctaBtnTxt
+  }
+}`;

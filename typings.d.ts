@@ -134,3 +134,16 @@ interface Footer extends Base {
   logo: Image;
   sections: Section[];
 }
+
+interface HeroCardArray extends Base {
+  title: string;
+  slug: Slug;
+  cards: HeroCard[];
+}
+
+interface HeroCard extends Base {
+  title: string;
+  backgroundImage: Image;
+  cardText: string;
+  ctaBtnTxt: string;
+}
