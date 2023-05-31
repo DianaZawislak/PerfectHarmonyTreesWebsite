@@ -41,7 +41,7 @@ export default async function IndexPage() {
     );
   }
 */
-  const heroSlug = "heromain";
+  const heroSlug = "Trees-and-Gardens";
   const arrSlug="index-cards";
   const posts = await client.fetch(queryAllPost);
   const hero = await client.fetch(queryHero, { slug: heroSlug });
@@ -52,7 +52,7 @@ export default async function IndexPage() {
     <>
       <Banner hero={hero} />
       <Banner2 />
-      <IndexCards  heroCards={cards} />
+     <IndexCards  heroCards={cards} />
       <HcardsIndex />
     </>
   );
