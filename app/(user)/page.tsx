@@ -6,7 +6,7 @@ import { client } from "../../lib/sanity.client";
 import { groq } from "next-sanity";
 import React from "react";
 import createMetadata from "./_metadata";
-import { queryAllPost, querySEO, queryHero } from "../../lib/queries";
+import { queryAllPost, querySEO, queryHero ,  queryHeroArrayBySlug} from "../../lib/queries";
 import Banner from "../../components/Banner";
 import Banner2 from "../../components/Banner2";
 import HorizontalCard from "../../components/HcardsIndex";
@@ -42,15 +42,17 @@ export default async function IndexPage() {
   }
 */
   const heroSlug = "heromain";
+  const arrSlug="index-cards";
   const posts = await client.fetch(queryAllPost);
   const hero = await client.fetch(queryHero, { slug: heroSlug });
-  console.log(hero.CTA_Main);
+  const cards= await client.fetch(queryHeroArrayBySlug, { slug: arrSlug });
+
 
   return (
     <>
       <Banner hero={hero} />
       <Banner2 />
-      <IndexCards />
+      <IndexCards  heroCards={cards} />
       <HcardsIndex />
     </>
   );

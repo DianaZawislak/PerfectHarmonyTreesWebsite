@@ -30,8 +30,9 @@ export const queryHero = groq`*[_type=='hero' && slug.current == $slug][0]
   title,
   slug,
   CTA_Main,
+  ctaBtnTxt,
   "logoUrl": logo.asset->url,
-  "backgroundImageUrl": backgroundImage.asset->url,
+  backgroundImage,
   ctaText_Subtitle
 }`;
 export const queryAllPost = groq`*[_type=='post'] {
@@ -88,5 +89,15 @@ twitter {
   image
 },
 metaRobots
+  }
+}`;
+export const queryHeroArrayBySlug = groq`*[_type == 'heroCardArray' && slug.current == $slug][0] {
+  title,
+  slug,
+  cards[] {
+    title,
+    backgroundImage,
+    cardText,
+    ctaBtnTxt
   }
 }`;

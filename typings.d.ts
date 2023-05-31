@@ -111,6 +111,7 @@ interface SEO extends Base {
 interface Hero extends Base {
   title: string;
   slug: Slug;
+  ctaBtnTxt:string;
   CTA_Main: string[];
   backgroundImage: Image;
   ctaText_Subtitle: string[];
@@ -132,4 +133,17 @@ interface Footer extends Base {
   slug: Slug;
   logo: Image;
   sections: Section[];
+}
+
+interface HeroCardArray extends Base {
+  title: string;
+  slug: Slug;
+  cards: HeroCard[];
+}
+
+interface HeroCard extends Base {
+  title: string;
+  backgroundImage: Image;
+  cardText: string;
+  ctaBtnTxt: string;
 }

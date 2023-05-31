@@ -51,7 +51,12 @@ export const hero = {
       of: [{ type: 'string' }],
     },
 
-    
+    {
+      name: 'ctaBtnTxt',
+      title: 'Call to Action Button Text',
+      type: 'string',
+      validation: (Rule: { required: () => any; }) => Rule.required(),
+    },
     
   
   ],
