@@ -72,6 +72,7 @@ export default defineType({
           name: "title",
           title: "Title",
           type: "string",
+          
         }),
         defineField({
           name: "type",
@@ -110,17 +111,7 @@ export default defineType({
           title: "Creator",
           type: "string",
         }),
-        defineField({
-          name: "image",
-          title: "Image",
-          type: "image",
-          
-          description: "The image to be used for social sharing and previews.",
-          options: {
-            hotspot: true,
-            source: "image",
-          },
-        }),
+      
       ],
     }),
   ],
