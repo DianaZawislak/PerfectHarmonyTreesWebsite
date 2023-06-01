@@ -13,7 +13,7 @@ export default defineType({
           source: "title",
           maxLength: 96,
         },
-      }),
+    }),
     defineField({
       name: "title",
       title: "Title",
@@ -43,28 +43,10 @@ export default defineType({
       },
     }),
     defineField({
-      name: "ogType",
-      title: "Open Graph Type",
-      type: "string",
-      description: 'The type of the Open Graph object (e.g. "website" or "article").',
-    }),
-    defineField({
       name: "twitterCard",
       title: "Twitter Card Type",
       type: "string",
       description: 'The type of the Twitter Card (e.g. "summary_large_image" or "summary").',
-    }),
-    defineField({
-      name: "ogUrl",
-      title: "Open Graph URL",
-      type: "url",
-      description: "The canonical URL of the page. Useful for Open Graph.",
-    }),
-    defineField({
-      name: "ogSiteName",
-      title: "Open Graph Site Name",
-      type: "string",
-      description: "The name of the website. Useful for Open Graph.",
     }),
     defineField({
       name: "metaRobots",
@@ -80,6 +62,57 @@ export default defineType({
         ],
       },
       description: "The meta robots directives for search engines.",
+    }),
+    defineField({
+      name: "openGraph",
+      title: "Open Graph",
+      type: "object",
+      fields: [
+        defineField({
+          name: "title",
+          title: "Title",
+          type: "string",
+          
+        }),
+        defineField({
+          name: "type",
+          title: "Type",
+          type: "string",
+        }),
+        defineField({
+          name: "url",
+          title: "URL",
+          type: "url",
+        }),
+        defineField({
+          name: "siteName",
+          title: "Site Name",
+          type: "string",
+        }),
+      ],
+    }),
+    defineField({
+      name: "twitter",
+      title: "Twitter SEO",
+      type: "object",
+      fields: [
+        defineField({
+          name: "card",
+          title: "Card",
+          type: "string",
+        }),
+        defineField({
+          name: "site",
+          title: "Site",
+          type: "string",
+        }),
+        defineField({
+          name: "creator",
+          title: "Creator",
+          type: "string",
+        }),
+      
+      ],
     }),
   ],
   preview: {

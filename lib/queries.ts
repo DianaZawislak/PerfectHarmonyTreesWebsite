@@ -54,16 +54,23 @@ export const queryAllPost = groq`*[_type=='post'] {
   `;
 export const querySEO = groq`*[_type=='seo' && slug.current == $slug][0]
   {
-  
+    title,
+    description,
+    keywords,
+    image,
+    openGraph {
       title,
-      description,
-      keywords,
-      image,
-      ogType,
-      twitterCard,
-      ogUrl,
-      ogSiteName,
-      metaRobots
+      type,
+      url,
+      siteName
+    },
+    twitter {
+      card,
+      site,
+      creator,
+      image
+    },
+    metaRobots
     
   }`;
 export const queryPost = groq`*[_type=='post' && slug.current == $slug][0]

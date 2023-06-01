@@ -11,9 +11,9 @@ interface Post extends Base {
   body: Block[];
   categories: Category[];
   mainImage: Image;
-  title: string; // the original title property in Post
-  description: string; // the original description property in Post
-  seo: SEO; // SEO fields are now contained in this separate property
+  title: string;  // the original title property in Post
+  description: string;  // the original description property in Post
+  seo: SEO;  // SEO fields are now contained in this separate property
 }
 
 interface Author extends Base {
@@ -82,6 +82,7 @@ interface Menu {
   };
 }
 
+
 interface OpenGraph_SEO {
   title: string;
   type: string;
@@ -93,7 +94,7 @@ interface Twitter_SEO {
   card: string;
   site: string;
   creator: string;
-  image: string;
+  image: Image;
 }
 
 interface SEO extends Base {
@@ -101,22 +102,25 @@ interface SEO extends Base {
   description: string;
   slug: string;
   keywords: string[];
-  image: string; // Or a more specific type if you have one
+  image: Image; // Or a more specific type if you have one
   twitterCard: string;
   metaRobots: string[];
   openGraph: OpenGraph_SEO;
   twitter: Twitter_SEO;
 }
 
+
+
 interface Hero extends Base {
   title: string;
   slug: Slug;
-  ctaBtnTxt:string;
   CTA_Main: string[];
   backgroundImage: Image;
   ctaText_Subtitle: string[];
   logo: Image;
+  ctaBtnTxt:string;
 }
+
 interface FooterItem {
   title: string;
   link: string;
