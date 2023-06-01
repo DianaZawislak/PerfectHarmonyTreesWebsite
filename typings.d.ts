@@ -75,10 +75,12 @@ interface MenuItem {
 }
 
 interface Menu {
+  logoUrl: string;
   items: {
     [x: string]: any;
     item: MenuItem[];
-    logo: string;
+    
+    
   };
 }
 
