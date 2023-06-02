@@ -12,7 +12,7 @@ type Props = {
 
   export default function createMetadata(seo: SEO): Metadata {
     const imageUrl = seo?.image ? urlFor(seo.image).url() : undefined;
-  console.log(seo);
+
     return {
       title: seo?.title || 'Perfect Harmony Trees and Gardens, LLC',
       description: seo?.description || 'Default Description',
