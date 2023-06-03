@@ -30,17 +30,18 @@ function Header({ menu }: HeaderProps) {
     <div
       style={{
         backgroundImage:
-          "url(https://cdn.discordapp.com/attachments/1103865788944875622/1110753466034438194/navbarback2.png)",
+          "url(https://cdn.discordapp.com/attachments/1110785495157461083/1114360153211416717/navbarwhite.png)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="flex items-center justify-between px-5 space-x-2 font-bold"
+      className="flex items-center justify-between space-x-2 font-bold"
     >
       <div className="items-center justify-between hidden w-full pr-10 space-x-32 md:flex">
         <div className="flex items-center space-x-10">
-          <Link href="/">
+          <Link href="/"
+          >
             <Image
-              src="https://cdn.discordapp.com/attachments/1103865788944875622/1108960263820030022/logonobrgdyellowgreen.png"
+              src="https://cdn.discordapp.com/attachments/1110785495157461083/1114361925002854501/logonobrgd.png"
               width={100}
               className="rounded-md"
               height={100}
@@ -48,35 +49,41 @@ function Header({ menu }: HeaderProps) {
               style={{ paddingRight: "1px" }}
             />
           </Link>
-          <nav className="font-semibold text-md" style={{ color: "#ECF87F" }}>
-            <ul className="flex flex-row space-x-8 text-lg ">
+          <nav className="font-semibold text-md text-black">
+            <ul className="flex flex-row space-x-8 lg:text-lg sm:text-sm">
               {menu.items.map((item: MenuItem, index: any, array: any) => (
                 <li
                   key={item?._key}
-                  className={`border-r border-lime-200 pr-8 hover:text-gray-500 ${
+                  className={`border-r border-black pr-8 hover:text-gray-500 ${
                     index !== array.length - 1 ? "" : "border-r-0"
                   }`}
                 >
-                  <Link href={item?.link}>{item?.title}</Link>
+                      <Link href={item?.link} className="overflow-hidden text-overflow-ellipsis whitespace-nowrap">
+      {item?.title}
+    </Link>
                 </li>
               ))}
             </ul>
           </nav>
         </div>
-        <div className="flex items-center pl-8">
+        <div className="flex items-center pl-8 text-overflow-ellipsis whitespace-nowrap">
           <FontAwesomeIcon
             className="pl-12 pr-5 text-2xl"
             icon={faPhone}
-            style={{ color: "#ecf87f" }}
+            style={{ color: "#111111" }}
           />
           <a
             href="tel:123-456-7890"
-            className="text-xl text-lime-300 hover:text-gray-500"
+            className="text-2xl md:text-lg text-black hover:text-gray-500"
           >
             123-456-7890
           </a>
         </div>
       </div>
+
+
+{/* Below are settings for menu on small screen */}
+
 
       <div className="flex items-center justify-between w-full md:hidden">
         <Link href="/">
@@ -88,30 +95,32 @@ function Header({ menu }: HeaderProps) {
             alt="logo"
           />
         </Link>
-        <div className="flex items-center">
+        <div className="flex items-center justify-end w-full md:hidden">
+          <div>
           <FontAwesomeIcon
             className="pr-2"
             icon={faPhone}
-            style={{ color: "#ecf87f" }}
+            style={{ color: "#111111" }}
           />
           <a
             href="tel:123-456-7890"
-            style={{ color: "#ECF87F" }}
-            className="pr-5 text-lime-300 hover:text-amber-800"
+            style={{ color: "#111111" }}
+            className="pr-28 text-black hover:text-amber-800"
           >
             123-456-7890
           </a>
+          </div>
 
           <DropdownMenuPrimitive.Root>
             <DropdownMenuPrimitive.Trigger asChild>
               <button
-                className="text-2xl text-lime-300 hover:text-gray-500"
+                className="text-2xl text-black hover:text-gray-500"
                 onClick={toggleMenu}
                 aria-label="Toggle menu"
               >
                 <HamburgerMenuIcon
-                  className="w-6 h-6 hover:text-amber-800"
-                  style={{ color: "#ECF87F" }}
+                  className="w-6 h-6 pr-2 hover:text-amber-800"
+                  style={{ color: "#111111" }}
                 />
               </button>
             </DropdownMenuPrimitive.Trigger>
