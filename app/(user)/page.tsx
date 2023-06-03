@@ -50,9 +50,13 @@ export default async function IndexPage() {
 
   return (
     <>
-      <Banner hero={hero} />
+      <div className="relative">
+        <Banner hero={hero} />
+        <div className="absolute bottom-0 w-full">
+          <IndexCards heroCards={cards} />
+        </div>
+      </div>
       <Banner2 />
-     <IndexCards  heroCards={cards} />
       <HcardsIndex />
     </>
   );
