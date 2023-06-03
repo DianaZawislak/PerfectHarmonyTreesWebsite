@@ -18,7 +18,7 @@ function Banner({ hero }: HeaderProps) {
   return (
     <div 
       style={{
-        height: '400px',
+        height: '800px',
         backgroundImage: `url(${urlFor(hero.backgroundImage).url()})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
