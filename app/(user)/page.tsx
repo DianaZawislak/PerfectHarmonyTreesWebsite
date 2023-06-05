@@ -12,7 +12,7 @@ import Banner2 from "../../components/Banner2";
 import HorizontalCard from "../../components/HcardsIndex";
 import IndexCards from "../../components/IndexCards";
 import HcardsIndex from "../../components/HcardsIndex";
-
+import AboutUs from "../../components/aboutus";
 export async function generateMetadata() {
   const slug = "homepage";
 
@@ -54,6 +54,7 @@ export default async function IndexPage() {
       <Banner2 />
      <IndexCards  heroCards={cards} />
       <HcardsIndex />
+    <AboutUs  content={cards}/>
     </>
   );
 }

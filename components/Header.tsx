@@ -25,6 +25,20 @@ function Header({ menu }: HeaderProps) {
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
+  const scroll2El = (elID: string) => {
+    window.scrollTo({
+      top: document.getElementById(elID).offsetTop - 60,
+      behavior: 'smooth',
+    });
+  };
+
+const onBtnClick = (e) => {
+    e.preventDefault();
+    const goto = e.target.getAttribute('goto');
+    setTimeout(() => {
+      scroll2El(goto);
+    }, 100);
+  }
 
   return (
     <div
@@ -78,6 +92,7 @@ function Header({ menu }: HeaderProps) {
           >
             123-456-7890
           </a>
+          <button  className="overflow-hidden text-overflow-ellipsis whitespace-nowrap" goto="firstCard" onClick={onBtnClick}>Contact</button >
         </div>
       </div>
 
