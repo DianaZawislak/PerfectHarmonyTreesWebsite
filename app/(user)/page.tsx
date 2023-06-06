@@ -15,7 +15,7 @@ import HorizontalCard from "../../components/HcardsIndex";
 import IndexCards from "../../components/IndexCards";
 import HcardsIndex from "../../components/HcardsIndex";
 import AboutUs from "../../components/aboutus";
-export async function generateMetadata() {
+async function generateMetadata() {
   const slug = "homepage";
 
   const heroSlug = "Trees-and-Gardens";
