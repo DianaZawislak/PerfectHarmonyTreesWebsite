@@ -21,7 +21,7 @@ function AboutUs({ content }: contentProps) {
             What We Do
           </h2>
           <p className="text-gray-500 leading-relaxed font-light text-xl mx-auto pb-2">
-            tree and gardens and stuff idk man i like to climb up tree's
+            tree and gardens and stuff idk man i like to climb up trees
           </p>
         </header>
         <IndexCards heroCards={content} />
