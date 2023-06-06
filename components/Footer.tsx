@@ -3,6 +3,7 @@ import {
     FaTwitter,
     FaLinkedinIn,
     FaRedditAlien,
+    FaPhone, FaEnvelope, FaMapMarkerAlt
   } from "react-icons/fa";
   import Link from "next/link";
   
@@ -28,36 +29,42 @@ import {
             opacity: 0.2
           }}
         />
-        <div className="md:flex md:justify-between">
-                      <div className="mb-6 md:mb-0">
-                          
-                      </div>
-                      <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-                          {sections.map((section) => (
-                              <div key={section.title}>
-                                  <h3 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                                      {section.title}
-                                  </h3>
-                                  <ul>
-                                    
-                                      {section.items.map((item) => (
-                                          <li key={item.title} className="mb-4">
-                                              
-                                              <Link
-                                                  href={item.link}
-                                                  target="_blank"
-                                                  className="text-gray-600 hover:underline dark:text-gray-400"
-                                              >
-                                                  {item.title}
-                                              </Link>
-                                          </li>
-                                      ))}
-                                  </ul>
-                              </div>
-                          ))}
-                      </div>
-                  </div>
-                  <hr className="my-6 border-gray-800 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <div className="md:flex md:justify-end">
+                  
+  
+  <div className="grid grid-cols-2 gap-8 justify-end">
+  {/* Address */}
+  <div>
+    <h3 className="mb-3 text-sm font-semibold text-gray-900 uppercase dark:text-white">Address</h3>
+    <ul>
+      <li className="mb-2 flex items-center">
+        <FaMapMarkerAlt className="mr-2 text-gray-600 dark:text-gray-400" />
+        <span className="text-gray-600 dark:text-gray-400">123 Main Street</span>
+      </li>
+      <li className="mb-2 flex items-center">
+        
+        <span className="ml-6 text-gray-600 dark:text-gray-400">Jersey City, NJ 07301</span>
+      </li>
+    </ul>
+  </div>
+
+  {/* Phone and Email */}
+  <div>
+    <h3 className="mb-3 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contact</h3>
+    <ul>
+      <li className="mb-2 flex items-center">
+        <FaPhone className="mr-2 text-gray-600 dark:text-gray-400" />
+        <a href="tel:123-456-7890" className="text-gray-600 dark:text-gray-400">123-456-7890</a>
+      </li>
+      <li className="mb-2 flex items-center">
+        <FaEnvelope className="mr-2 text-gray-600 dark:text-gray-400" />
+        <a href="mailto:example@example.com" className="text-gray-600 dark:text-gray-400">example@example.com</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+                  <hr className="my-2 border-gray-300 sm:mx-auto dark:border-gray-700 lg:my-2" />
 
 
   <div className="sm:flex sm:items-center sm:justify-between z-10 relative">
@@ -69,12 +76,12 @@ import {
       {websiteTitle}
     </span> */}
   </div>
-  <span className="text-xl text-gray-500 sm:text-center dark:text-gray-400 flex flex-col items-center">
+  <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 flex flex-col items-center">
   © 2023{" "}
   <Link href="https://www.jgis219.com/" target="_blank" className="hover:underline">
     {websiteTitle}™
   </Link>
-  <span className="self-center">
+  <span className="self-center text-sm">
      All Rights Reserved.
   </span>
 </span>
