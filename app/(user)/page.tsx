@@ -59,7 +59,7 @@ export default async function IndexPage() {
         </div>
       </div>
       <Banner2 />
-      <HcardsIndex />
+      {/* <HcardsIndex /> */}
       <style jsx>{`
         @media (max-width: 768px) {
           .relative {
