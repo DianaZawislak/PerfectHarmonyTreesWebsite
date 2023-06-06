@@ -14,8 +14,8 @@ import Banner2 from "../../components/Banner2";
 import HorizontalCard from "../../components/HcardsIndex";
 import IndexCards from "../../components/IndexCards";
 import HcardsIndex from "../../components/HcardsIndex";
-
-export async function generateMetadata() {
+import AboutUs from "../../components/aboutus";
+async function generateMetadata() {
   const slug = "homepage";
 
   const heroSlug = "Trees-and-Gardens";
@@ -59,7 +59,11 @@ export default async function IndexPage() {
         </div>
       </div>
       <Banner2 />
+
+    <AboutUs  content={cards}/>
+
       {/* <HcardsIndex /> */}
+
       <style jsx>{`
         @media (max-width: 768px) {
           .relative {

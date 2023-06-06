@@ -20,7 +20,7 @@ interface HeaderProps {
   menu: Menu;
 }
 
-const Header = ({ menu }) => {
+const Header = ({ menu }:HeaderProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
 
@@ -32,7 +32,9 @@ const Header = ({ menu }) => {
       setScrolled(false);
     }
   };
-
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -40,9 +42,22 @@ const Header = ({ menu }) => {
     };
   }, []);
 
-  const toggleMenu = () => {
-    setMenuOpen(!isMenuOpen);
+  const scroll2El = (elID: string) => {
+    const element = document.getElementById(elID);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 60,
+        behavior: 'smooth',
+      });
+    }
   };
+const onBtnClick = (e:any) => {
+    e.preventDefault();
+    const goto = e.target.getAttribute('goto');
+    setTimeout(() => {
+      scroll2El(goto);
+    }, 100);
+  }
 
   return (
     <div
@@ -71,7 +86,7 @@ const Header = ({ menu }) => {
           </Link>
           <nav className="font-semibold text-md text-black">
             <ul className="flex flex-row space-x-8 lg:text-lg sm:text-sm">
-              {menu.items.map((item: MenuItem, index: any, array: any) => (
+              {menu.items.map((item: MenuItem, index:number, array:any) => (
                 <li
                   key={item?._key}
                   className={`border-r border-black pr-8 hover:text-gray-500 ${
@@ -98,6 +113,7 @@ const Header = ({ menu }) => {
           >
             123-456-7890
           </a>
+       
         </div>
       </div>
 

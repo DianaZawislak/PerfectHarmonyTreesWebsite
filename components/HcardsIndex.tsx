@@ -20,7 +20,7 @@ const HcardsIndex: React.FC = () => {
       ref={ref}
       style={{
         position: 'relative',
-        top: y.interpolate(value => `${value * 400}px`),
+        top: y.interpolate((value: number) => `${value * 400}px`),
       }}
     >
       <div id="firstCard">
