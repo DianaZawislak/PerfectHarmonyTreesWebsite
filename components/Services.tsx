@@ -4,14 +4,14 @@ import IndexCard from './IndexCard';
 const Services: React.FC = () => {
   return (
     <div>
-      <header className="text-center mx-auto mb-12 lg:px-20">
+      {/* <header className="text-center mx-auto mb-12 lg:px-20">
         <h2 className="text-2xl leading-normal mb-2 font-bold text-black">
           What We Do
         </h2>
         <p className="text-gray-500 leading-relaxed font-light text-xl mx-auto pb-2">
           tree and gardens and stuff idk man i like to climb up trees
         </p>
-      </header>
+      </header> */}
 
       <div className="services-container" style={{ display: 'flex' }}>
         <div style={{ flex: 1 }}>
