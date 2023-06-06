@@ -14,7 +14,7 @@ const Services: React.FC = () => {
       </header>
 
       <div className="services-container" style={{ display: 'flex' }}>
-        <div>
+        <div style={{ flex: 1 }}>
           <IndexCard
             header="First Service"
             backgroundImage="https://cdn.discordapp.com/attachments/1103865788944875622/1115666168250912899/dianadetroit_tree_logo_black_and_white_d7deccd4-0856-4aec-80cb-c32e583920d1.png"
@@ -22,7 +22,7 @@ const Services: React.FC = () => {
             ctaBtnTxt="Learn More"
           />
         </div>
-        <div>
+        <div style={{ flex: 1 }}>
           <IndexCard
             header="Second Service"
             backgroundImage="https://cdn.discordapp.com/attachments/1103865788944875622/1115666168250912899/dianadetroit_tree_logo_black_and_white_d7deccd4-0856-4aec-80cb-c32e583920d1.png"
@@ -36,4 +36,5 @@ const Services: React.FC = () => {
 };
 
 export default Services;
+
 
