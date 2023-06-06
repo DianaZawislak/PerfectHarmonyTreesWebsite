@@ -42,7 +42,7 @@ export default async function RootLayout({
   return (
     <html>
       <body className="bg-white">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-9xl">
         <PrivacyDraw/>
         {menu && <DynamicHeader menu={menu} />} 
         {children}

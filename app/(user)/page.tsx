@@ -1,3 +1,5 @@
+
+'use client'
 import { PreviewData } from "next";
 import PreviewSuspense from "../../components/PreviewSuspense";
 import BlogList from "../../components/BlogList";
@@ -50,11 +52,29 @@ export default async function IndexPage() {
 
   return (
     <>
-      <Banner hero={hero} />
+      <div className="relative">
+        <Banner hero={hero} />
+        <div className="absolute bottom-0 w-full">
+          <IndexCards heroCards={cards} />
+        </div>
+      </div>
       <Banner2 />
-     <IndexCards  heroCards={cards} />
       <HcardsIndex />
     <AboutUs  content={cards}/>
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .relative {
+            display: flex;
+            flex-direction: column;
+          }
+  
+          .absolute {
+            position: static;
+          }
+        }
+      `}</style>
     </>
   );
+  
+  
 }

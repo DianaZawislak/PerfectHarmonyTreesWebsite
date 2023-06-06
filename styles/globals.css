@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: 'halvetica', sans-serif;
+}
+
+
+
 /* Header */
 .custom-header {
     background-color: rgba(160, 118, 70, 0.5);
@@ -91,49 +97,6 @@
     padding-left: 50px;
     padding-right: 50px;
   }
-}
-
-
-
-
-/* Fonts */
-.font-oswald {
-  font-family: "Oswald", sans-serif;
-}
-
-.font-lato {
-  font-family: "Lato", sans-serif;
-}
-
-.font-montserrat {
-  font-family: "Montserrat", sans-serif;
-}
-
-.font-bree-serif {
-  font-family: "Bree Serif", serif;
-}
-
-.font-roboto {
-  font-family: "Roboto", sans-serif;
-}
-
-.font-avantgarde {
-  font-family: "Avantgarde", sans-serif;
-}
-
-.font-tex-gyre-adventor {
-  font-family: "TeX Gyre Adventor", sans-serif;
-}
-
-.font-urw-gothic-l {
-  font-family: "URW Gothic L", sans-serif;
-}
-.font-black-jack {
-  font-family: "Black Jack", cursive;
-}
-
-.font-milkshake {
-  font-family: "Milkshake", cursive;
 }
 
 /* cards on index */
