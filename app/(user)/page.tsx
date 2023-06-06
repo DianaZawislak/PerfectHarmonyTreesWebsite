@@ -1,3 +1,5 @@
+
+'use client'
 import { PreviewData } from "next";
 import PreviewSuspense from "../../components/PreviewSuspense";
 import BlogList from "../../components/BlogList";
@@ -58,6 +60,20 @@ export default async function IndexPage() {
       </div>
       <Banner2 />
       <HcardsIndex />
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .relative {
+            display: flex;
+            flex-direction: column;
+          }
+  
+          .absolute {
+            position: static;
+          }
+        }
+      `}</style>
     </>
   );
+  
+  
 }

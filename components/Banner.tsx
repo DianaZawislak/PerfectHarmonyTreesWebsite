@@ -33,15 +33,15 @@ function Banner({ hero }: HeaderProps) {
         backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url(${urlFor(hero.backgroundImage).url()})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        opacity: 0.5,
-        zIndex: -1
+        opacity: 0.8,
+        zIndex: -2
       }}/>
       <div className="flex flex-col items-center justify-start font-bold px-1 py-1 h-full pt-36">
         <div className={`p-8 rounded-lg items-center justify-center text-center ${animationState ? 'animate-snake' : ''}`}>
           {hero.CTA_Main.map((text:string, index:number) => (
-            <h1 key={index} className="lg:text-5xl text-4xl text-lime-300 p-2 bg-black bg-opacity-10 rounded-md">{text}</h1>
+            <h1 key={index} className="lg:text-5xl text-4xl text-black p-2 rounded-md">{text}</h1>
           ))}
-          <h2 className="text-black pt-2 text-xl tracking-widest">
+          <h2 className="text-black pt-2 text-xl tracking-[2px]">
             {hero.ctaText_Subtitle.map((text:string, index:number) => (
               <span key={index}>{text}{index !== hero.ctaText_Subtitle.length - 1 ? ' | ' : ''}</span>
             ))}

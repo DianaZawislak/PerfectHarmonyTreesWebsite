@@ -18,24 +18,19 @@ import {
   
       return (
         
-              <footer className="p-4 bg-white sm:p-6 dark:bg-gray-800 relative">
-                  <div 
-                      className="absolute inset-0 z-0" 
-                      style={{
-                          backgroundImage: 'url(https://cdn.discordapp.com/attachments/1110785495157461083/1110791058243194891/footer3.png)', 
-                          backgroundRepeat: 'no-repeat', 
-                          backgroundSize: 'cover',
-                          opacity: 0.6
-                      }}
-                  />
-                  <div className="md:flex md:justify-between z-10 relative">
+        <footer className="p-4 bg-white sm:p-6 dark:bg-gray-800 relative">
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: 'url(https://cdn.discordapp.com/attachments/1110785495157461083/1114685118968238183/AdobeStock_372288300.jpeg)',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '100% auto', // Adjust this value to fit your needs
+            opacity: 0.2
+          }}
+        />
+        <div className="md:flex md:justify-between">
                       <div className="mb-6 md:mb-0">
-                          <Link href="/" target="_blank" className="flex items-center">
-                          <img src="https://cdn.discordapp.com/attachments/1110785495157461083/1110805598368440320/logonobrgdgray.png" alt="Logo" className="logo-class"  width="150" height="150" />
-  {/*                             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-                                  {websiteTitle}
-                              </span> */}
-                          </Link>
+                          
                       </div>
                       <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                           {sections.map((section) => (
@@ -44,8 +39,10 @@ import {
                                       {section.title}
                                   </h3>
                                   <ul>
+                                    
                                       {section.items.map((item) => (
                                           <li key={item.title} className="mb-4">
+                                              
                                               <Link
                                                   href={item.link}
                                                   target="_blank"
@@ -61,50 +58,43 @@ import {
                       </div>
                   </div>
                   <hr className="my-6 border-gray-800 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                  <div className="sm:flex sm:items-center sm:justify-between z-10 relative">
-                      <span className="text-xl text-gray-500 sm:text-center dark:text-gray-400">
-                          © 2023{" "}
-                          <Link
-                              href="https://www.jgis219.com/"
-                              target="_blank"
-                              className="hover:underline"
-                          >
-                              {websiteTitle}™
-                          </Link>
-                          . All Rights Reserved.
-                      </span>
-                      <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-                          <button
-                              className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-                              aria-label="Share on Facebook"
-                          >
-                              <FaFacebookF aria-hidden="true" size={36}/>
-                          </button>
-  
-                          <button
-                              className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-                              aria-label="Share on Twitter"
-                          >
-                              <FaTwitter aria-hidden="true" size={36}/>
-                          </button>
-  
-                          <button
-                              className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-                              aria-label="Share on LinkedIn"
-                          >
-                              <FaLinkedinIn aria-hidden="true" size={36}/>
-                          </button>
-  
-                          <button
-                              className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-                              aria-label="Share on Reddit"
-                          >
-                              <FaRedditAlien aria-hidden="true" size={36}/>
-                          </button>
-  
-                     
-                      </div>
-                  </div>
+
+
+  <div className="sm:flex sm:items-center sm:justify-between z-10 relative">
+  <div className="flex flex-col items-center">
+    <Link href="/" target="_blank" className="flex items-center">
+      <img src="https://cdn.discordapp.com/attachments/1110785495157461083/1110805598368440320/logonobrgdgray.png" alt="Logo" className="logo-class pb-3" width="80" height="80" />
+    </Link>
+{/*     <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+      {websiteTitle}
+    </span> */}
+  </div>
+  <span className="text-xl text-gray-500 sm:text-center dark:text-gray-400 flex flex-col items-center">
+  © 2023{" "}
+  <Link href="https://www.jgis219.com/" target="_blank" className="hover:underline">
+    {websiteTitle}™
+  </Link>
+  <span className="self-center">
+     All Rights Reserved.
+  </span>
+</span>
+
+  <div className="flex justify-center items-center mt-4 sm:mt-0 space-x-6">
+    <button className="text-gray-500 hover:text-gray-900 dark:hover:text-white" aria-label="Share on Facebook">
+      <FaFacebookF aria-hidden="true" size={36} />
+    </button>
+    <button className="text-gray-500 hover:text-gray-900 dark:hover:text-white" aria-label="Share on Twitter">
+      <FaTwitter aria-hidden="true" size={36} />
+    </button>
+    <button className="text-gray-500 hover:text-gray-900 dark:hover:text-white" aria-label="Share on LinkedIn">
+      <FaLinkedinIn aria-hidden="true" size={36} />
+    </button>
+    <button className="text-gray-500 hover:text-gray-900 dark:hover:text-white" aria-label="Share on Reddit">
+      <FaRedditAlien aria-hidden="true" size={36} />
+    </button>
+  </div>
+</div>
+
               </footer>
          
       );
