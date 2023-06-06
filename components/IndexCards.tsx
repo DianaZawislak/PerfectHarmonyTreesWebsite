@@ -7,7 +7,6 @@ interface CardProps {
   card: HeroCard;
 }
 
-
 const Card: React.FC<CardProps> = ({ card }) => {
   const { title, backgroundImage, cardText, ctaBtnTxt } = card;
 
@@ -16,7 +15,7 @@ const Card: React.FC<CardProps> = ({ card }) => {
       <div className="shadow-lg flex flex-col items-center justify-center pb-5 px-12">
         <div
           className="mb-6"
-          style={{ width: "100px", height: "100px", position: "relative" }}
+          style={{ width: "80px", height: "80px", position: "relative" }}
         >
           <Image
             src={urlFor(backgroundImage).url()}
@@ -39,12 +38,26 @@ const Card: React.FC<CardProps> = ({ card }) => {
   );
 };
 
-const IndexCards: React.FC<{ heroCards: HeroCardArray}> = ({ heroCards }) => {
+const IndexCards: React.FC<{ heroCards: HeroCardArray }> = ({ heroCards }) => {
   return (
     <div className="cards-container flex justify-center items-start pt-11 mb-12 sm:mb-9">
       {heroCards.cards.map((heroCard, index) => (
         <Card key={index} card={heroCard} />
       ))}
+      <style jsx>{`
+        @media (max-width: 600px) {
+          .cards-container {
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            top: -300px; /* Adjust the value as needed */
+          }
+          
+          .card-container {
+            margin-bottom: 120px; /* Increase the spacing between cards on small screens */
+          }
+        }
+      `}</style>
     </div>
   );
 };
