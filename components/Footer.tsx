@@ -26,7 +26,7 @@ import {
             backgroundImage: 'url(https://cdn.discordapp.com/attachments/1110785495157461083/1114685118968238183/AdobeStock_372288300.jpeg)',
             backgroundRepeat: 'no-repeat',
             backgroundSize: '100% auto', // Adjust this value to fit your needs
-            opacity: 0.2
+            opacity: 0.1
           }}
         />
         <div className="md:flex md:justify-end">
