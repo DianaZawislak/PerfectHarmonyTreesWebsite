@@ -16,7 +16,7 @@ function AboutUs({ content }: contentProps) {
       className="section relative pt-20 pb-8 md:pt-16 md:pb-0 bg-white"
     >
 
-        <IndexCards heroCards={content} />
+        
         <IndexCards heroCards={content} />
       </div>
     

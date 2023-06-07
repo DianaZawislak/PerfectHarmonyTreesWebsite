@@ -1,7 +1,13 @@
 import React from 'react';
-import IndexCard from './IndexCard';
+import IndexCard from './indexCARD';
+import ServicesIndexCards from './ServicesIndexCards';
 
-const Services: React.FC = () => {
+interface contentProps {
+  content: HeroCardArray;
+}
+
+
+const Services: React.FC<contentProps> = ({content}) => {
   return (
     <div>
       {/* <header className="text-center mx-auto mb-12 lg:px-20">
@@ -17,8 +23,8 @@ const Services: React.FC = () => {
         <div style={{ flex: 1 }}>
           <IndexCard
             header="First Service"
-            backgroundImage="https://cdn.discordapp.com/attachments/1103865788944875622/1115666168250912899/dianadetroit_tree_logo_black_and_white_d7deccd4-0856-4aec-80cb-c32e583920d1.png"
-            cardText="This is the content of the first service."
+            backgroundImage="https://cdn.discordapp.com/attachments/1103865788944875622/1115813522497093773/dianadetroit_simple_chainsaw_outline_for_icon_black_and_white_f65c15c8-ddf1-4fc3-823d-3ebac9520d5e.png"
+            cardText="This is the content of the first service.This is the content of the first service.This is the content of the first service."
             ctaBtnTxt="Learn More"
           />
         </div>
@@ -26,9 +32,10 @@ const Services: React.FC = () => {
           <IndexCard
             header="Second Service"
             backgroundImage="https://cdn.discordapp.com/attachments/1103865788944875622/1115666168250912899/dianadetroit_tree_logo_black_and_white_d7deccd4-0856-4aec-80cb-c32e583920d1.png"
-            cardText="This is the content of the second service."
+            cardText="This is the content of the first service.This is the content of the first service.This is the content of the first service."
             ctaBtnTxt="Learn More"
           />
+          <ServicesIndexCards heroCards={content} />
         </div>
       </div>
     </div>

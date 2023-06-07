@@ -20,7 +20,7 @@ function Banner({ hero }: HeaderProps) {
   return (
     <div 
       style={{
-        height: '900px',
+        height: '800px',
         position: 'relative'
       }}
     >
