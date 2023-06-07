@@ -35,13 +35,13 @@ import {
   <div className="grid grid-cols-2 gap-8 justify-end">
   {/* Address */}
   <div>
-    <h3 className="mb-3 text-sm font-semibold text-gray-900 uppercase dark:text-white">Address</h3>
+    <h3 className="mb-3 text-sm font-semibold text-gray-900 text-center uppercase dark:text-white">Address</h3>
     <ul>
-      <li className="mb-2 flex items-center">
+      <li className="mb-2 flex ">
         <FaMapMarkerAlt className="mr-2 text-gray-600 dark:text-gray-400" />
         <span className="text-gray-600 dark:text-gray-400">123 Main Street</span>
       </li>
-      <li className="mb-2 flex items-center">
+      <li className="mb-2 flex ">
         
         <span className="ml-6 text-gray-600 dark:text-gray-400">Jersey City, NJ 07301</span>
       </li>
@@ -50,7 +50,7 @@ import {
 
   {/* Phone and Email */}
   <div>
-    <h3 className="mb-3 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contact</h3>
+    <h3 className="mb-3 text-center text-sm font-semibold text-gray-900 uppercase dark:text-white">Contact</h3>
     <ul>
       <li className="mb-2 flex items-center">
         <FaPhone className="mr-2 text-gray-600 dark:text-gray-400" />
@@ -64,6 +64,7 @@ import {
   </div>
 </div>
 </div>
+
                   <hr className="my-2 border-gray-300 sm:mx-auto dark:border-gray-700 lg:my-2" />
 
 

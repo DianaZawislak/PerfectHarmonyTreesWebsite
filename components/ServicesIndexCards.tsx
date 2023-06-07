@@ -50,7 +50,7 @@ const ServicesIndexCards: React.FC<{ heroCards: HeroCardArray }> = ({ heroCards 
             flex-direction: column;
             align-items: flex-start;
             position: relative;
-            top: -300px; /* Adjust the value as needed */
+            top: 1px; /* Adjust the value as needed */
           }
           
           .card-container {
