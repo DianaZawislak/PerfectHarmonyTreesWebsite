@@ -28,11 +28,8 @@ const PrivacyDraw = dynamic(() => import("../../components/PrivacyDraw"), {
 });
 export async function generateMetadata() {
   const slug = "homepage";
-
-
   const postData:SEO = await client.fetch(querySEO,{slug:slug});
   const metadata = createMetadata(postData);
-console.log(metadata);
   return metadata;
 }
 
