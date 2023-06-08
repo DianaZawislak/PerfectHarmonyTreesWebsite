@@ -1,20 +1,14 @@
 
 'use client'
-import { PreviewData } from "next";
-import PreviewSuspense from "../../components/PreviewSuspense";
-import BlogList from "../../components/BlogList";
-import PreviewBlogList from "../../components/PreviewBlogList";
 import { client } from "../../lib/sanity.client";
-import { groq } from "next-sanity";
 
 
 import createMetadata from "./_metadata";
-import { queryAllPost, querySEO, queryHero ,  queryHeroArrayBySlug} from "../../lib/queries";
+import {  querySEO, queryHero ,  queryHeroArrayBySlug} from "../../lib/queries";
 import Banner from "../../components/Banner";
 import Banner2 from "../../components/Banner2";
-import HorizontalCard from "../../components/HcardsIndex";
-import IndexCards from "../../components/IndexCards";
-import HcardsIndex from "../../components/HcardsIndex";
+
+
 import AboutUs from "../../components/aboutus";
 import Services from "../../components/Services";
 import { QueryParams } from "sanity";

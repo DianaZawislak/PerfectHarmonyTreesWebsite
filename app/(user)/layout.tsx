@@ -8,8 +8,9 @@ import React, { useEffect, useState } from "react";
 import Banner2 from "../../components/Banner2";
 import dynamic from "next/dynamic";
 import { PreviewData } from "next";
-import { queryMenu, queryFooter, queryHero } from "../../lib/queries";
+import { queryMenu, queryFooter, querySEO } from "../../lib/queries";
 import Link from 'next/link';
+import createMetadata from "./_metadata";
 
 
 
@@ -25,6 +26,15 @@ const DynamicFooter = dynamic(() => import("../../components/Footer"), {
 const PrivacyDraw = dynamic(() => import("../../components/PrivacyDraw"), {
   loading: () => <p>Loading...</p>,
 });
+export async function generateMetadata() {
+  const slug = "homepage";
+
+
+  const postData:SEO = await client.fetch(querySEO,{slug:slug});
+  const metadata = createMetadata(postData);
+console.log(metadata);
+  return metadata;
+}
 
 
 export default async function RootLayout({
