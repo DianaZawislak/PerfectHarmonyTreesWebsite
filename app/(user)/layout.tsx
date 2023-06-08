@@ -33,12 +33,12 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const slug = "homepage";
-  const heroSlug = "placeholder-hero";
+
   const menu = await client.fetch(queryMenu, { slug: slug });
   const footer = await client.fetch(queryFooter, { slug: slug });
-  const hero = await client.fetch(queryHero, { slug: heroSlug });
 
 
+  
   return (
     <html>
       <body className="bg-white">

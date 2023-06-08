@@ -6,7 +6,8 @@ import BlogList from "../../components/BlogList";
 import PreviewBlogList from "../../components/PreviewBlogList";
 import { client } from "../../lib/sanity.client";
 import { groq } from "next-sanity";
-import React from "react";
+
+
 import createMetadata from "./_metadata";
 import { queryAllPost, querySEO, queryHero ,  queryHeroArrayBySlug} from "../../lib/queries";
 import Banner from "../../components/Banner";
@@ -16,16 +17,41 @@ import IndexCards from "../../components/IndexCards";
 import HcardsIndex from "../../components/HcardsIndex";
 import AboutUs from "../../components/aboutus";
 import Services from "../../components/Services";
-async function generateMetadata() {
+import { QueryParams } from "sanity";
+
+export async function generateMetadata() {
   const slug = "homepage";
 
-  const heroSlug = "Trees-and-Gardens";
-  const postData = await client.fetch(querySEO, { slug: slug });
 
+  const postData:SEO = await queryClient(querySEO, { slug: slug });
   const metadata = createMetadata(postData);
 
   return metadata;
 }
+
+
+
+
+
+function makeQueryClient() {
+  const fetchMap = new Map<string, Promise<any>>();
+  return function queryClient<QueryResult>(
+    queryName: string,
+    params: QueryParams
+  ): Promise<QueryResult> {
+    const queryString = JSON.stringify(params);
+    const mapKey = `${queryName}_${queryString}`;
+
+    if (!fetchMap.has(mapKey)) {
+      const queryFunction = () => client.fetch(queryName, params);
+      fetchMap.set(mapKey, queryFunction());
+    }
+
+    return fetchMap.get(mapKey)!;
+  };
+}
+
+const queryClient = makeQueryClient();
 
 export default async function IndexPage() {
   /*  if (previewData()) {
@@ -46,22 +72,22 @@ export default async function IndexPage() {
 */
   const heroSlug = "Trees-and-Gardens";
   const arrSlug="index-cards";
-  const posts = await client.fetch(queryAllPost);
-  const hero = await client.fetch(queryHero, { slug: heroSlug });
-  const cards= await client.fetch(queryHeroArrayBySlug, { slug: arrSlug });
+
+  const hero:Hero = await queryClient(queryHero, { slug: heroSlug });
+  const cards:HeroCardArray = await queryClient(queryHeroArrayBySlug, { slug: arrSlug });
 
 
   return (
     <>
       <div className="relative">
-        <Banner hero={hero} />
+     {   hero && <Banner hero={hero} />}
         <div className="absolute bottom-0 w-full">
-          <IndexCards heroCards={cards} />
+        { /*  hero&&     <IndexCards heroCards={cards} />*/}
         </div>
       </div>
       <Banner2 />
-      <Services content={cards}/>
-      <AboutUs  content={cards}/>
+      {  hero&&   <Services content={cards}/>}
+      <AboutUs  />
  
 
       {/* <HcardsIndex /> */}
