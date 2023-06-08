@@ -13,15 +13,6 @@ import AboutUs from "../../components/aboutus";
 import Services from "../../components/Services";
 import { QueryParams } from "sanity";
 
-export async function generateMetadata() {
-  const slug = "homepage";
-
-
-  const postData:SEO = await queryClient(querySEO, { slug: slug });
-  const metadata = createMetadata(postData);
-
-  return metadata;
-}
 
 
 
