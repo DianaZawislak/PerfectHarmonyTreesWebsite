@@ -11,7 +11,7 @@ import AboutUs from "../../components/aboutus";
 import Services from "../../components/Services";
 import { QueryParams } from "sanity";
 import { useEffect, useState } from "react";
-import IndexCards from "../../components/IndexCards";
+
 
 function makeQueryClient() {
   const fetchMap = new Map<string, Promise<any>>();

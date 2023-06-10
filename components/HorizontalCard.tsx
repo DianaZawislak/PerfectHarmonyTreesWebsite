@@ -21,7 +21,7 @@ const HorizontalCard: React.FC<CardProps> = ({ imageUrl, header,subheader, text 
         <p className='ml-16 mr-6'>{text}</p>
       </div>
     </div>
-    <hr className="my-4 border-gray-500" />
+   
     </>
   );
 };

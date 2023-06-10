@@ -32,7 +32,9 @@ const HorizontalCardInverse: React.FC<CardProps> = ({ imageUrl, header, subheade
             <p className='ml-6 mr-12 text-start text-lg'>{text}</p>
             <p className='ml-6 mr-12 text-start text-lg'>{text}</p>
             <p className='ml-6 mr-12 text-start text-lg'>{text}</p>
-            <button className="mt-10 px-20 py-2 bg-lime-300 text-gray-500  hover:text-lime-300 hover:bg-gray-500 transition-all duration-700 rounded-lg text-xl">Call Us Today</button>
+            <button className="px-20 py-1 mt-10 bg-lime-300 text-gray-500  hover:text-lime-300 hover:bg-gray-500 transition-all duration-700  font-bold text-lg rounded-lg">
+            CALL US TODAY
+          </button> 
             
           </div>
         </div>
@@ -63,7 +65,7 @@ const HorizontalCardInverse: React.FC<CardProps> = ({ imageUrl, header, subheade
           />
         </div>
       </div>
-      <hr className="my-4 border-gray-500" />
+      {/* <hr className="my-4 border-gray-500" /> */}
     </>
   );
 };
