@@ -15,7 +15,7 @@ const IndexCard: React.FC<CardProps> = ({ header, backgroundImage, cardText, cta
       <div className=" flex flex-col items-center justify-center pb-5 px-12">
         <div
           className="mb-6"
-          style={{ width: "60px", height: "60px", position: "relative" }}
+          style={{ width: "80px", height: "80px", position: "relative" }}
         >
           <Image
             src={backgroundImage}

@@ -7,6 +7,7 @@ import createMetadata from "./_metadata";
 import {  querySEO, queryHero ,  queryHeroArrayBySlug} from "../../lib/queries";
 import Banner from "../../components/Banner";
 import Banner2 from "../../components/Banner2";
+import IndexCards from "../../components/IndexCards";
 
 
 import AboutUs from "../../components/aboutus";
@@ -64,7 +65,7 @@ export default function IndexPage() {
       <div className="relative">
      {   hero && <Banner hero={hero} />}
         <div className="absolute bottom-0 w-full">
-        { /*  hero&&     <IndexCards heroCards={cards} />*/}
+        {   hero && <IndexCards heroCards={cards} />}
         </div>
       </div>
       <Banner2 />

@@ -12,7 +12,8 @@ const Card: React.FC<CardProps> = ({ card }) => {
 
   return (
     <div className="card-container">
-      <div className="shadow-lg flex flex-col items-center justify-center pb-5 px-12">
+      <div className=" flex flex-col items-center justify-center pb-5 px-12"
+      style={{ minHeight: '300px' }}>
         <div
           className="mb-6"
           style={{ width: "60px", height: "60px", position: "relative" }}
