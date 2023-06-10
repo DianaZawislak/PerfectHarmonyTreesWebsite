@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface CardProps {
   imageUrl: string;
@@ -21,8 +22,8 @@ const HorizontalCardInverse: React.FC<CardProps> = ({ imageUrl, header, subheade
           alignItems: 'start',
           justifyContent: 'start',
           textAlign: 'start',
-        }}>
-          <div>
+        }} >
+          <div className='lg:w-2/3 '>
             <h1 className='text-2xl mb-2 tracking-wider text-start'>
               {header}
             </h1>
@@ -33,36 +34,38 @@ const HorizontalCardInverse: React.FC<CardProps> = ({ imageUrl, header, subheade
             <p className='ml-6 mr-12 text-start text-lg'>{text}</p>
             <p className='ml-6 mr-12 text-start text-lg'>{text}</p>
             <button className="px-20 py-1 mt-10 bg-lime-300 text-gray-500  hover:text-lime-300 hover:bg-gray-500 transition-all duration-700  font-bold text-lg rounded-lg">
-            CALL US TODAY
-          </button> 
-            
+              CALL US TODAY
+            </button> 
           </div>
         </div>
         <div style={{ 
-          width: '60%', 
+          width: '50%', 
           position: 'relative', 
           zIndex: 1,
-          marginLeft: '-10%',
+          marginLeft: '-30%',
         }}>
-          <div
-            style={{
+          <div style={{
+            position: 'relative',
+            overflow: 'hidden',
+            width: '100%',
+            height: '100%',
+          }}>
+            <Image
+              src={imageUrl}
+              alt="Box Image"
+              layout='fill'
+              objectFit="cover"
+              className='rounded-lg'
+            />
+            <div style={{
               position: 'absolute',
               top: 0,
               left: 0,
-              width: '100%',
-              height: '100%',
-              background: 'linear-gradient(to right, white, transparent)',
-              maskImage: 'linear-gradient(to right, white, transparent)',
-              maskPosition: 'left',
-              maskSize: '50%',
-            }}
-          />
-          <img 
-            src={imageUrl} 
-            alt="Box Image" 
-            style={{ width: '100%', height: '100%' }} 
-            className='rounded-lg' 
-          />
+              bottom: 0,
+              right: 0,
+              background: 'linear-gradient(to right, rgba(255, 255, 255, 1), 70%, transparent)',
+            }} />
+          </div>
         </div>
       </div>
       {/* <hr className="my-4 border-gray-500" /> */}
