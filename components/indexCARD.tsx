@@ -12,10 +12,10 @@ interface CardProps {
 const IndexCard: React.FC<CardProps> = ({ header, backgroundImage, cardText, ctaBtnTxt }) => {
   return (
     <div className="card-container">
-      <div className=" flex flex-col items-center justify-center pb-5 px-12">
+      <div className=" flex flex-col items-center justify-center pb-10 ">
         <div
           className="mb-6"
-          style={{ width: "60px", height: "60px", position: "relative" }}
+          style={{ width: "80px", height: "80px", position: "relative" }}
         >
           <Image
             src={backgroundImage}
@@ -24,8 +24,8 @@ const IndexCard: React.FC<CardProps> = ({ header, backgroundImage, cardText, cta
             objectFit="cover"
           />
         </div>
-        <div className="flex flex-col items-center justify-center max-w-md mx-auto">
-          <h2 className="text-md text-gray-500 font-bold mb-1">{header}</h2>
+        <div className="flex flex-col items-center justify-center max-w-md ">
+          <h1 className="text-md text-gray-500 font-bold mb-1">{header}</h1>
           <p className="text-gray-500 text-md mb-4 text-center ">
             {cardText}
           </p>

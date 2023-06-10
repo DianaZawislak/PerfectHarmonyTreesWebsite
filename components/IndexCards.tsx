@@ -12,7 +12,8 @@ const Card: React.FC<CardProps> = ({ card }) => {
 
   return (
     <div className="card-container">
-      <div className="shadow-lg flex flex-col items-center justify-center pb-5 px-12">
+      <div className="shadow-lg flex flex-col items-center justify-center pb-5 px-12"
+      style={{ minHeight: '300px' }}>
         <div
           className="mb-6"
           style={{ width: "60px", height: "60px", position: "relative" }}
@@ -40,7 +41,9 @@ const Card: React.FC<CardProps> = ({ card }) => {
 
 const IndexCards: React.FC<{ heroCards: HeroCardArray }> = ({ heroCards }) => {
   return (
-    <div id="HOME"className="cards-container flex justify-center items-start pt-11 mb-12 sm:mb-9">
+    <div id="HOME" className="cards-container flex justify-center items-start pt-11 mb-12 sm:mb-9"
+    >
+      
       {heroCards.cards.map((heroCard, index) => (
         <Card key={index} card={heroCard} />
       ))}
