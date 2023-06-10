@@ -8,8 +8,9 @@ import React, { useEffect, useState } from "react";
 import Banner2 from "../../components/Banner2";
 import dynamic from "next/dynamic";
 import { PreviewData } from "next";
-import { queryMenu, queryFooter, queryHero } from "../../lib/queries";
+import { queryMenu, queryFooter, querySEO } from "../../lib/queries";
 import Link from 'next/link';
+import createMetadata from "./_metadata";
 
 
 
@@ -25,6 +26,12 @@ const DynamicFooter = dynamic(() => import("../../components/Footer"), {
 const PrivacyDraw = dynamic(() => import("../../components/PrivacyDraw"), {
   loading: () => <p>Loading...</p>,
 });
+export async function generateMetadata() {
+  const slug = "homepage";
+  const postData:SEO = await client.fetch(querySEO,{slug:slug});
+  const metadata = createMetadata(postData);
+  return metadata;
+}
 
 
 export default async function RootLayout({
@@ -33,16 +40,16 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const slug = "homepage";
-  const heroSlug = "placeholder-hero";
+
   const menu = await client.fetch(queryMenu, { slug: slug });
   const footer = await client.fetch(queryFooter, { slug: slug });
-  const hero = await client.fetch(queryHero, { slug: heroSlug });
 
 
+  
   return (
     <html>
       <body className="bg-white">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-9xl">
         <PrivacyDraw/>
         {menu && <DynamicHeader menu={menu} />} 
         {children}

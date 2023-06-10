@@ -1,12 +1,12 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
-import { useMediaQuery } from "react-responsive";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import urlFor from "../lib/urlFor";
-import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useMediaQuery } from 'react-responsive';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import urlFor from '../lib/urlFor';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import {
   FaceIcon,
   ImageIcon,
@@ -15,43 +15,78 @@ import {
   TwitterLogoIcon,
   InstagramLogoIcon,
   HamburgerMenuIcon,
-} from "@radix-ui/react-icons";
+} from '@radix-ui/react-icons';
 interface HeaderProps {
   menu: Menu;
 }
-function Header({ menu }: HeaderProps) {
+
+const Header = ({ menu }:HeaderProps) => {
+  const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
 
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    if (offset > 200) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const scroll2El = (elID: string) => {
+    const element = document.getElementById(elID);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 60,
+        behavior: 'smooth',
+      });
+    }
+  };
+const onBtnClick = (e:any) => {
+    e.preventDefault();
+    const goto = e.target.getAttribute('goto');
+    setTimeout(() => {
+      scroll2El(goto);
+    }, 100);
+  }
 
   return (
     <div
       style={{
         backgroundImage:
-          "url(https://cdn.discordapp.com/attachments/1110785495157461083/1114360153211416717/navbarwhite.png)",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
+          'url(https://cdn.discordapp.com/attachments/1110785495157461083/1114360153211416717/navbarwhite.png)',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
       }}
-      className="flex items-center justify-between space-x-2 font-bold"
-    >
+      className={`flex items-center justify-between space-x-2 font-bold sticky top-0 z-50 transition-all duration-500 ease-in-out ${
+        scrolled ? 'h-14' : 'h-24'
+      
+      }`}>
       <div className="items-center justify-between hidden w-full pr-10 space-x-32 md:flex">
         <div className="flex items-center space-x-10">
           <Link href="/"
           >
-            <Image
+                      <Image
               src="https://cdn.discordapp.com/attachments/1110785495157461083/1114361925002854501/logonobrgd.png"
-              width={100}
-              className="rounded-md"
-              height={100}
+              width={scrolled ? 70 : 100}
+              className="rounded-md transition-all duration-500 ease-in-out"
+              height={scrolled ? 70 : 100}
               alt="logo"
-              style={{ paddingRight: "1px" }}
+              style={{ paddingRight: '1px' }}
             />
           </Link>
           <nav className="font-semibold text-md text-black">
             <ul className="flex flex-row space-x-8 lg:text-lg sm:text-sm">
-              {menu.items.map((item: MenuItem, index: any, array: any) => (
+              {menu.items.map((item: MenuItem, index:number, array:any) => (
                 <li
                   key={item?._key}
                   className={`border-r border-black pr-8 hover:text-gray-500 ${
@@ -78,6 +113,7 @@ function Header({ menu }: HeaderProps) {
           >
             123-456-7890
           </a>
+       
         </div>
       </div>
 
