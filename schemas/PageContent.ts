@@ -46,10 +46,7 @@ export const pageContent = {
         select: {
             title: "title",
             hero: "hero.title",
-            menu: "menu.title",
-            seoTitle: 'seo.title',
-            contentTitle: 'content.title',
-            footer: 'footer.title',
+         
           },
       prepare(selection: { title?: any; hero?: any; }) {
         const { hero } = selection;

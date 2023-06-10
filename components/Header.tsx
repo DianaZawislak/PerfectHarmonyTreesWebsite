@@ -168,7 +168,7 @@ const Header = ({ menu }: HeaderProps) => {
                 className={`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none `}
               >
                 <ul className="flex flex-col justify-end space-y-2 text-2xl">
-                {menu.items.map((item, index, array) => (
+                {menu.items.map((item:MenuItem, index:number, array:[]) => (
                 <li
                   key={item?._key}
                   className={`border-r border-black pr-8 hover:text-gray-500 ${

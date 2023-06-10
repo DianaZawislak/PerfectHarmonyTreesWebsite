@@ -43,7 +43,8 @@ export default async function RootLayout({
 
   const menu = await client.fetch(queryMenu, { slug: slug });
   const footer = await client.fetch(queryFooter, { slug: slug });
-
+  const arrSlug = "index-cards";
+  
 
   
   return (

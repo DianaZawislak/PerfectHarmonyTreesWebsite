@@ -68,11 +68,7 @@ const HorizontalCardInverse: React.FC<CardProps> = ({ imageUrl, header, subheade
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-
-=======
       {/* <hr className="my-4 border-gray-500" /> */}
->>>>>>> ca565c8423900e35fc3e9b3ef7ee1c2c39dc4dc0
     </>
   );
 };
