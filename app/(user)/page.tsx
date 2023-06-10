@@ -12,6 +12,7 @@ import Banner2 from "../../components/Banner2";
 import AboutUs from "../../components/aboutus";
 import Services from "../../components/Services";
 import { QueryParams } from "sanity";
+import { useEffect, useState } from "react";
 
 
 
@@ -38,28 +39,24 @@ function makeQueryClient() {
 
 const queryClient = makeQueryClient();
 
-export default async function IndexPage() {
-  /*  if (previewData()) {
-    return (
-      <PreviewSuspense
-        fallback={
-          <div role="status">
-            <p className="text-center text-lg animate-pulse text-[#f70a0acf]">
-              Loading Preview Data...
-            </p>
-          </div>
-        }
-      >
-        <PreviewBlogList query={query} />
-      </PreviewSuspense>
-    );
-  }
-*/
+
+export default function IndexPage() {
   const heroSlug = "Trees-and-Gardens";
   const arrSlug="index-cards";
 
-  const hero:Hero = await queryClient(queryHero, { slug: heroSlug });
-  const cards:HeroCardArray = await queryClient(queryHeroArrayBySlug, { slug: arrSlug });
+  const [hero, setHero] = useState<Hero | null>(null);
+  const [cards, setCards] = useState<HeroCardArray | null>(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const fetchedHero:Hero = await queryClient(queryHero, { slug: heroSlug });
+      const fetchedCards:HeroCardArray = await queryClient(queryHeroArrayBySlug, { slug: arrSlug });
+      setHero(fetchedHero);
+      setCards(fetchedCards);
+    }
+    
+    fetchData();
+  }, [heroSlug, arrSlug]);
 
 
   return (
@@ -71,7 +68,7 @@ export default async function IndexPage() {
         </div>
       </div>
       <Banner2 />
-      {  hero&&   <Services content={cards}/>}
+      {  cards &&   <Services content={cards}/>}
       <AboutUs  />
  
 
