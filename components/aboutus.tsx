@@ -16,6 +16,7 @@ const HcardsIndex: React.FC = () => {
   });
 
   return (
+    <div id="ABOUT">
     <animated.div
       ref={ref}
       style={{
@@ -33,6 +34,7 @@ const HcardsIndex: React.FC = () => {
       />
 
     </animated.div>
+    </div>
   );
 };
 

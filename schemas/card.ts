@@ -86,7 +86,7 @@ export const heroCardArray = {
             new (): any;
           };
         };
-      }) => Rule.required().min(3).max(3),
+      }) => Rule.required().min(1).max(3),
     },
   ],
   preview: {

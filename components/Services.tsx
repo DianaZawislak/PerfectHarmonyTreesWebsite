@@ -18,6 +18,7 @@ const Services: React.FC<contentProps> = ({content}) => {
   });
 
   return (
+    <div id="SERVICES">
     <animated.div
       ref={ref}
       style={{
@@ -37,7 +38,7 @@ const Services: React.FC<contentProps> = ({content}) => {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             opacity:'0.1',
-            zIndex: -1
+            zIndex: 100
           }} />
           <IndexCard
             header="First Service"
@@ -57,7 +58,7 @@ const Services: React.FC<contentProps> = ({content}) => {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             opacity: '0.1',
-            zIndex: -1
+            zIndex: 100
           }} />
           <IndexCard
             header="Second Service"
@@ -70,6 +71,7 @@ const Services: React.FC<contentProps> = ({content}) => {
 
       <ServicesIndexCards heroCards={content} />
     </animated.div>
+    </div>
   );
 };
 

@@ -48,6 +48,7 @@ export default function IndexPage() {
         queryHeroArrayBySlug,
         { slug: arrSlug }
       );
+   
       setHero(fetchedHero);
       setCards(fetchedCards);
     }
