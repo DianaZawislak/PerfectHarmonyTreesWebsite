@@ -57,7 +57,8 @@ const IndexCards: React.FC<{ heroCards: HeroCardArray }> = ({ heroCards }) => {
           }
           
           .card-container {
-            margin-bottom: 120px; /* Increase the spacing between cards on small screens */
+            margin-bottom: 120px;
+            top-margin: 40px !important; /* Increase the spacing between cards on small screens */
           }
         }
       `}</style>
