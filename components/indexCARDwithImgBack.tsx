@@ -35,8 +35,8 @@ const IndexCARDwithImgBack: React.FC<CardProps> = ({ header, backgroundImage, fu
           />
         </div>
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-md text-gray-500 font-bold mb-1">{header}</h1>
-          <p className="text-gray-500 text-md mb-4 px-15 text-center">
+          <h1 className="text-md text-gray-900 font-bold mb-1">{header}</h1>
+          <p className="text-gray-900 text-md mb-4 py-2 px-4 text-center">
             {cardText}
           </p>
           <button className="px-20 py-1 bg-lime-300 text-gray-500 hover:text-lime-300 hover:bg-gray-500 transition-all duration-700 font-bold text-lg rounded-lg">
