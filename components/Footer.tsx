@@ -74,12 +74,12 @@ import {
 
 
   <div className="sm:flex sm:items-center sm:justify-between z-10 relative">
-  <div className="flex flex-col">
+  {/* <div className="flex flex-col">
 
-{/*     <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+     <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
       {websiteTitle}
-    </span> */}
-  </div>
+    </span>
+  </div> */}
   <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 flex flex-col items-center">
   © 2023{" "}
   <Link href="https://www.jgis219.com/" target="_blank" className="hover:underline">
