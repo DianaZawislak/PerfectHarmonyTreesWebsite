@@ -57,7 +57,14 @@ export const hero = {
       type: 'string',
       validation: (Rule: { required: () => any; }) => Rule.required(),
     },
+    {
+      name: "HeroCards",
+      title: "Hero Cards",
+   
+        type: "reference",
+        to: [{ type: "content" }]
     
+    },
   
   ],
   preview: {

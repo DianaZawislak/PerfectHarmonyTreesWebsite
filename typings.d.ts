@@ -150,6 +150,21 @@ interface HeroCardArray extends Base {
 interface HeroCard extends Base {
   title: string;
   backgroundImage: Image;
+  logo:Image;
   cardText: string;
   ctaBtnTxt: string;
+}
+
+
+interface PageContent extends Base {
+  title: string;
+  slug: Slug;
+  hero: Hero;
+  mainContent: Content[];
+}
+
+interface contentList extends Base {
+  title: string;
+  slug: Slug;
+  contentList: HeroCardArray[];
 }

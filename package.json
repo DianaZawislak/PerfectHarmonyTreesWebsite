@@ -38,6 +38,7 @@
     "react-portable-text": "^0.6.0",
     "react-query": "^3.39.3",
     "react-responsive": "^9.0.2",
+    "react-spring": "^9.7.1",
     "react-transition-group": "^4.4.5",
     "sanity": "^3.0.6",
     "sanity-plugin-iframe-pane": "^2.1.1",

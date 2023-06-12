@@ -24,9 +24,9 @@ const IndexCard: React.FC<CardProps> = ({ header, backgroundImage, cardText, cta
             objectFit="cover"
           />
         </div>
-        <div className="flex flex-col items-center justify-center max-w-md ">
+        <div className=" flex flex-col items-center justify-center ">
           <h1 className="text-md text-gray-500 font-bold mb-1">{header}</h1>
-          <p className="text-gray-500 text-md mb-4 text-center ">
+          <p className="text-gray-500 text-md mb-4 px-15 text-center ">
             {cardText}
           </p>
           {/* Uncomment the button if needed */}

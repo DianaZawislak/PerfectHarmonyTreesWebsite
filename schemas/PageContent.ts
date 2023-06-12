@@ -7,7 +7,7 @@ export const pageContent = {
         name: "title",
         title: "Title",
         type: "string",
-        validation: (Rule) => Rule.required(),
+        validation: (Rule:any) => Rule.required(),
       },
     
       {
@@ -18,7 +18,7 @@ export const pageContent = {
           source: "title",
           maxLength: 96,
         },
-        validation: (Rule) => Rule.required(),
+        validation: (Rule:any) => Rule.required(),
       },
 
       {
@@ -30,12 +30,12 @@ export const pageContent = {
       },
     
       {
-        name: "content",
+        name: "MainContent",
         title: "Main content list",
         type: "array",
         of: [{
           type: "reference",
-          to: [{ type: "heroCardArray" }]
+          to: [{ type: "content" }]
         }]
       },
  
@@ -57,3 +57,61 @@ export const pageContent = {
       },
     },
   };
+
+
+
+
+
+  export const Content = {
+    name: "content",
+    title: " Content",
+    type: "document",
+    fields: [
+      {
+        name: "title",
+        title: "Title",
+        type: "string",
+        validation: (Rule:any) => Rule.required(),
+      },
+    
+      {
+        name: "slug",
+        title: "Slug",
+        type: "slug",
+        options: {
+          source: "title",
+          maxLength: 96,
+        },
+        validation: (Rule:any) => Rule.required(),
+      },
+
+   
+    
+      {
+        name: "content",
+        title: "content list",
+        type: "array",
+        of: [{
+          type: "reference",
+          to: [{ type: "heroCardArray" }]
+        }]
+      },
+ 
+      // Add other fields if needed
+   
+    ],
+    preview: {
+        select: {
+            title: "title",
+            
+         
+          },
+      prepare(selection: { title?: any; }) {
+       
+        return {
+          title: selection.title
+        };
+      },
+    },
+  };
+
