@@ -64,6 +64,20 @@ const heroCards:HeroCardArray= content.contentList[0];
             top-margin: 40px !important; /* Increase the spacing between cards on small screens */
           }
         }
+
+        @media (max-width: 1800px) {
+          .cards-container {
+            
+            align-items: flex-start;
+            position: relative;
+            top: 100px; /* Adjust the value as needed */
+          }
+          
+          .card-container {
+            margin-bottom: 120px;
+            top-margin: 40px !important; /* Increase the spacing between cards on small screens */
+          }
+        }
       `}</style>
     </div>
   );
