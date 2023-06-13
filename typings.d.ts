@@ -168,3 +168,25 @@ interface contentList extends Base {
   slug: Slug;
   contentList: HeroCardArray[];
 }
+
+
+interface Rule {
+  required: () => Rule;
+}
+interface FooterV2 extends Base {
+  title: string;
+  slug: Slug;
+  Address: Address;
+  CompanyName: string;
+  PhoneNumber: string;
+  backgroundImageUrl: string;
+  Email: string;
+  logoUrl: string;
+}
+
+interface Address {
+  StreetAddress: string;
+  City: string;
+  State: string;
+  Zipcode: number;
+}
