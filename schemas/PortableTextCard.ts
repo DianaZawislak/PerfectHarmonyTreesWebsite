@@ -3,17 +3,12 @@ import {defineField, defineType} from 'sanity'
 
 
 
-export const hero = {
-  name: 'hero',
-  title: 'Hero',
+export const portableTextCard = {
+  name: 'portableTextCard',
+  title: 'Card with portable text',
   type: 'document',
   fields: [
-    {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      validation: (Rule: { required: () => any; }) => Rule.required(),
-    },
+    
     {
       name: "slug",
       title: "Slug",
@@ -25,10 +20,9 @@ export const hero = {
       validation: (Rule: { required: () => any; }) => Rule.required(),
     },
     {
-      name: 'CTA_Main',
-      title: 'Call to Action main text',
-      type: 'array',
-      of: [{ type: 'string' }],
+      name: 'mainText',
+      title: 'Card Text Content',
+      type: "blockContent",
     },
     {
       name: 'backgroundImage',
@@ -44,13 +38,7 @@ export const hero = {
       type: 'image',
       options: { hotspot: true },
     },
-    {
-      name: 'ctaText_Subtitle',
-      title: 'Call to Action  Subtitle Text',
-      type: 'array',
-      of: [{ type: 'string' }],
-    },
-
+   
     {
       name: 'ctaBtnTxt',
       title: 'Call to Action Button Text',

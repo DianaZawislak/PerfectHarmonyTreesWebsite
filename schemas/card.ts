@@ -20,7 +20,15 @@ export const heroCard = {
       options: {
         hotspot: true,
       },
-      validation: (Rule: { required: () => any }) => Rule.required(),
+
+ 
+    },
+
+    {
+      name: 'logo',
+      title: 'logo',
+      type: 'image',
+      options: { hotspot: true },
     },
 
     {
@@ -86,7 +94,7 @@ export const heroCardArray = {
             new (): any;
           };
         };
-      }) => Rule.required().min(3).max(3),
+      }) => Rule.required().min(1).max(3),
     },
   ],
   preview: {

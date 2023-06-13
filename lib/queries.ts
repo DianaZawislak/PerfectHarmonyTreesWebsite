@@ -108,3 +108,33 @@ export const queryHeroArrayBySlug = groq`*[_type == 'heroCardArray' && slug.curr
     ctaBtnTxt
   }
 }`;
+
+
+export const queryPageContent = groq`*[_type == 'page' && slug.current == $slug][0] {
+  title,
+  slug,
+  hero-> {
+    title,
+    slug,
+    CTA_Main,
+    ctaBtnTxt,
+    "logoUrl": logo.asset->url,
+    backgroundImage,
+    ctaText_Subtitle
+  },
+  "mainContent": MainContent[]-> {
+    title,
+    slug,
+    "contentList": content[]-> {
+      title,
+      slug,
+      cards[] {
+        title,
+        backgroundImage,
+        logo,
+        cardText,
+        ctaBtnTxt
+      }
+    }
+  },
+}`;

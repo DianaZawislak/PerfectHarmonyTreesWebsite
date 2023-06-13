@@ -35,7 +35,9 @@ const HcardsIndex: React.FC = () => {
         header="GARDEN SERVICE"
         subheader='Lorem Ipsum'
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non metus ac ligula facilisis mollis et at urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non metus ac ligula facilisis mollis et at urna."
+       
         imageUrl="https://cdn.discordapp.com/attachments/1103865788944875622/1111484630625964105/dianadetroit_large_backyard_location_arborists_at_work_natural__fee082c7-5506-4c59-81d3-1b97db6ac9be.png"
+      btnTXT="Call us Today"
       />
       <HorizontalCard
         imageUrl="https://cdn.discordapp.com/attachments/1103865788944875622/1111488821352222740/dianadetroit_large_backyard_location_arborists_at_work_natural__f69bec8c-ece8-4478-afa7-213d71491edd.png"

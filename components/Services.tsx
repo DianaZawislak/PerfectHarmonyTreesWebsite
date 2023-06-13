@@ -18,6 +18,8 @@ const Services: React.FC<contentProps> = ({content}) => {
   });
 
   return (
+    <div id="SERVICES">
+      
     <animated.div
       ref={ref}
       style={{
@@ -47,6 +49,8 @@ const Services: React.FC<contentProps> = ({content}) => {
       ctaBtnTxt="Learn More"
     />
   </div>
+
+  
 </div>
 
 <div className="services-container mb-11 gap-8 grid md:grid-cols-2 px-2 lg:grid-cols-3 justify-items-center grid-cols-1 mx-auto" style={{ maxWidth: '1800px' }}>
@@ -98,6 +102,7 @@ const Services: React.FC<contentProps> = ({content}) => {
 </div>
 
     </animated.div>
+    </div>
   );
 };
 

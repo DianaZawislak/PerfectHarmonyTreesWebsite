@@ -2,7 +2,12 @@
 import { client } from "../../lib/sanity.client";
 
 import createMetadata from "./_metadata";
-import { querySEO, queryHero, queryHeroArrayBySlug } from "../../lib/queries";
+import {
+  querySEO,
+  queryHero,
+  queryHeroArrayBySlug,
+  queryPageContent,
+} from "../../lib/queries";
 import Banner from "../../components/Banner";
 import Banner2 from "../../components/Banner2";
 import IndexCards from "../../components/IndexCards";
@@ -10,8 +15,9 @@ import IndexCards from "../../components/IndexCards";
 import AboutUs from "../../components/aboutus";
 import Services from "../../components/Services";
 import { QueryParams } from "sanity";
-import { useEffect, useState } from "react";
 
+import PageContent from "../../components/content";
+import Header from "../../components/ScrollHeader";
 
 function makeQueryClient() {
   const fetchMap = new Map<string, Promise<any>>();
@@ -33,40 +39,29 @@ function makeQueryClient() {
 
 const queryClient = makeQueryClient();
 
-export default function IndexPage() {
-  const heroSlug = "Trees-and-Gardens";
-  const arrSlug = "index-cards";
+export default async function IndexPage() {
+  const contentSlug = "main-content";
+  const pageContent: PageContent = await queryClient(queryPageContent, {
+    slug: contentSlug,
+  });
+  const hero: Hero = pageContent?.hero;
+  const cards: contentList = pageContent?.mainContent[0];
+  const serviceContent: contentList = pageContent?.mainContent[1];
+  const About: contentList = pageContent?.mainContent[2];
 
-  const [hero, setHero] = useState<Hero | null>(null);
-  const [cards, setCards] = useState<HeroCardArray | null>(null);
-
-  useEffect(() => {
-    async function fetchData() {
-      const fetchedHero: Hero = await queryClient(queryHero, {
-        slug: heroSlug,
-      });
-      const fetchedCards: HeroCardArray = await queryClient(
-        queryHeroArrayBySlug,
-        { slug: arrSlug }
-      );
-      setHero(fetchedHero);
-      setCards(fetchedCards);
-    }
-
-    fetchData();
-  }, [heroSlug, arrSlug]);
 
   return (
     <>
       <div className="relative">
         {hero && <Banner hero={hero} />}
         <div className="absolute bottom-0 w-full">
-          {cards && <IndexCards heroCards={cards} />}
+          {cards && <IndexCards content={cards} />}
         </div>
       </div>
-      <Banner2 />
-      {cards && <Services content={cards} />}
-      <AboutUs />
+      {/* <Banner2 />*/}
+      {serviceContent && <PageContent content={serviceContent} />}
+      {/*cards && <Services content={cards} />*/}
+      {About && <AboutUs content={About} />}
 
       {/* <HcardsIndex /> */}
 
