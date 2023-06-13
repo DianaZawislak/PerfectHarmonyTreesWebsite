@@ -11,10 +11,7 @@ interface contentProps {
 }
 
 const PageContent: React.FC<contentProps> = ({ content }) => {
-  console.log(
-    "content on my content page",
-    urlFor(content.contentList[0].cards[1].backgroundImage)
-  );
+
   const logoCards: HeroCardArray = content.contentList[0];
   const FullBGCards: HeroCardArray = content.contentList[1];
   const [ref, inView] = useInView({
@@ -26,7 +23,7 @@ const PageContent: React.FC<contentProps> = ({ content }) => {
   });
 
   return (
-    <div id="SERVICES">
+    <div id={content.title}>
          <Banner2/>
       <animated.div
         ref={ref}

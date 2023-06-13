@@ -39,9 +39,12 @@ const Card: React.FC<CardProps> = ({ card }) => {
   );
 };
 
-const IndexCards: React.FC<{ heroCards: HeroCardArray }> = ({ heroCards }) => {
+const IndexCards: React.FC<{ content: contentList }> = ({ content }) => {
+
+const heroCards:HeroCardArray= content.contentList[0];
+
   return (
-    <div id="HOME" className="cards-container flex justify-center items-start pt-11 mb-12 sm:mb-9"
+    <div id={content.title} className="cards-container flex justify-center items-start pt-11 mb-12 sm:mb-9"
     >
       
       {heroCards.cards.map((heroCard, index) => (

@@ -15,7 +15,7 @@ import createMetadata from "./_metadata";
 
 
 
-const DynamicHeader = dynamic(() => import("../../components/Header"), {
+const DynamicHeader = dynamic(() => import("../../components/ScrollHeader"), {
   loading: () => <p>Loading...</p>,
 });
 const DynamicFooter = dynamic(() => import("../../components/Footer"), {
@@ -45,15 +45,14 @@ export default async function RootLayout({
   const footer = await client.fetch(queryFooter, { slug: slug });
   const contentSlug="main-content";
   const pageContent:PageContent= await client.fetch(queryPageContent,{slug:contentSlug});
-  console.log("this is my page content test",pageContent.mainContent[0]);
-  console.log("this is my object keys test ", Object.keys( pageContent.mainContent));
-  
+  const Titles = pageContent.mainContent.map(content => content.title);
+
   return (
     <html>
       <body className="bg-white">
       <div className="mx-auto max-w-9xl">
         <PrivacyDraw/>
-        {menu && <DynamicHeader menu={menu} />} 
+        {menu && <DynamicHeader menu={Titles} />} 
         {children}
         {footer && <DynamicFooter data={footer} />}
         </div>

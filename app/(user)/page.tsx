@@ -15,9 +15,9 @@ import IndexCards from "../../components/IndexCards";
 import AboutUs from "../../components/aboutus";
 import Services from "../../components/Services";
 import { QueryParams } from "sanity";
-import { useEffect, useState } from "react";
-import { Content } from "@radix-ui/react-dropdown-menu";
+
 import PageContent from "../../components/content";
+import Header from "../../components/ScrollHeader";
 
 function makeQueryClient() {
   const fetchMap = new Map<string, Promise<any>>();
@@ -39,44 +39,29 @@ function makeQueryClient() {
 
 const queryClient = makeQueryClient();
 
-export default function IndexPage() {
-  const heroSlug = "Trees-and-Gardens";
-  const arrSlug = "index-cards";
+export default async function IndexPage() {
   const contentSlug = "main-content";
-  const [hero, setHero] = useState<Hero | null>(null);
-  const [cards, setCards] = useState<HeroCardArray | null>(null);
-  const [serviceContent, setServiceContent] = useState<contentList | null>(
-    null
-  );
-  useEffect(() => {
-    async function fetchData() {
-      const pageContent: PageContent = await queryClient(queryPageContent, {
-        slug: contentSlug,
-      });
-      const fetchedHero: Hero = pageContent?.hero;
-      const fetchedCards: HeroCardArray =
-        pageContent.mainContent[0].contentList[0];
-      const fetchedContent: contentList = pageContent.mainContent[1];
-      setHero(fetchedHero);
-      setCards(fetchedCards);
-      setServiceContent(fetchedContent);
-    }
+  const pageContent: PageContent = await queryClient(queryPageContent, {
+    slug: contentSlug,
+  });
+  const hero: Hero = pageContent?.hero;
+  const cards: contentList = pageContent?.mainContent[0];
+  const serviceContent: contentList = pageContent?.mainContent[1];
+  const About: contentList = pageContent?.mainContent[2];
 
-    fetchData();
-  }, [heroSlug, arrSlug, contentSlug]);
 
   return (
     <>
       <div className="relative">
         {hero && <Banner hero={hero} />}
         <div className="absolute bottom-0 w-full">
-          {cards && <IndexCards heroCards={cards} />}
+          {cards && <IndexCards content={cards} />}
         </div>
       </div>
       {/* <Banner2 />*/}
       {serviceContent && <PageContent content={serviceContent} />}
       {/*cards && <Services content={cards} />*/}
-      <AboutUs />
+      {About && <AboutUs content={About} />}
 
       {/* <HcardsIndex /> */}
 
