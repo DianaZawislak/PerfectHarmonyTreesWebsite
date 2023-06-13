@@ -9,4 +9,5 @@ import {menu, menuItem}  from "./menu";
 import { heroCard ,heroCardArray} from "./card";
 import { pageContent,Content } from "./PageContent";
 import {portableTextCard} from "./PortableTextCard"
-export const schemaTypes = [post,portableTextCard,Content,heroCardArray, heroCard,author, category, blockContent, seo, menu, menuItem, footer,hero,pageContent];
+import { FooterV2 } from "./Footerv2";
+export const schemaTypes = [post, FooterV2,portableTextCard,Content,heroCardArray, heroCard,author, category, blockContent, seo, menu, menuItem, footer,hero,pageContent];

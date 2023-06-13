@@ -138,3 +138,22 @@ export const queryPageContent = groq`*[_type == 'page' && slug.current == $slug]
     }
   },
 }`;
+
+
+
+
+export const queryFooterV2 = groq`*[_type == 'FooterV2' && slug.current == $slug][0] {
+  title,
+  slug,
+  Address {
+    StreetAddress,
+    City,
+    State,
+    Zipcode
+  },
+  CompanyName,
+  PhoneNumber,
+  "backgroundImageUrl": backgroundImage.asset->url,
+  Email,
+  "logoUrl": logo.asset->url
+}`;

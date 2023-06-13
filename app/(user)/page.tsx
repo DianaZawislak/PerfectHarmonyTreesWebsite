@@ -1,4 +1,5 @@
 "use client";
+
 import { client } from "../../lib/sanity.client";
 
 import createMetadata from "./_metadata";

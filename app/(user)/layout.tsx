@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 import Banner2 from "../../components/Banner2";
 import dynamic from "next/dynamic";
 import { PreviewData } from "next";
-import { queryMenu, queryPageContent,queryFooter, querySEO } from "../../lib/queries";
+import { queryMenu, queryPageContent,queryFooter, querySEO ,queryFooterV2} from "../../lib/queries";
 import Link from 'next/link';
 import createMetadata from "./_metadata";
 
@@ -43,6 +43,8 @@ export default async function RootLayout({
 
   const menu = await client.fetch(queryMenu, { slug: slug });
   const footer = await client.fetch(queryFooter, { slug: slug });
+  const footer2 =await client.fetch(queryFooterV2, { slug: slug });
+  console.log(footer2,"My revised footer object log");
   const contentSlug="main-content";
   const pageContent:PageContent= await client.fetch(queryPageContent,{slug:contentSlug});
   const Titles = pageContent.mainContent.map(content => content.title);
@@ -54,7 +56,7 @@ export default async function RootLayout({
         <PrivacyDraw/>
         {menu && <DynamicHeader menu={Titles} />} 
         {children}
-        {footer && <DynamicFooter data={footer} />}
+        {footer && <DynamicFooter data={footer2} />}
         </div>
       </body>
     

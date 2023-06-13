@@ -170,13 +170,13 @@ const Header = ({ menu }: any, logo:Image) => {
                 <ul className="flex flex-col justify-end space-y-2 text-2xl">
                 {menu.map((item:any, index:number, array:[]) => (
                 <li
-                  key={item?._key}
+                  key={item}
                   className={`border-r border-black pr-8 hover:text-gray-500 ${
                     index !== array.length - 1 ? "" : "border-r-0"
                   }`}
                 >
                   <button
-                    onClick={() => scroll2El(item?.title)}
+                    onClick={() => scroll2El(item)}
                     className="overflow-hidden text-overflow-ellipsis whitespace-nowrap"
                   >
                     {item}
