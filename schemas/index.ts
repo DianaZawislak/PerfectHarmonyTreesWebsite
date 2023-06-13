@@ -8,4 +8,5 @@ import {hero} from "./hero";
 import {menu, menuItem}  from "./menu";
 import { heroCard ,heroCardArray} from "./card";
 import { pageContent,Content } from "./PageContent";
-export const schemaTypes = [post,Content,heroCardArray, heroCard,author, category, blockContent, seo, menu, menuItem, footer,hero,pageContent];
+import {portableTextCard} from "./PortableTextCard"
+export const schemaTypes = [post,portableTextCard,Content,heroCardArray, heroCard,author, category, blockContent, seo, menu, menuItem, footer,hero,pageContent];
