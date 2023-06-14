@@ -16,7 +16,7 @@ import IndexCards from "../../components/IndexCards";
 import AboutUs from "../../components/aboutus";
 import Services from "../../components/Services";
 import { QueryParams } from "sanity";
-
+import { useEffect, useState } from "react";
 import PageContent from "../../components/content";
 import Header from "../../components/ScrollHeader";
 
@@ -40,16 +40,31 @@ function makeQueryClient() {
 
 const queryClient = makeQueryClient();
 
-export default async function IndexPage() {
+export default function IndexPage() {
   const contentSlug = "main-content";
-  const pageContent: PageContent = await queryClient(queryPageContent, {
-    slug: contentSlug,
-  });
-  const hero: Hero = pageContent?.hero;
-  const cards: contentList = pageContent?.mainContent[0];
-  const serviceContent: contentList = pageContent?.mainContent[1];
-  const About: contentList = pageContent?.mainContent[2];
+  const [hero, setHero] = useState<Hero | null>(null);
+  const [cards, setCards] = useState<contentList | null>(null);
+  const [serviceContent, setServiceContent] = useState<contentList | null>(
+    null
+  );
+  const [About, setAbout] = useState<contentList | null>(null);
+  useEffect(() => {
+    async function fetchData() {
+      const pageContent: PageContent = await queryClient(queryPageContent, {
+        slug: contentSlug,
+      });
+      const Fetchedhero: Hero = pageContent?.hero;
+      const Fetchedcards: contentList = pageContent?.mainContent[0];
+      const FetchserviceContent: contentList = pageContent?.mainContent[1];
+      const FetchedAbout: contentList = pageContent?.mainContent[2];
+      setHero(Fetchedhero);
+      setCards(Fetchedcards);
+      setServiceContent(FetchserviceContent);
+      setAbout(FetchedAbout);
+    }
 
+    fetchData();
+  }, [contentSlug]);
 
   return (
     <>
