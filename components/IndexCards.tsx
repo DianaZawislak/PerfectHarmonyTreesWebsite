@@ -59,7 +59,8 @@ const heroCards:HeroCardArray= content.contentList[0];
             min-width: 100vw;
             flex-direction: column;
             align-items: flex-start;
-            position: relative;
+            position: absolute;
+            margin-top: -400px;
             top: -300px; /* Adjust the value as needed */
           }
           
