@@ -196,7 +196,7 @@ const Header = ({ menu }: HeaderProps) => {
           </DropdownMenuPrimitive.Root>
         </div>
       </div>
-    </div>
+   
   );
 };
 export default Header;

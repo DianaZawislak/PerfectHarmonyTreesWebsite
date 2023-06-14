@@ -41,10 +41,9 @@ export default async function RootLayout({
 }) {
   const slug = "homepage";
 
-  const menu = await client.fetch(queryMenu, { slug: slug });
-  const footer = await client.fetch(queryFooter, { slug: slug });
+  //const footer = await client.fetch(queryFooter, { slug: slug });
   const footer2 =await client.fetch(queryFooterV2, { slug: slug });
-  console.log(footer2,"My revised footer object log");
+
   const contentSlug="main-content";
   const pageContent:PageContent= await client.fetch(queryPageContent,{slug:contentSlug});
   const Titles = pageContent.mainContent.map(content => content.title);
@@ -54,9 +53,9 @@ export default async function RootLayout({
       <body className="bg-white">
       <div className="mx-auto max-w-9xl">
         <PrivacyDraw/>
-        {menu && <DynamicHeader menu={Titles} />} 
+        {Titles && <DynamicHeader menu={Titles} />} 
         {children}
-        {footer && <DynamicFooter data={footer2} />}
+        {footer2 && <DynamicFooter data={footer2} />}
         </div>
       </body>
     

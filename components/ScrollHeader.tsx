@@ -20,7 +20,7 @@ interface HeaderProps {
   menu: Menu;
 }
 
-const Header = ({ menu }: any, logo:Image) => {
+const Header = ({ menu }: any, logo: Image) => {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
 
@@ -85,7 +85,7 @@ const Header = ({ menu }: any, logo:Image) => {
           </Link>
           <nav className="font-semibold text-md text-black">
             <ul className="flex flex-row space-x-8 lg:text-lg sm:text-sm">
-              {menu.map((item:any, index:number, array:[]) => (
+              {menu.map((item: any, index: number, array: []) => (
                 <li
                   key={item}
                   className={`border-r border-black pr-8 hover:text-gray-500 ${
@@ -123,7 +123,7 @@ const Header = ({ menu }: any, logo:Image) => {
       <div className="flex items-center justify-between w-full md:hidden">
         <Link href="/">
           <Image
-            src={menu.logoUrl}
+            src="https://cdn.discordapp.com/attachments/1110785495157461083/1114361925002854501/logonobrgd.png"
             width={50}
             className="rounded-md"
             height={50}
@@ -168,21 +168,21 @@ const Header = ({ menu }: any, logo:Image) => {
                 className={`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none `}
               >
                 <ul className="flex flex-col justify-end space-y-2 text-2xl">
-                {menu.map((item:any, index:number, array:[]) => (
-                <li
-                  key={item}
-                  className={`border-r border-black pr-8 hover:text-gray-500 ${
-                    index !== array.length - 1 ? "" : "border-r-0"
-                  }`}
-                >
-                  <button
-                    onClick={() => scroll2El(item)}
-                    className="overflow-hidden text-overflow-ellipsis whitespace-nowrap"
-                  >
-                    {item}
-                  </button>
-                </li>
-              ))}
+                  {menu.map((item: any, index: number, array: []) => (
+                    <li
+                      key={item}
+                      className={`border-r border-black pr-8 hover:text-gray-500 ${
+                        index !== array.length - 1 ? "" : "border-r-0"
+                      }`}
+                    >
+                      <button
+                        onClick={() => scroll2El(item)}
+                        className="overflow-hidden text-overflow-ellipsis whitespace-nowrap"
+                      >
+                        {item}
+                      </button>
+                    </li>
+                  ))}
                 </ul>
               </DropdownMenuPrimitive.Item>
             </DropdownMenuPrimitive.Content>
