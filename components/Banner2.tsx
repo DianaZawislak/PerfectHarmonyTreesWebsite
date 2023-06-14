@@ -1,7 +1,7 @@
 
 function Banner2() {
   return (
-    <div className="py-5 md:mt-0 mt-[-300px] text-center items-center justify-center mb-10">
+    <div className="py-5 md:mt-24 mt-[70px] text-center items-center justify-center mb-10">
      <h1 className="text-center text-black text-xl mb-3">OUR SERVICES</h1>
 
        {/*  <h2 className="text-3xl text-gray-500"> 
