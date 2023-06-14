@@ -70,7 +70,7 @@ export default function IndexPage() {
     <>
       <div className="relative">
         {hero && <Banner hero={hero} />}
-        <div className="absolute bottom-0 w-full">
+        <div className="absolute bottom-0 w-full mt-11">
           {cards && <IndexCards content={cards} />}
         </div>
       </div>

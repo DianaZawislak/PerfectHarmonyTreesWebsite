@@ -120,16 +120,23 @@ const Header = ({ menu }: HeaderProps) => {
 
       {/* Below are settings for menu on small screen */}
 
-      <div className="flex items-center justify-between w-full md:hidden">
-        <Link href="/">
-          <Image
-            src={menu.logoUrl}
-            width={50}
-            className="rounded-md"
-            height={50}
-            alt="logo"
-          />
-        </Link>
+      <div className="flex items-center justify-between w-full">
+  <Link href="/">
+    <div className="flex items-center">
+      <div className="flex-shrink-0">
+        <Image
+          src={menu.logoUrl}
+          width={80}
+          height={80}
+          alt="logo"
+          className="rounded-md"
+        />
+      </div>
+      <span className="ml-2 text-lg font-bold">Your Logo</span>
+    </div>
+  </Link>
+</div>
+
         <div className="flex items-center justify-end w-full md:hidden">
           <div>
             <FontAwesomeIcon

@@ -39,9 +39,9 @@ function Banner({ hero }: HeaderProps) {
       <div className="flex flex-col items-center justify-start font-bold px-1 py-1 h-full pt-36">
         <div className={`p-8 mt-10 rounded-lg items-center justify-center text-center ${animationState ? 'animate-snake' : ''}`}>
           {hero.CTA_Main.map((text:string, index:number) => (
-            <h1 key={index} className="lg:text-5xl text-4xl text-black p-2 rounded-md">{text}</h1>
+            <h1 key={index} className="lg:text-4xl text-2xl text-black p-2 rounded-md">{text}</h1>
           ))}
-          <h2 className="text-black pt-2 text-xl tracking-[2px]">
+          <h2 className="text-black pt-2 px-10 sm:px-2 text-md tracking-[2px]">
             {hero.ctaText_Subtitle.map((text:string, index:number) => (
               <span key={index}>{text}{index !== hero.ctaText_Subtitle.length - 1 ? ' | ' : ''}</span>
             ))}
