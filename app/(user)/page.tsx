@@ -1,4 +1,4 @@
-"use client";
+
 
 import { client } from "../../lib/sanity.client";
 
@@ -19,6 +19,8 @@ import { QueryParams } from "sanity";
 import { useEffect, useState } from "react";
 import PageContent from "../../components/content";
 import Header from "../../components/ScrollHeader";
+import MainPage from "../../components/pageContent";
+import handleError from "../../lib/utils";
 
 function makeQueryClient() {
   const fetchMap = new Map<string, Promise<any>>();
@@ -37,62 +39,38 @@ function makeQueryClient() {
     return fetchMap.get(mapKey)!;
   };
 }
+async function fetchData(contentSlug:any,query:any,) {
+  try {
+    const fetchedData = await Promise.allSettled([
+      await client.fetch(query, { slug: contentSlug }),
+    ]);
 
+    // Process the fetchedData here
+    // ...
+
+    return fetchedData;
+  } catch (error) {
+    console.error(`Error fetching data: ${error}`);
+    // Handle the error here, or re-throw it if needed
+    // ...
+  }
+}
 const queryClient = makeQueryClient();
 
-export default function IndexPage() {
+export default  async function IndexPage() {
   const contentSlug = "main-content";
-  const [hero, setHero] = useState<Hero | null>(null);
-  const [cards, setCards] = useState<contentList | null>(null);
-  const [serviceContent, setServiceContent] = useState<contentList | null>(
-    null
-  );
-  const [About, setAbout] = useState<contentList | null>(null);
-  useEffect(() => {
-    async function fetchData() {
-      const pageContent: PageContent = await queryClient(queryPageContent, {
-        slug: contentSlug,
-      });
-      const Fetchedhero: Hero = pageContent?.hero;
-      const Fetchedcards: contentList = pageContent?.mainContent[0];
-      const FetchserviceContent: contentList = pageContent?.mainContent[1];
-      const FetchedAbout: contentList = pageContent?.mainContent[2];
-      setHero(Fetchedhero);
-      setCards(Fetchedcards);
-      setServiceContent(FetchserviceContent);
-      setAbout(FetchedAbout);
-    }
 
-    fetchData();
-  }, [contentSlug]);
+  const fetchedData = await Promise.allSettled([
+    client.fetch(queryPageContent, { slug: contentSlug }),
+  
+  ]);
+  const[pageContent]=handleError(fetchedData)[0];
 
   return (
     <>
-      <div className="relative">
-        {hero && <Banner hero={hero} />}
-        <div className="absolute bottom-0 w-full mt-11">
-          {cards && <IndexCards content={cards} />}
-        </div>
-      </div>
-      {/* <Banner2 />*/}
-      {serviceContent && <PageContent content={serviceContent} />}
-      {/*cards && <Services content={cards} />*/}
-      {About && <AboutUs content={About} />}
-
-      {/* <HcardsIndex /> */}
-
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .relative {
-            display: flex;
-            flex-direction: column;
-          }
-
-          .absolute {
-            position: static;
-          }
-        }
-      `}</style>
+   
+      <MainPage content={pageContent}/>
+   
     </>
   );
 }
