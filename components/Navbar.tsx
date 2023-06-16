@@ -162,16 +162,18 @@ const Header = ({ menu }: any, logo: Image) => {
             <DropdownMenuPrimitive.Content
               align="end"
               sideOffset={5}
-              className="w-48 rounded-lg px-1.5 py-1 shadow-md bg-white dark:bg-gray-800 z-50"
+              className={`w-30 px-1.5 py-1 mt-7 shadow-md bg-white dark:bg-gray-800 z-50 ${
+                isMenuOpen ? "open" : ""
+              }`}
             >
               <DropdownMenuPrimitive.Item
                 className={`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none `}
               >
-                <ul className="flex flex-col justify-end space-y-2 text-2xl">
+                <ul className="flex flex-col justify-end space-y-2 text-sm">
                   {menu.map((item: any, index: number, array: []) => (
                     <li
                       key={item}
-                      className={`border-r border-black pr-8 hover:text-gray-500 ${
+                      className={`pr-8 hover:text-gray-500 ${
                         index !== array.length - 1 ? "" : "border-r-0"
                       }`}
                     >
@@ -193,3 +195,6 @@ const Header = ({ menu }: any, logo: Image) => {
   );
 };
 export default Header;
+
+
+

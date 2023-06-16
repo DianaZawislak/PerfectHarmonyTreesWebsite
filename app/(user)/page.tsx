@@ -18,7 +18,7 @@ import Services from "../../components/Services";
 import { QueryParams } from "sanity";
 import { useEffect, useState } from "react";
 import PageContent from "../../components/content";
-import Header from "../../components/ScrollHeader";
+import Header from "../../components/Navbar";
 
 function makeQueryClient() {
   const fetchMap = new Map<string, Promise<any>>();

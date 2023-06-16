@@ -15,7 +15,7 @@ import createMetadata from "./_metadata";
 
 
 
-const DynamicHeader = dynamic(() => import("../../components/ScrollHeader"), {
+const DynamicHeader = dynamic(() => import("../../components/Navbar"), {
   loading: () => <p>Loading...</p>,
 });
 const DynamicFooter = dynamic(() => import("../../components/Footer"), {
