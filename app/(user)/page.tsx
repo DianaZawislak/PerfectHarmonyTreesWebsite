@@ -69,11 +69,11 @@ export default function IndexPage() {
   return (
     <>
       <div className="relative">
-        {hero && <Banner hero={hero} />}
-        <div className="absolute bottom-0 w-full mt-11">
-          {cards && <IndexCards content={cards} />}
-        </div>
+      {hero && <Banner hero={hero} />}
+      <div className="absolute bottom-0 left-0 right-0 flex justify-center mt-11">
+        {cards && <IndexCards content={cards} />}
       </div>
+    </div>
       {/* <Banner2 />*/}
       {serviceContent && <PageContent content={serviceContent} />}
       {/*cards && <Services content={cards} />*/}
