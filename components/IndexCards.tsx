@@ -11,7 +11,7 @@ const Card: React.FC<CardProps> = ({ card }) => {
   const { title, backgroundImage, cardText, ctaBtnTxt } = card;
 
   return (
-    <div className="card-container" style={{minWidth: '22vw'}} >
+    <div className="card-container" style={{minWidth: '30vw'}} >
       <div
         className="shadow-lg flex flex-col items-center justify-start pb-5 px-12"
         style={{ minHeight: "300px" }}
@@ -55,6 +55,10 @@ const heroCards:HeroCardArray= content.contentList[0];
       ))}
       <style jsx>{`
         @media (max-width: 600px) {
+          .card_container {
+            min-width: 100vw;
+          }
+
           .cards-container {
             min-width: 100vw;
             flex-direction: column;
@@ -70,6 +74,30 @@ const heroCards:HeroCardArray= content.contentList[0];
             top-margin: 40px !important; /* Increase the spacing between cards on small screens */
           }
         }
+
+        @media (max-width: 834px) {
+          .card_container {
+            min-width: 100vw;
+          
+
+          }
+          
+          .cards-container {
+            min-width: 100vw;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            margin-top: -400px;
+            top: -300px; /* Adjust the value as needed */
+          }
+          
+          .card-container {
+            width: 100%;
+            margin-bottom: 120px;
+            top-margin: 40px !important; /* Increase the spacing between cards on small screens */
+          }
+        }
+
 
         @media (max-width: 1800px) {
           .cards-container {
