@@ -26,7 +26,7 @@ export default function Footer({ data }: FooterProps) {
         style={{
           backgroundImage:
             `url(${backgroundImageUrl})`,
-          backgroundRepeat: "no-repeat",
+          backgroundRepeat: "repeat",
           backgroundSize: "100% auto", // Adjust this value to fit your needs
           opacity: 0.1,
         }}
