@@ -1,4 +1,4 @@
-import Header from "../../components/Header";
+
 //import Footer from "../../components/Footer";
 import Banner from "../../components/Banner";
 import "./globals.css";
@@ -19,7 +19,7 @@ import Link from "next/link";
 import createMetadata from "./_metadata";
 import handleError from "../../lib/utils";
 
-const DynamicHeader = dynamic(() => import("../../components/ScrollHeader"), {
+const DynamicHeader = dynamic(() => import("../../components/Navbar"), {
   loading: () => <p>Loading...</p>,
 });
 const DynamicFooter = dynamic(() => import("../../components/Footer"), {

@@ -11,7 +11,7 @@ const Card: React.FC<CardProps> = ({ card }) => {
   const { title, backgroundImage, cardText, ctaBtnTxt } = card;
 
   return (
-    <div className="card-container" style={{minWidth: '30vw'}} >
+    <div className="card-container" style={{minWidth: '22vw'}} >
       <div
         className="shadow-lg flex flex-col items-center justify-start pb-5 px-12"
         style={{ minHeight: "300px" }}
@@ -47,7 +47,7 @@ const IndexCards: React.FC<{ content: contentList }> = ({ content }) => {
 const heroCards:HeroCardArray= content.contentList[0];
 
   return (
-    <div id={content.title} className="cards-container flex justify-center items-start pt-11 mb-12 sm:mb-9"
+    <div id={content.title} className="cards-container flex justify-center items-center pt-11 mb-12 sm:mb-9"
     >
       
       {heroCards.cards.map((heroCard, index) => (
@@ -59,7 +59,8 @@ const heroCards:HeroCardArray= content.contentList[0];
             min-width: 100vw;
             flex-direction: column;
             align-items: flex-start;
-            position: relative;
+            position: absolute;
+            margin-top: -400px;
             top: -300px; /* Adjust the value as needed */
           }
           
