@@ -2,7 +2,7 @@
 export const menu = {
     name: "menu",
     title: "Menu",
-    type: "document",
+    type: "object",
     fields: [
       {
         name: "title",

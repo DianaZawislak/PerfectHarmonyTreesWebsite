@@ -57,7 +57,7 @@ export const heroCard = {
 export const heroCardArray = {
   name: "heroCardArray",
   title: "Hero Card Array",
-  type: "document",
+  type: "object",
   fields: [
     {
         name: "title",

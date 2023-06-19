@@ -137,9 +137,15 @@ export const queryPageContent = groq`*[_type == 'page' && slug.current == $slug]
       }
     }
   },
+  "portableTextContent": PortableTextArray[]-> {
+    title,
+ 
+    mainText,
+    backgroundImage,
+    logo,
+    ctaBtnTxt
+  }
 }`;
-
-
 
 
 export const queryFooterV2 = groq`*[_type == 'FooterV2' && slug.current == $slug][0] {

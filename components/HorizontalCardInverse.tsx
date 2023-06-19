@@ -1,21 +1,14 @@
 import React from "react";
 import Image from "next/image";
+import urlFor from "../lib/urlFor";
+import { RichTextComponents } from "./richTextCard";
+import { PortableText } from "@portabletext/react";
 
 interface CardProps {
-  imageUrl: string;
-  header: string;
-  subheader: string;
-  text: string;
-  btnTXT: string;
+  card: PortableTextCard;
 }
 
-const HorizontalCardInverse: React.FC<CardProps> = ({
-  imageUrl,
-  header,
-  subheader,
-  text,
-  btnTXT,
-}) => {
+const HorizontalCardInverse: React.FC<CardProps> = ({ card }) => {
   return (
     <>
       <div style={{ display: "flex", width: "100%" }} className="py-12">
@@ -34,18 +27,15 @@ const HorizontalCardInverse: React.FC<CardProps> = ({
         >
           <div className="lg:w-2/3 ">
             <h1 className="text-2xl mb-2 tracking-wider text-start">
-              {header}
+              {card.title}
             </h1>
-            <div className="h-1 w-1/3 bg-lime-300  mt-3 mb-4"></div>
+            <PortableText
+              value={card.mainText}
+              components={RichTextComponents}
+            />
 
-            <h2 className="text-xl mb-2 tracking-wider text-start">
-              {subheader}
-            </h2>
-            <p className="ml-6 mr-12 text-start text-lg">{text}</p>
-            <p className="ml-6 mr-12 text-start text-lg">{text}</p>
-            <p className="ml-6 mr-12 text-start text-lg">{text}</p>
             <button className="px-20 py-1 mt-10 bg-lime-300 text-gray-500  hover:text-lime-300 hover:bg-gray-500 transition-all duration-700  font-bold text-lg rounded-lg">
-              {btnTXT}
+              {card.ctaBtnTxt}
             </button>
           </div>
         </div>
@@ -66,7 +56,7 @@ const HorizontalCardInverse: React.FC<CardProps> = ({
             }}
           >
             <Image
-              src={imageUrl}
+              src={urlFor(card.backgroundImage).url()}
               alt="Box Image"
               layout="fill"
               objectFit="cover"

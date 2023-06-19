@@ -27,6 +27,14 @@ export const pageContent = {
         type: "reference",
         to: [{ type: "hero" }],
         description: "Select a hero post to be displayed on this page",
+      },   {
+        name: "PortableTextArray",
+        title: "Portable Text content list",
+        type: "array",
+        of: [{
+          type: "reference",
+          to: [{ type: "portableTextCard" }]
+        }]
       },
     
       {
@@ -65,7 +73,7 @@ export const pageContent = {
   export const Content = {
     name: "content",
     title: " Content",
-    type: "document",
+    type: "object",
     fields: [
       {
         name: "title",

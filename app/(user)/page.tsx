@@ -20,6 +20,7 @@ export default async function IndexPage() {
     client.fetch(queryPageContent, { slug: contentSlug }),
   ]);
   const [pageContent] = handleError(fetchedData)[0];
+  console.log(Object.keys(pageContent.portableTextContent[0]), "testing schema additions");
 
   return (
     <div className="relative">

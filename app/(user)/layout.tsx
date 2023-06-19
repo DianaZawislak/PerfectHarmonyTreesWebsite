@@ -60,9 +60,10 @@ export default async function RootLayout({
   ]);
   const[pageContent,footer]=handleError(fetchedData)[0];
 
-  const Titles = pageContent.mainContent.map((content:contentList) => content.title);
-
- 
+  const Titles = [
+    ...pageContent.mainContent.map((content: contentList) => content.title),
+    ...pageContent.portableTextContent.map((content: PortableTextCard) => content.title),
+  ];
   return (
     <html>
       <body className="bg-white">

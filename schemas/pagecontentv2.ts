@@ -19,6 +19,7 @@ export const pageContentV2 = {
         },
         validation: (Rule: any) => Rule.required(),
       },
+
       {
         name: "hero",
         title: "Hero",
@@ -27,12 +28,18 @@ export const pageContentV2 = {
         description: "Select a hero post to be displayed on this page",
       },
       {
+        name: 'logo',
+        title: 'logo',
+        type: 'image',
+        options: { hotspot: true },
+      },
+      {
         name: "mainContent",
         title: "Main content list",
         type: "array",
         of: [
-          { type: "heroCardArray" },
-          { type: "reference", to: [{ type: "hero" }] },
+          { type: "reference", to: [{type: "heroCardArray" }] },
+      
         ],
       },
     ],
@@ -56,7 +63,7 @@ export const pageContentV2 = {
   export const selectionSchema = {
     name: "selection",
     title: "Selection",
-    type: "document",
+    type: "object",
     fields: [
       {
         name: "title",

@@ -6,10 +6,15 @@ import {defineField, defineType} from 'sanity'
 export const portableTextCard = {
   name: 'portableTextCard',
   title: 'Card with portable text',
-  type: 'document',
+  type: 'object',
   fields: [
     
     {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+  
+    },    {
       name: "slug",
       title: "Slug",
       type: "slug",
@@ -43,7 +48,7 @@ export const portableTextCard = {
       name: 'ctaBtnTxt',
       title: 'Call to Action Button Text',
       type: 'string',
-      validation: (Rule: { required: () => any; }) => Rule.required(),
+  
     },
 
   

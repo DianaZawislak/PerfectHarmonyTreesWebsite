@@ -1,9 +1,5 @@
 "use client";
 
-
-
-
-
 import Banner from "./Banner";
 import Banner2 from "./Banner2";
 import IndexCards from "./IndexCards";
@@ -13,17 +9,18 @@ import Services from "./Services";
 import { QueryParams } from "sanity";
 import { useEffect, useState } from "react";
 import PageContent from "./content";
-import Header from "./ScrollHeader";
+import Header from "./Navbar";
+import { PortableText } from "@portabletext/react";
+import { RichTextComponents } from "./richTextCard";
 interface PageProps {
-    content:  PageContent;
-  }
+  content: PageContent;
+}
 
-
-  function MainPage({content }: PageProps)  {
-    const hero: Hero = content?.hero;
-    const cards: contentList = content?.mainContent[0];
-    const serviceContent: contentList = content?.mainContent[1];
-    const About: contentList = content?.mainContent[2];
+function MainPage({ content }: PageProps) {
+  const hero: Hero = content?.hero;
+  const cards: contentList = content?.mainContent[0];
+  const serviceContent: contentList = content?.mainContent[1];
+  const About: PortableTextCard = content.portableTextContent[0];
   return (
     <>
       <div className="relative">
@@ -33,10 +30,11 @@ interface PageProps {
         </div>
       </div>
       {/* <Banner2 />*/}
+
       {serviceContent && <PageContent content={serviceContent} />}
+
       {/*cards && <Services content={cards} />*/}
       {About && <AboutUs content={About} />}
-
       {/* <HcardsIndex /> */}
 
       <style jsx>{`

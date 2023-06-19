@@ -161,6 +161,7 @@ interface PageContent extends Base {
   slug: Slug;
   hero: Hero;
   mainContent: Content[];
+  portableTextContent: PortableTextCard[];
 }
 
 interface contentList extends Base {
@@ -189,4 +190,15 @@ interface Address {
   City: string;
   State: string;
   Zipcode: number;
+}
+
+
+
+interface PortableTextCard extends Base {
+  title: string;
+  slug: Slug;
+  mainText: Block[];
+  backgroundImage: Image;
+  logo: Image;
+  ctaBtnTxt: string;
 }
