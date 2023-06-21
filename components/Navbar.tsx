@@ -17,10 +17,15 @@ import {
   HamburgerMenuIcon,
 } from "@radix-ui/react-icons";
 interface HeaderProps {
-  menu: Menu;
+  menu: Menu; 
 }
 
-const Header = ({ menu }: any, logo: Image) => {
+const Header = ({ menu }: any, {dataTest}: any) => {
+ // const logo=urlFor(pageContent.Menulogo).url();
+//  const background=urlFor(pageContent.MenuBackground).url();
+  console.log(dataTest,"data test in nav component");
+  console.log(menu, "menu test");
+
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
 
@@ -85,7 +90,7 @@ const Header = ({ menu }: any, logo: Image) => {
           </Link>
           <nav className="font-semibold text-md text-black">
             <ul className="flex flex-row space-x-8 lg:text-lg sm:text-sm">
-              {menu.map((item: any, index: number, array: []) => (
+              {menu.menu.map((item: any, index: number, array: []) => (
                 <li
                   key={item}
                   className={`border-r border-black pr-8 hover:text-gray-500 ${
@@ -170,7 +175,7 @@ const Header = ({ menu }: any, logo: Image) => {
                 className={`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none `}
               >
                 <ul className="flex flex-col justify-end space-y-2 text-sm">
-                  {menu.map((item: any, index: number, array: []) => (
+                  {menu.menu.map((item: any, index: number, array: []) => (
                     <li
                       key={item}
                       className={`pr-8 hover:text-gray-500 ${

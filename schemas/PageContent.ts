@@ -20,6 +20,18 @@ export const pageContent = {
         },
         validation: (Rule:any) => Rule.required(),
       },
+      {
+        name: 'Menulogo',
+        title: ' Menu Logo',
+        type: 'image',
+        options: { hotspot: true },
+      },
+      {
+        name: 'MenuBackground',
+        title: ' Menu Background Image',
+        type: 'image',
+        options: { hotspot: true },
+      },
 
       {
         name: "hero",
@@ -81,6 +93,18 @@ export const pageContent = {
         type: "string",
         validation: (Rule:any) => Rule.required(),
       },
+      {
+        name: "header",
+        title: "Header",
+        type: "string",
+      
+      },
+      {
+        name: "SectionDescription",
+        title: "Section Description",
+        type: "string",
+      
+      },
     
       {
         name: "slug",
@@ -104,7 +128,7 @@ export const pageContent = {
           to: [{ type: "heroCardArray" }]
         }]
       },
- 
+   
       // Add other fields if needed
    
     ],

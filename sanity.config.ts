@@ -3,7 +3,7 @@ import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
 import Logo from "./components/Logo";
 import StudioNavbar from "./components/StudioNavbar";
-
+import { vercelDeployTool } from 'sanity-plugin-vercel-deploy'
 import { schemaTypes } from "./schemas";
 import { getDefaultDocumentNode } from "./structure";
 import { myTheme } from "./theme";
@@ -21,7 +21,7 @@ export default defineConfig({
     deskTool({
       defaultDocumentNode: getDefaultDocumentNode,
     }),
-    visionTool(),
+    visionTool(),  vercelDeployTool(),
   ],
 
   schema: {

@@ -18,6 +18,7 @@ import {
 import Link from "next/link";
 import createMetadata from "./_metadata";
 import handleError from "../../lib/utils";
+import urlFor from "../../lib/urlFor";
 
 const DynamicHeader = dynamic(() => import("../../components/Navbar"), {
   loading: () => <p>Loading...</p>,
@@ -59,17 +60,24 @@ export default async function RootLayout({
     client.fetch(queryFooterV2, { slug: slug })
   ]);
   const[pageContent,footer]=handleError(fetchedData)[0];
-
+const logo:string=urlFor(pageContent.Menulogo).url();
+const background:string=urlFor(pageContent.MenuBackground).url();
   const Titles = [
     ...pageContent.mainContent.map((content: contentList) => content.title),
     ...pageContent.portableTextContent.map((content: PortableTextCard) => content.title),
   ];
+
+  const DataTest={menu:Titles,content:pageContent};
+
+
+  
+  console.log(background, "url test");
   return (
     <html>
       <body className="bg-white">
         <div className="mx-auto max-w-9xl">
           <PrivacyDraw />
-          {Titles && <DynamicHeader menu={Titles} />}
+          {Titles && background && <DynamicHeader menu={DataTest} dataTest={Titles} />}
           {children}
           {footer && <DynamicFooter data={footer} />}
         </div>
