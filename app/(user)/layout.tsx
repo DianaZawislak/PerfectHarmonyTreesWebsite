@@ -1,4 +1,4 @@
-import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
 //import Footer from "../../components/Footer";
 import Banner from "../../components/Banner";
 import "./globals.css";
@@ -15,7 +15,7 @@ import createMetadata from "./_metadata";
 
 
 
-const DynamicHeader = dynamic(() => import("../../components/Navbar"), {
+const DynamicNavbar = dynamic(() => import("../../components/Navbar"), {
   loading: () => <p>Loading...</p>,
 });
 const DynamicFooter = dynamic(() => import("../../components/Footer"), {
@@ -53,7 +53,7 @@ export default async function RootLayout({
       <body className="bg-white">
       <div className="mx-auto max-w-9xl">
         <PrivacyDraw/>
-        {Titles && <DynamicHeader menu={Titles} />} 
+        {Titles && <DynamicNavbar menu={Titles} />} 
         {children}
         {footer2 && <DynamicFooter data={footer2} />}
         </div>
