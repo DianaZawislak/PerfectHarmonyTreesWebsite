@@ -1,0 +1,5 @@
+.image-gallery-slide .image-gallery-image img {
+    max-width: 300px !important;
+    max-height: 300px !important;
+    object-fit: contain !important;
+  }
