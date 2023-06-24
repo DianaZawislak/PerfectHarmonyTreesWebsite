@@ -14,23 +14,28 @@ interface GalleryProps {
 }
 
 class Gallery extends React.Component<GalleryProps> {
-    renderImageItem = (item) => {
+    renderItem = (item) => {
       return (
-        <div className='image-gallery-image'>
-          <img
-            src={item.original}
-            alt=''
-            style={{maxWidth: '300px', maxHeight: '300px', objectFit: 'contain'}}
-          />
+        <div className="image-container">
+          <img className="cropped-image" src={item.original} />
           {
             item.description &&
-            <span className='image-gallery-description'>
+            <span className="image-gallery-description" style={{ bottom: 0, position: 'absolute' }}>
               {item.description}
             </span>
           }
         </div>
       );
     }
+  
+    renderThumbnail = (item) => {
+      return (
+        <div className="thumbnail-container">
+          <img className="cropped-thumbnail" src={item.thumbnail} />
+        </div>
+      );
+    }
+  
   render() {
     // Provide a default array of images if none are provided
     const images = this.props.images || [
@@ -74,20 +79,25 @@ class Gallery extends React.Component<GalleryProps> {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: 'calc(100vh - 60px)',  // decrease the height of gallery by the height of footer
-            marginBottom: '50px',  // add bottom margin equal to the height of footer
+          height: 'calc(100vh - 60px)',
+          marginBottom: '50px',
         }}>
-          <div style={{
-            maxWidth: '500px',
-            maxHeight: '500px',
+          <div style={{ 
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}>
-
-            <ImageGallery items={images} />
+            <ImageGallery 
+              items={images} 
+              renderItem={this.renderItem} 
+              renderThumbInner={this.renderThumbnail} 
+            />
           </div>
         </div>
       );
     }
-  }
+}
   
 
 export default Gallery;
