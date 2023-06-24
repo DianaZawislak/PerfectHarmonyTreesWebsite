@@ -19,6 +19,7 @@ import { QueryParams } from "sanity";
 import { useEffect, useState } from "react";
 import PageContent from "../../components/content";
 import Header from "../../components/Navbar";
+import Gallery from '../../components/Gallery';
 
 function makeQueryClient() {
   const fetchMap = new Map<string, Promise<any>>();
@@ -78,6 +79,7 @@ export default function IndexPage() {
       {serviceContent && <PageContent content={serviceContent} />}
       {/*cards && <Services content={cards} />*/}
       {About && <AboutUs content={About} />}
+      {<Gallery />}
 
       {/* <HcardsIndex /> */}
 

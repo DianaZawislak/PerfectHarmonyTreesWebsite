@@ -1,6 +1,7 @@
 import Navbar from "../../components/Navbar";
 //import Footer from "../../components/Footer";
 import Banner from "../../components/Banner";
+import Gallery from '../../components/Gallery';
 import "./globals.css";
 import { client } from "../../lib/sanity.client";
 import { groq } from "next-sanity";
