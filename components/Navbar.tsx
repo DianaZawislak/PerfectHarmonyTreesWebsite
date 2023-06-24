@@ -20,14 +20,15 @@ interface HeaderProps {
   menu: Menu; 
 }
 
-const Header = ({ menu }: any, {dataTest}: any) => {
- // const logo=urlFor(pageContent.Menulogo).url();
+const Header = ({ menu }: any) => {
+ // const logo=urlFor(pageContent.Menulogo).url(); 
 //  const background=urlFor(pageContent.MenuBackground).url();
-  console.log(dataTest,"data test in nav component");
-  console.log(menu, "menu test");
+
 
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
+
+
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -68,7 +69,7 @@ const Header = ({ menu }: any, {dataTest}: any) => {
     <div
       style={{
         backgroundImage:
-          "url(https://cdn.discordapp.com/attachments/1110785495157461083/1114360153211416717/navbarwhite.png)",
+          `url(${menu.menuBG})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
@@ -80,7 +81,7 @@ const Header = ({ menu }: any, {dataTest}: any) => {
         <div className="flex items-center space-x-10">
           <Link href="/">
             <Image
-              src="https://cdn.discordapp.com/attachments/1110785495157461083/1114361925002854501/logonobrgd.png"
+                src={menu.logo}
               width={scrolled ? 70 : 100}
               className="rounded-md transition-all duration-500 ease-in-out"
               height={scrolled ? 70 : 100}
@@ -128,7 +129,7 @@ const Header = ({ menu }: any, {dataTest}: any) => {
       <div className="flex items-center justify-between w-full md:hidden">
         <Link href="/">
           <Image
-            src="https://cdn.discordapp.com/attachments/1110785495157461083/1114361925002854501/logonobrgd.png"
+            src={menu.logo}
             width={50}
             className="rounded-md"
             height={50}

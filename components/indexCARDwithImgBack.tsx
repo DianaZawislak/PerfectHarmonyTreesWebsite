@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useSpring, animated } from "react-spring";
-
+import { RichTextComponents } from "./richTextCard";
+import { PortableText } from "@portabletext/react";
 interface CardProps {
   header: string;
   backgroundImage: string;
@@ -9,7 +10,7 @@ interface CardProps {
   cardText: string;
   ctaBtnTxt: string;
   modalheader: string;
-  ModalText: string;
+  ModalText: Block[];
 }
 
 const IndexCARDwithImgBack: React.FC<CardProps> = ({
@@ -80,7 +81,10 @@ const IndexCARDwithImgBack: React.FC<CardProps> = ({
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50">
           <animated.div style={animation} className="bg-white p-8 rounded shadow-lg">
             <h2 className="text-xl mb-4">{modalheader}</h2>
-            <p className="mb-4">{ModalText}</p>
+            <PortableText
+              value={ModalText}
+              components={RichTextComponents}
+            />
             <button
               onClick={closeModal}
               className="px-4 py-2 bg-lime-300 text-gray-500 hover:text-lime-300 hover:bg-gray-500 transition-all duration-700 font-bold text-lg rounded-lg"

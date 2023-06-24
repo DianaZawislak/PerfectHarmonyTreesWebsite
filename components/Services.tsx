@@ -54,6 +54,7 @@ const Services: React.FC<contentProps> = ({content}) => {
 </div>
 
 <div className="services-container mb-11 gap-8 grid md:grid-cols-2 px-2 lg:grid-cols-3 justify-items-center grid-cols-1 mx-auto" style={{ maxWidth: '1800px' }}>
+{/*
 <div style={{ position: 'relative', maxWidth: '400px' }}> 
 
     <IndexCARDwithImgBack
@@ -99,6 +100,7 @@ const Services: React.FC<contentProps> = ({content}) => {
     />
    
   </div>
+  */}
 </div>
 
     </animated.div>

@@ -21,7 +21,7 @@ export default async function IndexPage() {
   ]);
   const [pageContent] = handleError(fetchedData)[0];
 
-
+console.log(Object.keys(pageContent.mainContent[1].contentList[1].cards[2]));
   return (
     <div className="relative">
       <MainPage content={pageContent} />

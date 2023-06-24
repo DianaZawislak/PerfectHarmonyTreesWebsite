@@ -171,7 +171,7 @@ interface contentList extends Base {
   title: string;
   slug: Slug;
   header:string;
-  SectionDescription:string;
+  SectionDescription:string
   contentList: HeroCardArray[];
 }
 
