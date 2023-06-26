@@ -13,8 +13,11 @@ import Header from "./Navbar";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "./richTextCard";
 import Gallery from "./Gallery";
+import urlFor from "../lib/urlFor";
+
 interface PageProps {
   content: PageContent;
+
 }
 
 function MainPage({ content }: PageProps) {
@@ -22,6 +25,11 @@ function MainPage({ content }: PageProps) {
   const cards: contentList = content?.mainContent[0];
   const serviceContent: contentList = content?.mainContent[1];
   const About: PortableTextCard = content.portableTextContent[0];
+  const imageARR = content.ImageGallery.ImageArray.map((data: Image) => ({
+    original: urlFor(data).url(),
+    thumbnail: urlFor(data).url(),
+  }));
+
   return (
     <>
       <div className="relative">
@@ -37,7 +45,7 @@ function MainPage({ content }: PageProps) {
       {/*cards && <Services content={cards} />*/}
       {About && <AboutUs content={About} />}
       {/* <HcardsIndex /> */}
-      {<Gallery />}
+      {<Gallery images={imageARR}/>}
       <style jsx>{`
         @media (max-width: 768px) {
           .relative {
