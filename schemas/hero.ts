@@ -6,7 +6,7 @@ import {defineField, defineType} from 'sanity'
 export const hero = {
   name: 'hero',
   title: 'Hero',
-  type: 'document',
+  type: 'object',
   fields: [
     {
       name: 'title',

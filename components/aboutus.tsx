@@ -6,7 +6,7 @@ import HorizontalCard from "./HorizontalCard";
 import HorizontalCardInverse from "./HorizontalCardInverse";
 import urlFor from "../lib/urlFor";
 interface contentProps {
-  content: contentList;
+  content: PortableTextCard;
 }
 const Aboutus: React.FC<contentProps> = ({ content }) => {
   const [ref, inView] = useInView({
@@ -16,7 +16,7 @@ const Aboutus: React.FC<contentProps> = ({ content }) => {
   const { y } = useSpring({
     y: inView ? 0 : 1,
   });
-  const cardData: HeroCard = content.contentList[0].cards[0];
+  const cardData: PortableTextCard = content
   return (
     <div id={content.title} style={{ maxWidth: "1800px", margin: "0 auto" }}>
       {" "}
@@ -29,11 +29,7 @@ const Aboutus: React.FC<contentProps> = ({ content }) => {
         }}
       >
         <HorizontalCardInverse
-          header={cardData.title}
-          subheader="Lorem Ipsum"
-          text={cardData.cardText}
-          imageUrl={urlFor(cardData.backgroundImage).url()}
-          btnTXT={cardData.ctaBtnTxt}
+       card={cardData}
         />
       </animated.div>
     </div> /* End of the container div */

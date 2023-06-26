@@ -153,6 +153,7 @@ interface HeroCard extends Base {
   logo:Image;
   cardText: string;
   ctaBtnTxt: string;
+  ModalText: Block[];
 }
 
 
@@ -160,12 +161,17 @@ interface PageContent extends Base {
   title: string;
   slug: Slug;
   hero: Hero;
+  Menulogo:Image;
+  MenuBackground:Image;
   mainContent: Content[];
+  portableTextContent: PortableTextCard[];
 }
 
 interface contentList extends Base {
   title: string;
   slug: Slug;
+  header:string;
+  SectionDescription:string
   contentList: HeroCardArray[];
 }
 
@@ -189,4 +195,15 @@ interface Address {
   City: string;
   State: string;
   Zipcode: number;
+}
+
+
+
+interface PortableTextCard extends Base {
+  title: string;
+  slug: Slug;
+  mainText: Block[];
+  backgroundImage: Image;
+  logo: Image;
+  ctaBtnTxt: string;
 }

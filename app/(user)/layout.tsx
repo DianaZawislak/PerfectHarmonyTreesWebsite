@@ -1,6 +1,6 @@
-import Navbar from "../../components/Navbar";
 //import Footer from "../../components/Footer";
 import Banner from "../../components/Banner";
+import Gallery from '../../components/Gallery';
 import "./globals.css";
 import { client } from "../../lib/sanity.client";
 import { groq } from "next-sanity";
@@ -8,12 +8,17 @@ import React, { useEffect, useState } from "react";
 import Banner2 from "../../components/Banner2";
 import dynamic from "next/dynamic";
 import { PreviewData } from "next";
-import { queryMenu, queryPageContent,queryFooter, querySEO ,queryFooterV2} from "../../lib/queries";
-import Link from 'next/link';
+import {
+  queryMenu,
+  queryPageContent,
+  queryFooter,
+  querySEO,
+  queryFooterV2,
+} from "../../lib/queries";
+import Link from "next/link";
 import createMetadata from "./_metadata";
-
-
-
+import handleError from "../../lib/utils";
+import urlFor from "../../lib/urlFor";
 
 const DynamicNavbar = dynamic(() => import("../../components/Navbar"), {
   loading: () => <p>Loading...</p>,
@@ -22,16 +27,18 @@ const DynamicFooter = dynamic(() => import("../../components/Footer"), {
   loading: () => <p>Loading...</p>,
 });
 
-
 const PrivacyDraw = dynamic(() => import("../../components/PrivacyDraw"), {
   loading: () => <p>Loading...</p>,
 });
 export async function generateMetadata() {
   const slug = "homepage";
-  const postData:SEO = await client.fetch(querySEO,{slug:slug});
+  const postData: SEO = await client.fetch(querySEO, { slug: slug });
   const metadata = createMetadata(postData);
   return metadata;
 }
+
+
+
 
 
 export default async function RootLayout({
@@ -42,23 +49,38 @@ export default async function RootLayout({
   const slug = "homepage";
 
   //const footer = await client.fetch(queryFooter, { slug: slug });
-  const footer2 =await client.fetch(queryFooterV2, { slug: slug });
+ // const footer2 = await client.fetch(queryFooterV2, { slug: slug });
 
-  const contentSlug="main-content";
-  const pageContent:PageContent= await client.fetch(queryPageContent,{slug:contentSlug});
-  const Titles = pageContent.mainContent.map(content => content.title);
+  const contentSlug = "main-content";
+ /* const pageContent: PageContent = await client.fetch(queryPageContent, {
+    slug: contentSlug,
+  }); */
+  const fetchedData = await Promise.allSettled([
+    client.fetch(queryPageContent, { slug: contentSlug }),
+    client.fetch(queryFooterV2, { slug: slug })
+  ]);
+  const[pageContent,footer]=handleError(fetchedData)[0];
+
+  const Titles = [
+    ...pageContent.mainContent.map((content: contentList) => content.title),
+    ...pageContent.portableTextContent.map((content: PortableTextCard) => content.title),
+  ];
+  const logo= urlFor(pageContent.Menulogo).url();
+  const menuBG=urlFor(pageContent.MenuBackground).url();
+  const menuData={menu:Titles,logo:logo,menuBG:menuBG};
+
+  
 
   return (
     <html>
       <body className="bg-white">
       <div className="mx-auto max-w-9xl">
         <PrivacyDraw/>
-        {Titles && <DynamicNavbar menu={Titles} />} 
+        {Titles && <DynamicNavbar menu={menuData} />} 
         {children}
-        {footer2 && <DynamicFooter data={footer2} />}
+        {footer && <DynamicFooter data={footer} />}
         </div>
       </body>
-    
     </html>
   );
 }

@@ -17,12 +17,18 @@ import {
   HamburgerMenuIcon,
 } from "@radix-ui/react-icons";
 interface HeaderProps {
-  menu: Menu;
+  menu: Menu; 
 }
 
-const Header = ({ menu }: any, logo: Image) => {
+const Header = ({ menu }: any) => {
+ // const logo=urlFor(pageContent.Menulogo).url(); 
+//  const background=urlFor(pageContent.MenuBackground).url();
+
+
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
+
+
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -63,7 +69,7 @@ const Header = ({ menu }: any, logo: Image) => {
     <div
       style={{
         backgroundImage:
-          "url(https://cdn.discordapp.com/attachments/1110785495157461083/1114360153211416717/navbarwhite.png)",
+          `url(${menu.menuBG})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
@@ -75,7 +81,7 @@ const Header = ({ menu }: any, logo: Image) => {
         <div className="flex items-center space-x-10">
           <Link href="/">
             <Image
-              src="https://cdn.discordapp.com/attachments/1110785495157461083/1114361925002854501/logonobrgd.png"
+                src={menu.logo}
               width={scrolled ? 70 : 100}
               className="rounded-md transition-all duration-500 ease-in-out"
               height={scrolled ? 70 : 100}
@@ -85,7 +91,7 @@ const Header = ({ menu }: any, logo: Image) => {
           </Link>
           <nav className="font-semibold text-md text-black">
             <ul className="flex flex-row space-x-8 lg:text-lg sm:text-sm">
-              {menu.map((item: any, index: number, array: []) => (
+              {menu.menu.map((item: any, index: number, array: []) => (
                 <li
                   key={item}
                   className={`border-r border-black pr-8 hover:text-gray-500 ${
@@ -123,7 +129,7 @@ const Header = ({ menu }: any, logo: Image) => {
       <div className="flex items-center justify-between w-full md:hidden">
         <Link href="/">
           <Image
-            src="https://cdn.discordapp.com/attachments/1110785495157461083/1114361925002854501/logonobrgd.png"
+            src={menu.logo}
             width={50}
             className="rounded-md"
             height={50}
@@ -170,7 +176,7 @@ const Header = ({ menu }: any, logo: Image) => {
                 className={`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none `}
               >
                 <ul className="flex flex-col justify-end space-y-2 text-sm">
-                  {menu.map((item: any, index: number, array: []) => (
+                  {menu.menu.map((item: any, index: number, array: []) => (
                     <li
                       key={item}
                       className={`pr-8 hover:text-gray-500 ${

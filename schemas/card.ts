@@ -37,6 +37,11 @@ export const heroCard = {
       type: "string",
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
+    {
+      name: 'ModalText',
+      title: 'Modal Description Text Content',
+      type: "blockContent",
+    },
 
     {
       name: "ctaBtnTxt",
@@ -57,7 +62,7 @@ export const heroCard = {
 export const heroCardArray = {
   name: "heroCardArray",
   title: "Hero Card Array",
-  type: "document",
+  type: "object",
   fields: [
     {
         name: "title",

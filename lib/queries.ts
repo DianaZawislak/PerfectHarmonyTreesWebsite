@@ -104,11 +104,10 @@ export const queryHeroArrayBySlug = groq`*[_type == 'heroCardArray' && slug.curr
   cards[] {
     title,
     backgroundImage,
-    cardText,
+    cardText,ModalText,
     ctaBtnTxt
   }
 }`;
-
 
 export const queryPageContent = groq`*[_type == 'page' && slug.current == $slug][0] {
   title,
@@ -121,26 +120,38 @@ export const queryPageContent = groq`*[_type == 'page' && slug.current == $slug]
     "logoUrl": logo.asset->url,
     backgroundImage,
     ctaText_Subtitle
-  },
+  }
+  ,
+  Menulogo
+  ,
+  MenuBackground,
   "mainContent": MainContent[]-> {
     title,
     slug,
     "contentList": content[]-> {
       title,
       slug,
+      header,
+      SectionDescription,
       cards[] {
         title,
         backgroundImage,
+        ModalText,
         logo,
         cardText,
         ctaBtnTxt
       }
     }
   },
+  "portableTextContent": PortableTextArray[]-> {
+    title,
+ 
+    mainText,
+    backgroundImage,
+    logo,
+    ctaBtnTxt
+  }
 }`;
-
-
-
 
 export const queryFooterV2 = groq`*[_type == 'FooterV2' && slug.current == $slug][0] {
   title,

@@ -67,7 +67,7 @@ const PageContent: React.FC<contentProps> = ({ content }) => {
                 cardText={card.cardText}
                 ctaBtnTxt={card.ctaBtnTxt}
                 modalheader={card.title}
-                ModalText={card.cardText}
+                ModalText={card.ModalText}
               />
             </div>
           ))}
