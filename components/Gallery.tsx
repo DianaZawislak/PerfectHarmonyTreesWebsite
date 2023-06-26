@@ -14,7 +14,7 @@ interface GalleryProps {
 }
 
 class Gallery extends React.Component<GalleryProps> {
-    renderItem = (item) => {
+    renderItem = (item:any) => {
       return (
         <div className="image-container">
           <img className="cropped-image" src={item.original} />
@@ -28,7 +28,7 @@ class Gallery extends React.Component<GalleryProps> {
       );
     }
   
-    renderThumbnail = (item) => {
+    renderThumbnail = (item:any) => {
       return (
         <div className="thumbnail-container">
           <img className="cropped-thumbnail" src={item.thumbnail} />
