@@ -39,7 +39,17 @@ export const pageContent = {
         type: "reference",
         to: [{ type: "hero" }],
         description: "Select a hero post to be displayed on this page",
-      },   {
+      }, 
+      
+      {
+        name: "ImageGallery",
+        title: "Image Gallery",
+        type: "reference",
+        to: [{ type: "ImageGallery" }],
+        description: "Select images for gallery to be displayed on this page",
+      },
+      
+      {
         name: "PortableTextArray",
         title: "Portable Text content list",
         type: "array",

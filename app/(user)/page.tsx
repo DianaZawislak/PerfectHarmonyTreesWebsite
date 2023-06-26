@@ -5,7 +5,7 @@ import {
   querySEO,
   queryHero,
   queryHeroArrayBySlug,
-  queryPageContent,
+  queryPageContent, queryImageGalleryBySlug
 } from "../../lib/queries";
 
 import AboutUs from "../../components/aboutus";
@@ -25,13 +25,16 @@ export default async function IndexPage() {
 
   const fetchedData = await Promise.allSettled([
     client.fetch(queryPageContent, { slug: contentSlug }),
+  
+
   ]);
   const [pageContent] = handleError(fetchedData)[0];
 
 
+
   return (
     <div className="relative">
-      <MainPage content={pageContent} />
+      <MainPage content={pageContent}  />
     </div>
   );
 }

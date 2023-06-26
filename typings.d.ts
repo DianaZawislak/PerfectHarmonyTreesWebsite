@@ -165,6 +165,7 @@ interface PageContent extends Base {
   MenuBackground:Image;
   mainContent: Content[];
   portableTextContent: PortableTextCard[];
+  ImageGallery:GalleryImages;
 }
 
 interface contentList extends Base {
@@ -206,4 +207,14 @@ interface PortableTextCard extends Base {
   backgroundImage: Image;
   logo: Image;
   ctaBtnTxt: string;
+}
+
+
+interface GalleryImages extends Base{
+
+
+title:string;
+slug:string;
+ImageArray:Image[];
+
 }

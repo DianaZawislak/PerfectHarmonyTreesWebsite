@@ -142,7 +142,14 @@ export const queryPageContent = groq`*[_type == 'page' && slug.current == $slug]
         ctaBtnTxt
       }
     }
-  },
+  },ImageGallery->{  title,
+    slug,
+    ImageArray[] {
+      asset->
+      {
+        ...
+      }
+    }},
   "portableTextContent": PortableTextArray[]-> {
     title,
  
@@ -167,4 +174,14 @@ export const queryFooterV2 = groq`*[_type == 'FooterV2' && slug.current == $slug
   "backgroundImageUrl": backgroundImage.asset->url,
   Email,
   "logoUrl": logo.asset->url
+}`;
+export const queryImageGalleryBySlug = groq`*[_type == 'ImageGallery' && slug.current == $slug][0] {
+  title,
+  slug,
+  ImageArray[] {
+    asset->
+    {
+      ...
+    }
+  }
 }`;
