@@ -11,4 +11,5 @@ import { pageContent,Content } from "./PageContent";
 import {portableTextCard} from "./PortableTextCard"
 import { FooterV2 } from "./Footerv2";
 import { pageContentV2, selectionSchema } from "./pagecontentv2";
-export const schemaTypes = [post, selectionSchema,pageContentV2,FooterV2,portableTextCard,Content,heroCardArray, heroCard,author, category, blockContent, seo, menu, menuItem, footer,hero,pageContent];
+import { ImageGallery } from "./imageGallery";
+export const schemaTypes = [post,ImageGallery, selectionSchema,pageContentV2,FooterV2,portableTextCard,Content,heroCardArray, heroCard,author, category, blockContent, seo, menu, menuItem, footer,hero,pageContent];
