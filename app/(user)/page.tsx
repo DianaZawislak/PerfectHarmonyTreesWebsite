@@ -8,8 +8,15 @@ import {
   queryPageContent,
 } from "../../lib/queries";
 
-import handleError from "../../lib/utils";
+import AboutUs from "../../components/aboutus";
+import Services from "../../components/Services";
+import { QueryParams } from "sanity";
+import { useEffect, useState } from "react";
+import PageContent from "../../components/content";
+import Header from "../../components/Navbar";
+import Gallery from '../../components/Gallery';
 import MainPage from "../../components/pageContent";
+import handleError from "../../lib/utils";
 
 
 
@@ -21,7 +28,7 @@ export default async function IndexPage() {
   ]);
   const [pageContent] = handleError(fetchedData)[0];
 
-console.log(Object.keys(pageContent.mainContent[1].contentList[1].cards[2]));
+
   return (
     <div className="relative">
       <MainPage content={pageContent} />

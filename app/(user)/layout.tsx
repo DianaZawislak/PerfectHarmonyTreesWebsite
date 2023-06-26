@@ -1,6 +1,6 @@
-
 //import Footer from "../../components/Footer";
 import Banner from "../../components/Banner";
+import Gallery from '../../components/Gallery';
 import "./globals.css";
 import { client } from "../../lib/sanity.client";
 import { groq } from "next-sanity";
@@ -20,7 +20,7 @@ import createMetadata from "./_metadata";
 import handleError from "../../lib/utils";
 import urlFor from "../../lib/urlFor";
 
-const DynamicHeader = dynamic(() => import("../../components/Navbar"), {
+const DynamicNavbar = dynamic(() => import("../../components/Navbar"), {
   loading: () => <p>Loading...</p>,
 });
 const DynamicFooter = dynamic(() => import("../../components/Footer"), {
@@ -67,18 +67,18 @@ export default async function RootLayout({
   ];
   const logo= urlFor(pageContent.Menulogo).url();
   const menuBG=urlFor(pageContent.MenuBackground).url();
-  const DataTest={menu:Titles,logo:logo,menuBG:menuBG};
+  const menuData={menu:Titles,logo:logo,menuBG:menuBG};
 
   
 
   return (
     <html>
       <body className="bg-white">
-        <div className="mx-auto max-w-9xl">
-          <PrivacyDraw />
-          {Titles &&  <DynamicHeader menu={DataTest}  />}
-          {children}
-          {footer && <DynamicFooter data={footer} />}
+      <div className="mx-auto max-w-9xl">
+        <PrivacyDraw/>
+        {Titles && <DynamicNavbar menu={menuData} />} 
+        {children}
+        {footer && <DynamicFooter data={footer} />}
         </div>
       </body>
     </html>

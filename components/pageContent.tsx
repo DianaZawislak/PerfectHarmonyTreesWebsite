@@ -12,6 +12,7 @@ import PageContent from "./content";
 import Header from "./Navbar";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "./richTextCard";
+import Gallery from "./Gallery";
 interface PageProps {
   content: PageContent;
 }
@@ -36,7 +37,7 @@ function MainPage({ content }: PageProps) {
       {/*cards && <Services content={cards} />*/}
       {About && <AboutUs content={About} />}
       {/* <HcardsIndex /> */}
-
+      {<Gallery />}
       <style jsx>{`
         @media (max-width: 768px) {
           .relative {
