@@ -168,7 +168,7 @@ const Header = ({ menu }: any) => {
             <DropdownMenuPrimitive.Content
               align="end"
               sideOffset={5}
-              className={`w-30 px-1.5 py-1 mt-7 shadow-md bg-white dark:bg-gray-800 z-50 ${
+              className={`w-30 px-1.5 py-1 mt-7 shadow-md bg-white z-50 ${
                 isMenuOpen ? "open" : ""
               }`}
             >
